@@ -1,0 +1,2 @@
+class SleepReport < ApplicationRecord
+end

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Sleep Reports</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Asleep at</th>
+      <th>Wakeup at</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sleep_reports.each do |sleep_report| %>
+      <tr>
+        <td><%= sleep_report.asleep_at %></td>
+        <td><%= sleep_report.wakeup_at %></td>
+        <td><%= link_to 'Show', sleep_report %></td>
+        <td><%= link_to 'Edit', edit_sleep_report_path(sleep_report) %></td>
+        <td><%= link_to 'Destroy', sleep_report, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Sleep Report', new_sleep_report_path %>
