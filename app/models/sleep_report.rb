@@ -1,8 +1,13 @@
 class SleepReport < ApplicationRecord
-  validate :valid_duration?
+  validates :asleep_at, presence: true
+  validate :valid_duration?, if: :complete?
 
   def length
     wakeup_at - asleep_at
+  end
+
+  def complete?
+    wakeup_at.present?
   end
 
   private
