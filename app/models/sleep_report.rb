@@ -2,7 +2,7 @@ class SleepReport < ApplicationRecord
   validates :asleep_at, presence: true
   validate :valid_duration?, if: :complete?
 
-  def length
+  def duration
     wakeup_at - asleep_at
   end
 
@@ -13,9 +13,9 @@ class SleepReport < ApplicationRecord
   private
 
   def valid_duration?
-    if length.negative?
+    if duration.negative?
       errors.add(:base, 'Sleep duration cannot be negative')
-    elsif length > 1.day
+    elsif duration > 1.day
       errors.add(:base, 'Sleep duration cannot greater than a day')
     end
   end
