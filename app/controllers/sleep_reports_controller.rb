@@ -62,13 +62,14 @@ class SleepReportsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_sleep_report
-      @sleep_report = SleepReport.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def sleep_report_params
-      params.require(:sleep_report).permit(:asleep_at, :wakeup_at)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_sleep_report
+    @sleep_report = SleepReport.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def sleep_report_params
+    params.require(:sleep_report).permit(:asleep_at, :wakeup_at)
+  end
 end
