@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Weight Reports</h1>
+
+<%= link_to 'New Weight Report', new_weight_report_path %>
+
+<br><br>
+
+<table>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Pounds</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @weight_reports.reverse.each do |weight_report| %>
+      <tr>
+        <td><%= weight_report.timestamp.strftime('%Y-%m-%d') %></td>
+        <td><%= weight_report.pounds %></td>
+        <td><%= link_to 'Show', weight_report %></td>
+        <td><%= link_to 'Edit', edit_weight_report_path(weight_report) %></td>
+        <td><%= link_to 'Destroy', weight_report, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

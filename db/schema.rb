@@ -10,11 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_29_062727) do
+ActiveRecord::Schema.define(version: 2019_03_31_183541) do
 
   create_table "sleep_reports", force: :cascade do |t|
     t.datetime "asleep_at"
     t.datetime "wakeup_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "weight_reports", force: :cascade do |t|
+    t.datetime "timestamp"
+    t.float "pounds"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

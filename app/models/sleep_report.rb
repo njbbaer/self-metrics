@@ -1,5 +1,5 @@
 class SleepReport < ApplicationRecord
-  validates :asleep_at, presence: true
+  validates_presence_of :asleep_at
   validate :valid_duration, if: :complete?
   validate :valid_dates
 
