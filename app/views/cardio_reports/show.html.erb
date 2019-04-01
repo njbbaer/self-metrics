@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Timestamp:</strong>
+  <%= @cardio_report.timestamp %>
+</p>
+
+<p>
+  <strong>Seconds:</strong>
+  <%= @cardio_report.seconds %>
+</p>
+
+<p>
+  <strong>Miles:</strong>
+  <%= @cardio_report.miles %>
+</p>
+
+<p>
+  <strong>Cardio type:</strong>
+  <%= @cardio_report.cardio_type %>
+</p>
+
+<p>
+  <strong>Machine:</strong>
+  <%= @cardio_report.machine %>
+</p>
+
+<%= link_to 'Edit', edit_cardio_report_path(@cardio_report) %> |
+<%= link_to 'Back', cardio_reports_path %>

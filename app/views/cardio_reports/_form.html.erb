@@ -1,0 +1,42 @@
+<%= form_with(model: cardio_report, local: true) do |form| %>
+  <% if cardio_report.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(cardio_report.errors.count, "error") %> prohibited this cardio_report from being saved:</h2>
+
+      <ul>
+      <% cardio_report.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :timestamp %>
+    <%= form.datetime_select :timestamp %>
+  </div>
+
+  <div class="field">
+    <%= form.label :seconds %>
+    <%= form.number_field :seconds %>
+  </div>
+
+  <div class="field">
+    <%= form.label :miles %>
+    <%= form.number_field :miles, step: :any %>
+  </div>
+
+  <div class="field">
+    <%= form.label :type %>
+    <%= form.select(:cardio_type, CardioReport.cardio_types.keys) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :machine? %>
+    <%= form.check_box :machine %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

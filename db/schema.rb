@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_31_183541) do
+ActiveRecord::Schema.define(version: 2019_04_01_063814) do
+
+  create_table "cardio_reports", force: :cascade do |t|
+    t.datetime "timestamp"
+    t.integer "seconds"
+    t.float "miles"
+    t.integer "cardio_type"
+    t.boolean "machine"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "sleep_reports", force: :cascade do |t|
     t.datetime "asleep_at"
