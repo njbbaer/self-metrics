@@ -19,9 +19,9 @@
   </thead>
 
   <tbody>
-    <% @cardio_reports.order(timestamp: :desc).each do |cardio_report| %>
+    <% @cardio_reports.order(finished_at: :desc).each do |cardio_report| %>
       <tr>
-        <td><%= cardio_report.timestamp.strftime('%Y-%m-%d') %></td>
+        <td><%= cardio_report.finished_at.strftime('%Y-%m-%d') %></td>
         <td><%= cardio_report.seconds %></td>
         <td><%= cardio_report.miles %></td>
         <td><%= cardio_report.cardio_type %></td>

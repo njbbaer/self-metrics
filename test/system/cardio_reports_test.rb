@@ -18,7 +18,7 @@ class CardioReportsTest < ApplicationSystemTestCase
     check "Machine" if @cardio_report.machine
     fill_in "Miles", with: @cardio_report.miles
     fill_in "Seconds", with: @cardio_report.seconds
-    fill_in "Timestamp", with: @cardio_report.timestamp
+    fill_in "Finished at", with: @cardio_report.finished_at
     click_on "Create Cardio report"
 
     assert_text "Cardio report was successfully created"
@@ -33,7 +33,7 @@ class CardioReportsTest < ApplicationSystemTestCase
     check "Machine" if @cardio_report.machine
     fill_in "Miles", with: @cardio_report.miles
     fill_in "Seconds", with: @cardio_report.seconds
-    fill_in "Timestamp", with: @cardio_report.timestamp
+    fill_in "Finished at", with: @cardio_report.finished_at
     click_on "Update Cardio report"
 
     assert_text "Cardio report was successfully updated"

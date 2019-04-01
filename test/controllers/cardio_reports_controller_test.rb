@@ -17,7 +17,7 @@ class CardioReportsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create cardio_report" do
     assert_difference('CardioReport.count') do
-      post cardio_reports_url, params: { cardio_report: { cardio_type: @cardio_report.cardio_type, machine: @cardio_report.machine, miles: @cardio_report.miles, seconds: @cardio_report.seconds, timestamp: @cardio_report.timestamp } }
+      post cardio_reports_url, params: { cardio_report: { cardio_type: @cardio_report.cardio_type, machine: @cardio_report.machine, miles: @cardio_report.miles, seconds: @cardio_report.seconds, finished_at: @cardio_report.finished_at } }
     end
 
     assert_redirected_to cardio_report_url(CardioReport.last)
@@ -34,7 +34,7 @@ class CardioReportsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update cardio_report" do
-    patch cardio_report_url(@cardio_report), params: { cardio_report: { cardio_type: @cardio_report.cardio_type, machine: @cardio_report.machine, miles: @cardio_report.miles, seconds: @cardio_report.seconds, timestamp: @cardio_report.timestamp } }
+    patch cardio_report_url(@cardio_report), params: { cardio_report: { cardio_type: @cardio_report.cardio_type, machine: @cardio_report.machine, miles: @cardio_report.miles, seconds: @cardio_report.seconds, finished_at: @cardio_report.finished_at } }
     assert_redirected_to cardio_report_url(@cardio_report)
   end
 

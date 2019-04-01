@@ -1,14 +1,14 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  timestamp: 2019-03-31 23:38:14
+  finished_at: 2019-03-31 23:38:14
   seconds: 1
   miles: 1.5
   cardio_type: 1
   machine: false
 
 two:
-  timestamp: 2019-03-31 23:38:14
+  finished_at: 2019-03-31 23:38:14
   seconds: 1
   miles: 1.5
   cardio_type: 1
