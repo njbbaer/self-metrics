@@ -19,7 +19,7 @@
   </thead>
 
   <tbody>
-    <% @cardio_reports.reverse.each do |cardio_report| %>
+    <% @cardio_reports.order(timestamp: :desc).each do |cardio_report| %>
       <tr>
         <td><%= cardio_report.timestamp.strftime('%Y-%m-%d') %></td>
         <td><%= cardio_report.seconds %></td>
