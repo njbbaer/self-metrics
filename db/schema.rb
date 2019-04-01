@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 2019_04_01_063814) do
 
   create_table "cardio_reports", force: :cascade do |t|
     t.datetime "finished_at"
-    t.integer "seconds"
+    t.integer "duration"
     t.float "miles"
     t.integer "cardio_type"
     t.boolean "machine"

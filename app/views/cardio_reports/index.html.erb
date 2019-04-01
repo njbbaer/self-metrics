@@ -10,7 +10,7 @@
   <thead>
     <tr>
       <th>Date</th>
-      <th>Seconds</th>
+      <th>Duration</th>
       <th>Miles</th>
       <th>Type</th>
       <th>Machine?</th>
@@ -22,7 +22,7 @@
     <% @cardio_reports.order(finished_at: :desc).each do |cardio_report| %>
       <tr>
         <td><%= cardio_report.finished_at.strftime('%Y-%m-%d') %></td>
-        <td><%= cardio_report.seconds %></td>
+        <td><%= Time.at(cardio_report.duration).utc.strftime('%H:%M:%S') %></td>
         <td><%= cardio_report.miles %></td>
         <td><%= cardio_report.cardio_type %></td>
         <td><%= cardio_report.machine %></td>
