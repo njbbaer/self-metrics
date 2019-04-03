@@ -14,8 +14,8 @@ ActiveRecord::Schema.define(version: 2019_04_01_063814) do
 
   create_table "cardio_reports", force: :cascade do |t|
     t.datetime "finished_at"
-    t.integer "duration"
-    t.float "miles"
+    t.integer "duaration_seconds"
+    t.float "distance_miles"
     t.integer "cardio_type"
     t.boolean "machine"
     t.datetime "created_at", null: false
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 2019_04_01_063814) do
 
   create_table "weight_reports", force: :cascade do |t|
     t.datetime "timestamp"
-    t.float "pounds"
+    t.float "weight_pounds"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

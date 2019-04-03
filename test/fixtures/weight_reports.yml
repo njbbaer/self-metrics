@@ -2,8 +2,8 @@
 
 one:
   timestamp: 2019-03-31 11:35:41
-  pounds: 175.5
+  weight_pounds: 175.5
 
 two:
   timestamp: 2019-03-31 11:35:41
-  pounds: 175.5
+  weight_pounds: 175.5

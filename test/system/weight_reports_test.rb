@@ -14,7 +14,7 @@ class WeightReportsTest < ApplicationSystemTestCase
     visit weight_reports_url
     click_on "New Weight Report"
 
-    fill_in "Pounds", with: @weight_report.pounds
+    fill_in "Pounds", with: @weight_report.weight_pounds
     fill_in "Timestamp", with: @weight_report.timestamp
     click_on "Create Weight report"
 
@@ -26,7 +26,7 @@ class WeightReportsTest < ApplicationSystemTestCase
     visit weight_reports_url
     click_on "Edit", match: :first
 
-    fill_in "Pounds", with: @weight_report.pounds
+    fill_in "Pounds", with: @weight_report.weight_pounds
     fill_in "Timestamp", with: @weight_report.timestamp
     click_on "Update Weight report"
 

@@ -16,8 +16,8 @@ class CardioReportsTest < ApplicationSystemTestCase
 
     fill_in "Cardio type", with: @cardio_report.cardio_type
     check "Machine" if @cardio_report.machine
-    fill_in "Miles", with: @cardio_report.miles
-    fill_in "Duration", with: @cardio_report.duration
+    fill_in "Miles", with: @cardio_report.distance_miles
+    fill_in "Duration", with: @cardio_report.duaration_seconds
     fill_in "Finished at", with: @cardio_report.finished_at
     click_on "Create Cardio report"
 
@@ -31,8 +31,8 @@ class CardioReportsTest < ApplicationSystemTestCase
 
     fill_in "Cardio type", with: @cardio_report.cardio_type
     check "Machine" if @cardio_report.machine
-    fill_in "Miles", with: @cardio_report.miles
-    fill_in "Duration", with: @cardio_report.duration
+    fill_in "Miles", with: @cardio_report.distance_miles
+    fill_in "Duration", with: @cardio_report.duaration_seconds
     fill_in "Finished at", with: @cardio_report.finished_at
     click_on "Update Cardio report"
 

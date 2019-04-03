@@ -69,6 +69,6 @@ class CardioReportsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cardio_report_params
-      params.require(:cardio_report).permit(:finished_at, :duration, :miles, :cardio_type, :machine)
+      params.require(:cardio_report).permit(:finished_at, :duaration_seconds, :distance_miles, :cardio_type, :machine)
     end
 end

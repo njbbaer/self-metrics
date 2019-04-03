@@ -23,7 +23,7 @@
         <td><%= sleep_report.asleep_at.strftime('%Y-%m-%d') %></td>
         <td><%= sleep_report.asleep_at.strftime('%I:%M %p') %></td>
         <td><%= sleep_report.wakeup_at&.strftime('%I:%M %p') %></td>
-        <td><%= Time.at(sleep_report.duration).utc.strftime('%H:%M') if sleep_report.complete? %></td>
+        <td><%= Time.at(sleep_report.duaration_seconds).utc.strftime('%H:%M') if sleep_report.complete? %></td>
         <td><%= link_to 'Show', sleep_report %></td>
         <td><%= link_to 'Edit', edit_sleep_report_path(sleep_report) %></td>
         <td><%= link_to 'Destroy', sleep_report, method: :delete, data: { confirm: 'Are you sure?' } %></td>
