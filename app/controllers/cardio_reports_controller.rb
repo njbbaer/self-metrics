@@ -24,7 +24,7 @@ class CardioReportsController < ApplicationController
   # POST /cardio_reports
   # POST /cardio_reports.json
   def create
-    @cardio_report = CardioReport.new(cardio_report_params)
+    @cardio_report = CardioReport.new(cardio_report_params_multipart_duration)
 
     respond_to do |format|
       if @cardio_report.save
@@ -41,7 +41,7 @@ class CardioReportsController < ApplicationController
   # PATCH/PUT /cardio_reports/1.json
   def update
     respond_to do |format|
-      if @cardio_report.update(cardio_report_params)
+      if @cardio_report.update(cardio_report_params_multipart_duration)
         format.html { redirect_to @cardio_report, notice: 'Cardio report was successfully updated.' }
         format.json { render :show, status: :ok, location: @cardio_report }
       else
@@ -62,13 +62,21 @@ class CardioReportsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_cardio_report
-      @cardio_report = CardioReport.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def cardio_report_params
-      params.require(:cardio_report).permit(:finished_at, :duaration_seconds, :distance_miles, :cardio_type, :machine)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_cardio_report
+    @cardio_report = CardioReport.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def cardio_report_params
+    params.require(:cardio_report).permit(:finished_at, :duration_seconds, :distance_miles, :cardio_type, :machine)
+  end
+
+  def cardio_report_params_multipart_duration
+    duration_seconds = params[:cardio_report][:part_hours].to_i * 3600 +
+                       params[:cardio_report][:part_minutes].to_i * 60 +
+                       params[:cardio_report][:part_seconds].to_i
+    cardio_report_params.merge(duration_seconds: duration_seconds)
+  end
 end

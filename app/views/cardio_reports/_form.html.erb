@@ -17,10 +17,12 @@
   </div>
 
   <div class="field">
-    <%= form.label :duaration_seconds %>
-    <%= form.number_field :duaration_seconds %>
+    <%= form.label :duration %>
+    <%= form.select :part_hours, options_for_select(0..10, cardio_report.duration_time.hour) %>h
+    <%= form.select :part_minutes, options_for_select(0..59, cardio_report.duration_time.min) %>m
+    <%= form.select :part_seconds, options_for_select(0..59, cardio_report.duration_time.sec) %>s
   </div>
-
+  
   <div class="field">
     <%= form.label :distance_miles %>
     <%= form.number_field :distance_miles, step: :any %>

@@ -2,14 +2,14 @@
 
 one:
   finished_at: 2019-03-31 23:38:14
-  duaration_seconds: 1
+  duration_seconds: 1
   distance_miles: 1.5
   cardio_type: 1
   machine: false
 
 two:
   finished_at: 2019-03-31 23:38:14
-  duaration_seconds: 1
+  duration_seconds: 1
   distance_miles: 1.5
   cardio_type: 1
   machine: false
