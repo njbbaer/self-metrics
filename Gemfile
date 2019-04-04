@@ -62,3 +62,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "rubocop", "~> 0.66.0", :group => :development
+
+gem "bootstrap", "~> 4.3"
+
+gem "bootstrap_form", "~> 4.2"

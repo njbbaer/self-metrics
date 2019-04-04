@@ -1,4 +1,4 @@
-<%= form_with(model: cardio_report, local: true) do |form| %>
+<%= bootstrap_form_with(model: cardio_report, local: true) do |form| %>
   <% if cardio_report.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(cardio_report.errors.count, "error") %> prohibited this cardio_report from being saved:</h2>
@@ -12,30 +12,28 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :finished_at %>
     <%= form.datetime_select :finished_at, ampm: true %>
   </div>
 
   <div class="field">
     <%= form.label :duration %>
-    <%= form.select :part_hours, options_for_select(0..10, cardio_report.duration_time.hour) %>h
-    <%= form.select :part_minutes, options_for_select(0..59, cardio_report.duration_time.min) %>m
-    <%= form.select :part_seconds, options_for_select(0..59, cardio_report.duration_time.sec) %>s
+    <div class="row">
+      <%= form.select :part_hours, options_for_select(0..10, cardio_report.duration_time.hour), hide_label: true, append: "h" %>
+      <%= form.select :part_minutes, options_for_select(0..59, cardio_report.duration_time.min), hide_label: true, append: "m" %>
+      <%= form.select :part_seconds, options_for_select(0..59, cardio_report.duration_time.sec), hide_label: true, append: "s" %>
+    </div>
   </div>
   
   <div class="field">
-    <%= form.label :distance_miles %>
-    <%= form.number_field :distance_miles, step: :any %>
+    <%= form.number_field :distance_miles, label: "Distance", step: :any %>
   </div>
 
   <div class="field">
-    <%= form.label :type %>
-    <%= form.select(:cardio_type, CardioReport.cardio_types.keys) %>
+    <%= form.select :cardio_type, CardioReport.cardio_types.keys, label: "Type" %>
   </div>
 
   <div class="field">
-    <%= form.label :machine? %>
-    <%= form.check_box :machine %>
+    <%= form.check_box :machine, label: "Machine?" %>
   </div>
 
   <div class="actions">
