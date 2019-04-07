@@ -5,6 +5,8 @@ class SleepReport < ApplicationRecord
   validate :valid_duration_seconds, if: :complete?
   validate :valid_dates
 
+  scope :ordered_by_recency, -> { order(awake_at: :asc) }
+
   def duration_seconds
     wakeup_at - asleep_at
   end

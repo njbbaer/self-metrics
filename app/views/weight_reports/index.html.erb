@@ -14,7 +14,7 @@
   </thead>
 
   <tbody>
-    <% @weight_reports.order(timestamp: :desc).each do |weight_report| %>
+    <% @weight_reports.ordered_by_recency.reverse.each do |weight_report| %>
       <tr>
         <td><%= weight_report.timestamp.strftime('%Y-%m-%d') %></td>
         <td><%= weight_report.weight_pounds %></td>

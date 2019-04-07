@@ -17,7 +17,7 @@
   </thead>
 
   <tbody>
-    <% @cardio_reports.order(finished_at: :desc).each do |cardio_report| %>
+    <% @cardio_reports.ordered_by_recency.reverse.each do |cardio_report| %>
       <tr>
         <td><%= cardio_report.finished_at.strftime('%Y-%m-%d') %></td>
         <td><%= cardio_report.duration_time.strftime('%H:%M:%S') %></td>

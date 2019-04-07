@@ -5,6 +5,8 @@ class CardioReport < ApplicationRecord
 
   enum cardio_type: { running: 0, cycling: 1, hiking: 2 }
 
+  scope :ordered_by_recency, -> { order(finished_at: :asc) }
+
   def duration_time
     Time.at(duration_seconds || 0).utc
   end

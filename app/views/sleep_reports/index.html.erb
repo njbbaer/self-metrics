@@ -16,7 +16,7 @@
   </thead>
 
   <tbody>
-    <% @sleep_reports.order(asleep_at: :desc).each do |sleep_report| %>
+    <% @sleep_reports.ordered_by_recency.reverse.each do |sleep_report| %>
       <tr>
         <td><%= sleep_report.asleep_at.strftime('%Y-%m-%d') %></td>
         <td><%= sleep_report.asleep_at.strftime('%I:%M %p') %></td>
