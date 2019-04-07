@@ -24,9 +24,9 @@
         <td><%= cardio_report.distance_miles %></td>
         <td><%= cardio_report.cardio_type %></td>
         <td><%= cardio_report.machine %></td>
-        <td><%= link_to 'Show', cardio_report %></td>
-        <td><%= link_to 'Edit', edit_cardio_report_path(cardio_report) %></td>
-        <td><%= link_to 'Destroy', cardio_report, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Edit', edit_cardio_report_path(cardio_report), class: "btn btn-outline-primary btn-sm" %></td>
+        <td><%= link_to 'Show', cardio_report, class: "btn btn-outline-secondary btn-sm" %></td>
+        <td><%= link_to 'Destroy', cardio_report, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-danger btn-sm" %></td>
       </tr>
     <% end %>
   </tbody>
