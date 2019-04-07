@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class WeightReportsController < ApplicationController
-  before_action :set_weight_report, only: [:show, :edit, :update, :destroy]
+  before_action :set_weight_report, only: %i[show edit update destroy]
 
   # GET /weight_reports
   # GET /weight_reports.json
@@ -9,8 +11,7 @@ class WeightReportsController < ApplicationController
 
   # GET /weight_reports/1
   # GET /weight_reports/1.json
-  def show
-  end
+  def show; end
 
   # GET /weight_reports/new
   def new
@@ -18,8 +19,7 @@ class WeightReportsController < ApplicationController
   end
 
   # GET /weight_reports/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /weight_reports
   # POST /weight_reports.json

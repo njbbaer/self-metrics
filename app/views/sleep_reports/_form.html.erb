@@ -1,27 +1,5 @@
-<%= form_with(model: sleep_report, local: true) do |form| %>
-  <% if sleep_report.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(sleep_report.errors.count, "error") %> prohibited this sleep_report from being saved:</h2>
-
-      <ul>
-      <% sleep_report.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :asleep_at %>
-    <%= form.datetime_select :asleep_at, ampm: true %>
-  </div>
-
-  <div class="field">
-    <%= form.label :wakeup_at %>
-    <%= form.datetime_select :wakeup_at, ampm: true, include_blank: sleep_report.asleep_at.nil? %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+<%= bootstrap_form_with(model: sleep_report, local: true) do |form| %>
+  <%= form.datetime_select :asleep_at, ampm: true %>
+  <%= form.datetime_select :wakeup_at, ampm: true, include_blank: sleep_report.asleep_at.nil? %>
+  <%= form.submit class: "btn btn-primary" %>
 <% end %>

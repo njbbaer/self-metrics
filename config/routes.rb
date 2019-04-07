@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   scope '/reports' do
     resources :weight, as: 'weight_reports', controller: 'weight_reports'

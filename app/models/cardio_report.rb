@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CardioReport < ApplicationRecord
   validates_presence_of :finished_at, :duration_seconds, :distance_miles, :cardio_type
 

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class WeightReportsControllerTest < ActionDispatch::IntegrationTest
@@ -5,17 +7,17 @@ class WeightReportsControllerTest < ActionDispatch::IntegrationTest
     @weight_report = weight_reports(:one)
   end
 
-  test "should get index" do
+  test 'should get index' do
     get weight_reports_url
     assert_response :success
   end
 
-  test "should get new" do
+  test 'should get new' do
     get new_weight_report_url
     assert_response :success
   end
 
-  test "should create weight_report" do
+  test 'should create weight_report' do
     assert_difference('WeightReport.count') do
       post weight_reports_url, params: { weight_report: { weight_pounds: @weight_report.weight_pounds, timestamp: @weight_report.timestamp } }
     end
@@ -23,22 +25,22 @@ class WeightReportsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to weight_report_url(WeightReport.last)
   end
 
-  test "should show weight_report" do
+  test 'should show weight_report' do
     get weight_report_url(@weight_report)
     assert_response :success
   end
 
-  test "should get edit" do
+  test 'should get edit' do
     get edit_weight_report_url(@weight_report)
     assert_response :success
   end
 
-  test "should update weight_report" do
+  test 'should update weight_report' do
     patch weight_report_url(@weight_report), params: { weight_report: { weight_pounds: @weight_report.weight_pounds, timestamp: @weight_report.timestamp } }
     assert_redirected_to weight_report_url(@weight_report)
   end
 
-  test "should destroy weight_report" do
+  test 'should destroy weight_report' do
     assert_difference('WeightReport.count', -1) do
       delete weight_report_url(@weight_report)
     end

@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class CardioReportsController < ApplicationController
-  before_action :set_cardio_report, only: [:show, :edit, :update, :destroy]
+  before_action :set_cardio_report, only: %i[show edit update destroy]
 
   # GET /cardio_reports
   # GET /cardio_reports.json
@@ -9,8 +11,7 @@ class CardioReportsController < ApplicationController
 
   # GET /cardio_reports/1
   # GET /cardio_reports/1.json
-  def show
-  end
+  def show; end
 
   # GET /cardio_reports/new
   def new
@@ -18,8 +19,7 @@ class CardioReportsController < ApplicationController
   end
 
   # GET /cardio_reports/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /cardio_reports
   # POST /cardio_reports.json

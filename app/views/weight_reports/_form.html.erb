@@ -1,27 +1,5 @@
-<%= form_with(model: weight_report, local: true) do |form| %>
-  <% if weight_report.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(weight_report.errors.count, "error") %> prohibited this weight_report from being saved:</h2>
-
-      <ul>
-      <% weight_report.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :timestamp %>
-    <%= form.datetime_select :timestamp, ampm: true %>
-  </div>
-
-  <div class="field">
-    <%= form.label :weight_pounds %>
-    <%= form.number_field :weight_pounds, step: :any %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+<%= bootstrap_form_with(model: weight_report, local: true) do |form| %>
+  <%= form.datetime_select :timestamp, ampm: true %>
+  <%= form.number_field :weight_pounds, step: :any %>
+  <%= form.submit class: "btn btn-primary" %>
 <% end %>

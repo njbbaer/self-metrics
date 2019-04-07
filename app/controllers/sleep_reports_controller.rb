@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class SleepReportsController < ApplicationController
-  before_action :set_sleep_report, only: [:show, :edit, :update, :destroy]
+  before_action :set_sleep_report, only: %i[show edit update destroy]
 
   # GET /sleep_reports
   # GET /sleep_reports.json
@@ -9,8 +11,7 @@ class SleepReportsController < ApplicationController
 
   # GET /sleep_reports/1
   # GET /sleep_reports/1.json
-  def show
-  end
+  def show; end
 
   # GET /sleep_reports/new
   def new
@@ -18,8 +19,7 @@ class SleepReportsController < ApplicationController
   end
 
   # GET /sleep_reports/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /sleep_reports
   # POST /sleep_reports.json
