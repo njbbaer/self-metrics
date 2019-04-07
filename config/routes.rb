@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  root 'summary#index'
+  root to: redirect('/summary')
+  resources :summary, only: :index
   scope '/reports' do
     resources :weight, as: 'weight_reports', controller: 'weight_reports'
     resources :sleep, as: 'sleep_reports', controller: 'sleep_reports'
