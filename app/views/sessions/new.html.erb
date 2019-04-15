@@ -1,11 +1,6 @@
 <p id="alert"><%= alert %></p>
-<h1>Authenticate</h1>
-<%= form_tag sessions_path do |form| %>
-  <div class="field">
-    <%= label_tag :password %>
-    <%= password_field_tag :password %>
-  </div>
-  <div class="actions">
-    <%= submit_tag "Authenticate" %>
-  </div>
+<h1>Authentication</h1>
+<%= bootstrap_form_tag url: '/sessions' do |form| %>
+  <%= form.text_field :password, step: :any, hide_label: true %>
+  <%= form.submit "Authenticate", class: "btn btn-primary" %>
 <% end %>
