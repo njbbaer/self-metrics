@@ -7,15 +7,15 @@ class SessionsController < ApplicationController
   def create
     if params[:password] == "password"
       session[:authenticated] = true
-      redirect_to root_url, notice: "Logged in!"
+      redirect_to root_url
     else
-      flash.now[:alert] = "Password is invalid"
-      render "new"
+      flash[:error] = "Password is invalid"
+      redirect_to "/login"
     end
   end
 
   def destroy
     session[:authenticated] = false
-    redirect_to root_url, notice: "Logged out!"
+    redirect_to root_url
   end
 end
