@@ -1,0 +1,11 @@
+<p id="alert"><%= alert %></p>
+<h1>Authenticate</h1>
+<%= form_tag sessions_path do |form| %>
+  <div class="field">
+    <%= label_tag :password %>
+    <%= password_field_tag :password %>
+  </div>
+  <div class="actions">
+    <%= submit_tag "Authenticate" %>
+  </div>
+<% end %>
