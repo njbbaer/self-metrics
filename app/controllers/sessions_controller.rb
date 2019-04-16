@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    if params[:password] == "password"
+    if params[:password] == ENV['PASSWORD']
       session[:authenticated] = true
       redirect_to root_url
     else

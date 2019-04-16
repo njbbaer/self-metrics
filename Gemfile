@@ -70,3 +70,5 @@ gem 'bootstrap', '~> 4.3'
 gem "bootstrap_form", "~> 4.2"
 
 gem "jquery-rails", "~> 4.3"
+
+gem "dotenv-rails", "~> 2.7"

@@ -11,6 +11,6 @@ class ActiveSupport::TestCase
   # Add more helper methods to be used by all tests here...
 
   def authenticate
-    post sessions_path, params: { password: 'password' }
+    post sessions_path, params: { password: ENV['password'] }
   end
 end
