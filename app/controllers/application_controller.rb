@@ -2,12 +2,11 @@
 
 class ApplicationController < ActionController::Base
   before_action :authenticate
+  after_action :flash_errors
 
   private
 
   def authenticate
-    unless session[:authenticated]
-      redirect_to '/login'
-    end
+    redirect_to '/login' unless session[:authenticated]
   end
 end
