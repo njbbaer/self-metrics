@@ -4,6 +4,7 @@ require 'test_helper'
 
 class SleepReportsControllerTest < ActionDispatch::IntegrationTest
   setup do
+    authenticate
     @sleep_report = sleep_reports(:one)
   end
 

@@ -4,6 +4,7 @@ require 'test_helper'
 
 class WeightReportsControllerTest < ActionDispatch::IntegrationTest
   setup do
+    authenticate
     @weight_report = weight_reports(:one)
   end
 

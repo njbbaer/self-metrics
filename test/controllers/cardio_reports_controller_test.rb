@@ -4,6 +4,7 @@ require 'test_helper'
 
 class CardioReportsControllerTest < ActionDispatch::IntegrationTest
   setup do
+    authenticate
     @cardio_report = cardio_reports(:one)
   end
 
