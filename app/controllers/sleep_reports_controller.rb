@@ -28,7 +28,7 @@ class SleepReportsController < ApplicationController
 
     respond_to do |format|
       if @sleep_report.save
-        format.html { redirect_to @sleep_report, notice: 'Sleep report was successfully created.' }
+        format.html { redirect_to @sleep_report }
         format.json { render :show, status: :created, location: @sleep_report }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class SleepReportsController < ApplicationController
   def update
     respond_to do |format|
       if @sleep_report.update(sleep_report_params)
-        format.html { redirect_to @sleep_report, notice: 'Sleep report was successfully updated.' }
+        format.html { redirect_to @sleep_report }
         format.json { render :show, status: :ok, location: @sleep_report }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class SleepReportsController < ApplicationController
   def destroy
     @sleep_report.destroy
     respond_to do |format|
-      format.html { redirect_to sleep_reports_url, notice: 'Sleep report was successfully destroyed.' }
+      format.html { redirect_to sleep_reports_url }
       format.json { head :no_content }
     end
   end

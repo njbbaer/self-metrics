@@ -28,7 +28,7 @@ class WeightReportsController < ApplicationController
 
     respond_to do |format|
       if @weight_report.save
-        format.html { redirect_to @weight_report, notice: 'Weight report was successfully created.' }
+        format.html { redirect_to @weight_report }
         format.json { render :show, status: :created, location: @weight_report }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class WeightReportsController < ApplicationController
   def update
     respond_to do |format|
       if @weight_report.update(weight_report_params)
-        format.html { redirect_to @weight_report, notice: 'Weight report was successfully updated.' }
+        format.html { redirect_to @weight_report }
         format.json { render :show, status: :ok, location: @weight_report }
       else
         format.html { render :edit }

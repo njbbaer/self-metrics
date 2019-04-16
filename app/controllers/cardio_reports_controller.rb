@@ -28,7 +28,7 @@ class CardioReportsController < ApplicationController
 
     respond_to do |format|
       if @cardio_report.save
-        format.html { redirect_to @cardio_report, notice: 'Cardio report was successfully created.' }
+        format.html { redirect_to @cardio_report }
         format.json { render :show, status: :created, location: @cardio_report }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class CardioReportsController < ApplicationController
   def update
     respond_to do |format|
       if @cardio_report.update(cardio_report_params_multipart_duration)
-        format.html { redirect_to @cardio_report, notice: 'Cardio report was successfully updated.' }
+        format.html { redirect_to @cardio_report }
         format.json { render :show, status: :ok, location: @cardio_report }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class CardioReportsController < ApplicationController
   def destroy
     @cardio_report.destroy
     respond_to do |format|
-      format.html { redirect_to cardio_reports_url, notice: 'Cardio report was successfully destroyed.' }
+      format.html { redirect_to cardio_reports_url }
       format.json { head :no_content }
     end
   end
