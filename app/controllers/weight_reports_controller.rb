@@ -56,7 +56,7 @@ class WeightReportsController < ApplicationController
   def destroy
     @weight_report.destroy
     respond_to do |format|
-      format.html { redirect_to weight_reports_url, notice: 'Weight report was successfully destroyed.' }
+      format.html { redirect_to weight_reports_url }
       format.json { head :no_content }
     end
   end
