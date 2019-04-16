@@ -2,8 +2,7 @@
 
 class ApplicationController < ActionController::Base
   before_action :authenticate
-  after_action :flash_errors
-
+  
   private
 
   def authenticate

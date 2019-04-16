@@ -19,9 +19,9 @@ class SleepReport < ApplicationRecord
 
   def valid_duration_seconds
     if duration_seconds.negative?
-      errors.add(:base, 'Sleep duration_seconds cannot be negative')
+      errors.add(:wakeup_at, 'sleep duration cannot be negative')
     elsif duration_seconds > 1.day
-      errors.add(:base, 'Sleep duration_seconds cannot greater than a day')
+      errors.add(:wakeup_at, 'sleep duration cannot be greater than a day')
     end
   end
 
