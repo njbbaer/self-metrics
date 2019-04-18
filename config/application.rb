@@ -19,5 +19,7 @@ module SelfMetrics
     # the framework and any gems in your application.
 
     config.time_zone = 'Pacific Time (US & Canada)'
+
+    config.password = ENV['PASSWORD']
   end
 end
