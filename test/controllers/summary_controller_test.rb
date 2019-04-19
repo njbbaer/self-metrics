@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class SummaryControllerTest < ActionDispatch::IntegrationTest
@@ -5,7 +7,7 @@ class SummaryControllerTest < ActionDispatch::IntegrationTest
     authenticate
   end
 
-  test "should get index" do
+  test 'should get index' do
     get summary_index_path
     assert_response :success
   end

@@ -3,7 +3,7 @@
 Rails.application.routes.draw do
   root to: redirect('/summary')
   resources :summary, only: :index
-  resources :sessions, only: [:new, :create, :destroy]
+  resources :sessions, only: %i[new create destroy]
 
   get 'login', to: 'sessions#new', as: 'login'
   get 'logout', to: 'sessions#destroy', as: 'logout'

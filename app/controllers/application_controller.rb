@@ -2,7 +2,7 @@
 
 class ApplicationController < ActionController::Base
   before_action :authenticate
-  
+
   private
 
   def authenticate

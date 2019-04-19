@@ -67,8 +67,8 @@ gem 'rubocop', '~> 0.66.0', group: :development
 
 gem 'bootstrap', '~> 4.3'
 
-gem "bootstrap_form", "~> 4.2"
+gem 'bootstrap_form', '~> 4.2'
 
-gem "jquery-rails", "~> 4.3"
+gem 'jquery-rails', '~> 4.3'
 
-gem "dotenv-rails", "~> 2.7"
+gem 'dotenv-rails', '~> 2.7'
