@@ -7,6 +7,6 @@ class WeightReport < ApplicationRecord
   scope :ordered_by_recency, -> { order(timestamp: :asc) }
 
   def self.current_weight_pounds
-    WeightReport.ordered_by_recency.last.weight_pounds
+    WeightReport.ordered_by_recency.last&.weight_pounds
   end
 end
