@@ -1,5 +1,17 @@
 # frozen_string_literal: true
 
+# == Schema Information
+#
+# Table name: sleep_reports
+#
+#  id         :bigint(8)        not null, primary key
+#  asleep_at  :datetime
+#  wakeup_at  :datetime
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+
 class SleepReport < ApplicationRecord
   validates_presence_of :asleep_at
   validate :valid_duration_seconds, if: :complete?
