@@ -16,6 +16,10 @@
 
 
 class CardioReport < ApplicationRecord
+  attr_accessor :part_hours, :part_minutes, :part_seconds
+
+  before_validation :calculate_multipart_duration
+
   validates_presence_of :finished_at, :cardio_type
   validates_numericality_of :duration_seconds, greater_than: 0
   validates_numericality_of :distance_miles, greater_than: 0.0
@@ -26,5 +30,13 @@ class CardioReport < ApplicationRecord
 
   def duration_time
     Time.at(duration_seconds || 0).utc
+  end
+
+  def calculate_multipart_duration
+    return if duration_seconds.present?
+
+    self.duration_seconds = part_hours.to_i * 3600 +
+                            part_minutes.to_i * 60 +
+                            part_seconds.to_i
   end
 end
