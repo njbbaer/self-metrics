@@ -11,7 +11,6 @@
 #  updated_at :datetime         not null
 #
 
-
 class SleepReport < ApplicationRecord
   validates_presence_of :asleep_at
   validate :valid_duration_seconds, if: :complete?

@@ -20,7 +20,12 @@ class SleepReportsControllerTest < ActionDispatch::IntegrationTest
 
   test 'should create sleep_report' do
     assert_difference('SleepReport.count') do
-      post sleep_reports_url, params: { sleep_report: { asleep_at: @sleep_report.asleep_at, wakeup_at: @sleep_report.wakeup_at } }
+      post sleep_reports_url, params: {
+        sleep_report: {
+          asleep_at: @sleep_report.asleep_at,
+          wakeup_at: @sleep_report.wakeup_at
+        }
+      }
     end
 
     assert_redirected_to sleep_report_url(SleepReport.last)
@@ -37,7 +42,12 @@ class SleepReportsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should update sleep_report' do
-    patch sleep_report_url(@sleep_report), params: { sleep_report: { asleep_at: @sleep_report.asleep_at, wakeup_at: @sleep_report.wakeup_at } }
+    patch sleep_report_url(@sleep_report), params: {
+      sleep_report: {
+        asleep_at: @sleep_report.asleep_at,
+        wakeup_at: @sleep_report.wakeup_at
+      }
+    }
     assert_redirected_to sleep_report_url(@sleep_report)
   end
 

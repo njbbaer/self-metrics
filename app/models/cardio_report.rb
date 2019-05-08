@@ -14,7 +14,6 @@
 #  updated_at       :datetime         not null
 #
 
-
 class CardioReport < ApplicationRecord
   attr_accessor :part_hours, :part_minutes, :part_seconds
 
