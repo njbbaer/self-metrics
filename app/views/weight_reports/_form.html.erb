@@ -1,5 +1,5 @@
 <%= bootstrap_form_with(model: weight_report, local: true) do |form| %>
-  <%= form.datetime_select :timestamp, ampm: true %>
+  <%= form.date_select :datestamp, ampm: true %>
   <%= form.number_field :weight_pounds, step: :any %>
   <%= form.submit class: "btn btn-primary" %>
 <% end %>

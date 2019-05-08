@@ -20,7 +20,7 @@ class WeightReportsControllerTest < ActionDispatch::IntegrationTest
 
   test 'should create weight_report' do
     assert_difference('WeightReport.count') do
-      post weight_reports_url, params: { weight_report: { weight_pounds: @weight_report.weight_pounds, timestamp: @weight_report.timestamp } }
+      post weight_reports_url, params: { weight_report: { weight_pounds: @weight_report.weight_pounds, datestamp: @weight_report.datestamp } }
     end
 
     assert_redirected_to weight_report_url(WeightReport.last)
@@ -37,7 +37,7 @@ class WeightReportsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should update weight_report' do
-    patch weight_report_url(@weight_report), params: { weight_report: { weight_pounds: @weight_report.weight_pounds, timestamp: @weight_report.timestamp } }
+    patch weight_report_url(@weight_report), params: { weight_report: { weight_pounds: @weight_report.weight_pounds, datestamp: @weight_report.datestamp } }
     assert_redirected_to weight_report_url(@weight_report)
   end
 

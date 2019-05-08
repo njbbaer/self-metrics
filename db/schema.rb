@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_01_063814) do
+ActiveRecord::Schema.define(version: 2019_05_08_045959) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 2019_04_01_063814) do
   end
 
   create_table "weight_reports", force: :cascade do |t|
-    t.datetime "timestamp"
+    t.date "datestamp"
     t.float "weight_pounds"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

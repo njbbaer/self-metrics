@@ -17,7 +17,7 @@ class WeightReportsTest < ApplicationSystemTestCase
     click_on 'New Weight Report'
 
     fill_in 'Pounds', with: @weight_report.weight_pounds
-    fill_in 'Timestamp', with: @weight_report.timestamp
+    fill_in 'Datestamp', with: @weight_report.datestamp
     click_on 'Create Weight report'
 
     assert_text 'Weight report was successfully created'
@@ -29,7 +29,7 @@ class WeightReportsTest < ApplicationSystemTestCase
     click_on 'Edit', match: :first
 
     fill_in 'Pounds', with: @weight_report.weight_pounds
-    fill_in 'Timestamp', with: @weight_report.timestamp
+    fill_in 'Datestamp', with: @weight_report.datestamp
     click_on 'Update Weight report'
 
     assert_text 'Weight report was successfully updated'
