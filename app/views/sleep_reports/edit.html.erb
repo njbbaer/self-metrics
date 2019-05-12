@@ -2,5 +2,6 @@
 
 <%= render 'form', sleep_report: @sleep_report %>
 
-<%= link_to 'Show', @sleep_report %> |
-<%= link_to 'Back', sleep_reports_path %>
+<br>
+<%= link_to 'Back', sleep_reports_path, class: "btn btn-outline-primary" %>&nbsp;
+<%= link_to 'Show', @sleep_report, class: "btn btn-outline-secondary" %>
