@@ -12,6 +12,7 @@
   </head>
 
   <body>
+    <%= render "layouts/banner" unless Rails.env == "production" %>
     <%= render "layouts/header" %>
 
     <div class="container">
