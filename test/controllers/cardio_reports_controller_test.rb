@@ -26,7 +26,7 @@ class CardioReportsControllerTest < ActionDispatch::IntegrationTest
           machine: @cardio_report.machine,
           distance_miles: @cardio_report.distance_miles,
           duration_seconds: @cardio_report.duration_seconds,
-          finished_at: @cardio_report.finished_at
+          datestamp: @cardio_report.datestamp
         }
       }
     end
@@ -51,7 +51,7 @@ class CardioReportsControllerTest < ActionDispatch::IntegrationTest
         machine: @cardio_report.machine,
         distance_miles: @cardio_report.distance_miles,
         duration_seconds: @cardio_report.duration_seconds,
-        finished_at: @cardio_report.finished_at
+        datestamp: @cardio_report.datestamp
       }
     }
     assert_redirected_to cardio_report_url(@cardio_report)

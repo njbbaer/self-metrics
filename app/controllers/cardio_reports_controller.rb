@@ -72,7 +72,7 @@ class CardioReportsController < ApplicationController
   def cardio_report_params
     params.require(:cardio_report).permit(
       :part_hours, :part_minutes, :part_seconds,
-      :finished_at,
+      :datestamp,
       :duration_seconds,
       :distance_miles,
       :cardio_type,

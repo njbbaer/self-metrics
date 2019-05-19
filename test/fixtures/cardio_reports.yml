@@ -4,9 +4,9 @@
 #
 #  id               :bigint(8)        not null, primary key
 #  cardio_type      :integer
+#  datestamp        :date
 #  distance_miles   :float
 #  duration_seconds :integer
-#  finished_at      :datetime
 #  machine          :boolean
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
@@ -15,14 +15,14 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  finished_at: 2019-03-31 23:38:14
+  datestamp: 2019-03-31
   duration_seconds: 1
   distance_miles: 1.5
   cardio_type: 1
   machine: false
 
 two:
-  finished_at: 2019-03-31 23:38:14
+  datestamp: 2019-03-31
   duration_seconds: 1
   distance_miles: 1.5
   cardio_type: 1

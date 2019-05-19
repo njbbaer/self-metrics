@@ -1,5 +1,5 @@
 <%= bootstrap_form_with(model: cardio_report, local: true) do |form| %>
-  <%= form.datetime_select :finished_at, ampm: true %>
+  <%= form.date_select :datestamp, label: "Date" %>
 
   <%= form.label :duration %>
   <div class="input-group">

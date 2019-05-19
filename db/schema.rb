@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_08_045959) do
+ActiveRecord::Schema.define(version: 2019_05_19_033800) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "cardio_reports", force: :cascade do |t|
-    t.datetime "finished_at"
+    t.date "datestamp"
     t.integer "duration_seconds"
     t.float "distance_miles"
     t.integer "cardio_type"
