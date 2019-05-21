@@ -22,8 +22,10 @@
         <td><%= cardio_report.duration_time.strftime('%H:%M:%S') %></td>
         <td><%= cardio_report.distance_miles %></td>
         <td><%= cardio_report.cardio_type %></td>
-        <td><%= link_to 'Edit', edit_cardio_report_path(cardio_report), class: "btn btn-outline-secondary btn-sm" %></td>
-        <td><%= link_to 'Destroy', cardio_report, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-secondary btn-sm" %></td>
+        <td>
+          <%= link_to 'Edit', edit_cardio_report_path(cardio_report) %> | 
+          <%= link_to 'Destroy', cardio_report, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
       </tr>
     <% end %>
   </tbody>

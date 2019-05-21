@@ -22,8 +22,10 @@
         <td><%= sleep_report.asleep_at.strftime('%I:%M %p') %></td>
         <td><%= sleep_report.wakeup_at&.strftime('%I:%M %p') %></td>
         <td><%= Time.at(sleep_report.duration_seconds).utc.strftime('%H:%M') if sleep_report.complete? %></td>
-        <td><%= link_to 'Edit', edit_sleep_report_path(sleep_report), class: "btn btn-outline-secondary btn-sm" %></td>        
-        <td><%= link_to 'Destroy', sleep_report, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-secondary btn-sm" %></td>
+        <td>
+          <%= link_to 'Edit', edit_sleep_report_path(sleep_report) %> | 
+          <%= link_to 'Destroy', sleep_report, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
       </tr>
     <% end %>
   </tbody>
