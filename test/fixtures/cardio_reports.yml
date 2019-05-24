@@ -6,7 +6,7 @@
 #  datestamp        :date
 #  distance_miles   :float
 #  duration_seconds :integer
-#  machine          :boolean
+#  treadmill        :boolean
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
 #
@@ -17,10 +17,10 @@ one:
   datestamp: 2019-03-31
   duration_seconds: 1
   distance_miles: 1.5
-  machine: false
+  treadmill: false
 
 two:
   datestamp: 2019-03-31
   duration_seconds: 1
   distance_miles: 1.5
-  machine: false
+  treadmill: false

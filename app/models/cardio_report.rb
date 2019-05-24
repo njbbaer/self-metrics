@@ -7,7 +7,7 @@
 #  datestamp        :date
 #  distance_miles   :float
 #  duration_seconds :integer
-#  machine          :boolean
+#  treadmill        :boolean
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
 #

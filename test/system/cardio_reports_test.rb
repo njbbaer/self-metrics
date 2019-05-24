@@ -16,7 +16,7 @@ class CardioReportsTest < ApplicationSystemTestCase
     visit cardio_reports_url
     click_on 'New Cardio Report'
 
-    check 'Machine' if @cardio_report.machine
+    check 'Treadmill' if @cardio_report.treadmill
     fill_in 'Miles', with: @cardio_report.distance_miles
     fill_in 'Duration', with: @cardio_report.duration_seconds
     fill_in 'Finished at', with: @cardio_report.datestamp
@@ -30,7 +30,7 @@ class CardioReportsTest < ApplicationSystemTestCase
     visit cardio_reports_url
     click_on 'Edit', match: :first
 
-    check 'Machine' if @cardio_report.machine
+    check 'Treadmill' if @cardio_report.treadmill
     fill_in 'Miles', with: @cardio_report.distance_miles
     fill_in 'Duration', with: @cardio_report.duration_seconds
     fill_in 'Finished at', with: @cardio_report.datestamp

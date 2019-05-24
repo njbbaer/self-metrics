@@ -75,7 +75,7 @@ class CardioReportsController < ApplicationController
       :datestamp,
       :duration_seconds,
       :distance_miles,
-      :machine
+      :treadmill
     )
   end
 end
