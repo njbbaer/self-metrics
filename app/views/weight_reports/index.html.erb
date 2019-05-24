@@ -17,7 +17,7 @@
     <% @weight_reports.ordered_by_recency.reverse.each do |weight_report| %>
       <tr>
         <td><%= weight_report.datestamp.strftime('%Y-%m-%d') %></td>
-        <td><%= weight_report.weight_pounds %></td>
+        <td><%= '%.1f' % weight_report.weight_pounds %></td>
         <td>
           <%= link_to 'Edit', edit_weight_report_path(weight_report) %> | 
           <%= link_to 'Destroy', weight_report, method: :delete, data: { confirm: 'Are you sure?' } %>

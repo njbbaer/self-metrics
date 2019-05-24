@@ -20,7 +20,7 @@
       <tr>
         <td><%= cardio_report.datestamp.strftime('%Y-%m-%d') %></td>
         <td><%= cardio_report.duration_time.strftime('%H:%M:%S') %></td>
-        <td><%= cardio_report.distance_miles %></td>
+        <td><%= '%.2f' % cardio_report.distance_miles %></td>
         <td><%= cardio_report.cardio_type %></td>
         <td>
           <%= link_to 'Edit', edit_cardio_report_path(cardio_report) %> | 
