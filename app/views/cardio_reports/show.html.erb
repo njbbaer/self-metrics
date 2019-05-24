@@ -1,22 +1,21 @@
-<p>
-  <strong>Finished at:</strong>
-  <%= @cardio_report.datestamp %>
-</p>
+<h1>Cardio Report Summary</h1>
+<br>
 
-<p>
-  <strong>Duration:</strong>
-  <%= @cardio_report.duration_time.strftime('%H:%M:%S') %>
-</p>
+<h4>On <b><%= @cardio_report.datestamp %></b></h4>
+<br>
 
-<p>
-  <strong>Miles:</strong>
-  <%= @cardio_report.distance_miles %>
-</p>
+<h4>You ran <b><%= @cardio_report.distance_miles %> miles</b></h4>
+<br>
 
-<p>
-  <strong>Treadmill?:</strong>
-  <%= @cardio_report.treadmill %>
-</p>
+<h4>in <b><%= @cardio_report.duration_time.strftime('%M minutes %S seconds') %></b></h4>
+<br>
 
-<%= link_to 'Edit', edit_cardio_report_path(@cardio_report) %> |
-<%= link_to 'Back', cardio_reports_path %>
+<% if @cardio_report.treadmill %>
+  <h4><b>Treadmill</b>/Outdoors</h4>
+<% else %>
+  <h4>Treadmill/<b>Outdoors</b></h4>
+<% end %>
+<br>
+
+<%= link_to 'Back', cardio_reports_path, class: "btn btn-outline-secondary" %>&nbsp;
+<%= link_to 'Edit', edit_cardio_report_path(@cardio_report), class: "btn btn-outline-secondary" %>

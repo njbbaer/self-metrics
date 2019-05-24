@@ -23,6 +23,7 @@
         <td><%= '%.2f' % cardio_report.distance_miles %></td>
         <td>
           <%= link_to 'Edit', edit_cardio_report_path(cardio_report) %> | 
+          <%= link_to 'Show', cardio_report_path(cardio_report) %> | 
           <%= link_to 'Destroy', cardio_report, method: :delete, data: { confirm: 'Are you sure?' } %>
         </td>
       </tr>
