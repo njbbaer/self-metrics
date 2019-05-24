@@ -16,7 +16,6 @@ class CardioReportsTest < ApplicationSystemTestCase
     visit cardio_reports_url
     click_on 'New Cardio Report'
 
-    fill_in 'Cardio type', with: @cardio_report.cardio_type
     check 'Machine' if @cardio_report.machine
     fill_in 'Miles', with: @cardio_report.distance_miles
     fill_in 'Duration', with: @cardio_report.duration_seconds
@@ -31,7 +30,6 @@ class CardioReportsTest < ApplicationSystemTestCase
     visit cardio_reports_url
     click_on 'Edit', match: :first
 
-    fill_in 'Cardio type', with: @cardio_report.cardio_type
     check 'Machine' if @cardio_report.machine
     fill_in 'Miles', with: @cardio_report.distance_miles
     fill_in 'Duration', with: @cardio_report.duration_seconds

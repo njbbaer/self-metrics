@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_19_033800) do
+ActiveRecord::Schema.define(version: 2019_05_24_022301) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,7 +19,6 @@ ActiveRecord::Schema.define(version: 2019_05_19_033800) do
     t.date "datestamp"
     t.integer "duration_seconds"
     t.float "distance_miles"
-    t.integer "cardio_type"
     t.boolean "machine"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

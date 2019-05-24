@@ -10,10 +10,8 @@
   
   <%= form.number_field :distance_miles, label: "Distance", step: :any, append: "miles" %>
 
-  <%= form.select :cardio_type, CardioReport.cardio_types.keys, label: "Type" %>
-
   <div class="form-group">
-    <%= form.check_box :machine, label: "Machine?" %>
+    <%= form.check_box :machine, label: "Treadmill?", custom: true %>
   </div>
   
   <%= form.submit class: "btn btn-primary" %>

@@ -22,7 +22,6 @@ class CardioReportsControllerTest < ActionDispatch::IntegrationTest
     assert_difference('CardioReport.count') do
       post cardio_reports_url, params: {
         cardio_report: {
-          cardio_type: @cardio_report.cardio_type,
           machine: @cardio_report.machine,
           distance_miles: @cardio_report.distance_miles,
           duration_seconds: @cardio_report.duration_seconds,
@@ -47,7 +46,6 @@ class CardioReportsControllerTest < ActionDispatch::IntegrationTest
   test 'should update cardio_report' do
     patch cardio_report_url(@cardio_report), params: {
       cardio_report: {
-        cardio_type: @cardio_report.cardio_type,
         machine: @cardio_report.machine,
         distance_miles: @cardio_report.distance_miles,
         duration_seconds: @cardio_report.duration_seconds,

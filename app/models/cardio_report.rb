@@ -4,7 +4,6 @@
 # Table name: cardio_reports
 #
 #  id               :bigint(8)        not null, primary key
-#  cardio_type      :integer
 #  datestamp        :date
 #  distance_miles   :float
 #  duration_seconds :integer
@@ -18,11 +17,9 @@ class CardioReport < ApplicationRecord
 
   before_validation :calculate_multipart_duration
 
-  validates_presence_of :datestamp, :cardio_type
+  validates_presence_of :datestamp
   validates_numericality_of :duration_seconds, greater_than: 0
   validates_numericality_of :distance_miles, greater_than: 0.0
-
-  enum cardio_type: { running: 0, cycling: 1, hiking: 2 }
 
   scope :ordered_by_recency, -> { order(datestamp: :asc) }
 

@@ -3,7 +3,6 @@
 # Table name: cardio_reports
 #
 #  id               :bigint(8)        not null, primary key
-#  cardio_type      :integer
 #  datestamp        :date
 #  distance_miles   :float
 #  duration_seconds :integer
@@ -18,12 +17,10 @@ one:
   datestamp: 2019-03-31
   duration_seconds: 1
   distance_miles: 1.5
-  cardio_type: 1
   machine: false
 
 two:
   datestamp: 2019-03-31
   duration_seconds: 1
   distance_miles: 1.5
-  cardio_type: 1
   machine: false
