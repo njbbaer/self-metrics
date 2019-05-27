@@ -4,16 +4,16 @@
 <h4>On <b><%= @cardio_report.datestamp %></b></h4>
 <br>
 
-<h4>You ran <b><%= @cardio_report.distance_miles %> miles</b></h4>
+<h4>You ran <b><%= '%.2f' % @cardio_report.distance_miles %> miles</b></h4>
 <br>
 
-<h4>in <b><%= @cardio_report.duration_time.strftime('%M minutes %S seconds') %></b></h4>
+<h4>in <b><%= @cardio_report.duration_time.strftime('%M:%S') %></b></h4>
 <br>
 
 <% if @cardio_report.treadmill %>
-  <h4><b>Treadmill</b>/Outdoors</h4>
+  <h4> On a <b>treadmill</b></h4>
 <% else %>
-  <h4>Treadmill/<b>Outdoors</b></h4>
+  <h4>In the <b>outdoors</b></h4>
 <% end %>
 <br>
 
