@@ -34,4 +34,12 @@ class CardioReport < ApplicationRecord
                             part_minutes.to_i * 60 +
                             part_seconds.to_i
   end
+
+  def duration_minutes_part
+    (duration_seconds / 60).floor
+  end
+
+  def duration_seconds_part
+    duration_seconds % 60
+  end
 end
