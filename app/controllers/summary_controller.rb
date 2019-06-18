@@ -11,6 +11,6 @@ class SummaryController < ApplicationController
     days_since_latest = WeightReport.days_since_latest
     return if days_since_latest < 3
 
-    flash[:alert] = "It's been #{days_since_latest} days since your last weight report"
+    flash[:alert] = "It's been #{days_since_latest} days since you last reported your weight"
   end
 end
