@@ -21,7 +21,11 @@ class WeightReport < ApplicationRecord
     where('datestamp > ?', days.days.ago).average(:weight_pounds)
   end
 
-  def self.days_since_last_report
-    (Date.today - WeightReport.ordered_by_recency.last.datestamp).to_i
+  def self.days_since_latest
+    (Date.today - latest.datestamp).to_i
+  end
+
+  def self.latest
+    ordered_by_recency.last
   end
 end
