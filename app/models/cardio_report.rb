@@ -43,4 +43,12 @@ class CardioReport < ApplicationRecord
   def duration_seconds_part
     duration_seconds % 60
   end
+
+  def self.days_since_latest
+    (Date.today - latest.datestamp).to_i
+  end
+
+  def self.latest
+    ordered_by_recency.last
+  end
 end
