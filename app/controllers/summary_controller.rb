@@ -12,13 +12,13 @@ class SummaryController < ApplicationController
     days_since_latest = WeightReport.days_since_latest
     return if days_since_latest < 3
 
-    flash_message :alert, "#{days_since_latest} days since you last reported your weight"
+    flash_message :alert, "It's been #{days_since_latest} days since you last recorded your weight"
   end
 
   def flash_cardio_report_reminder!
     days_since_latest = CardioReport.days_since_latest
     return if days_since_latest < 3
 
-    flash_message :alert, "#{days_since_latest} days since you last reported cardio"
+    flash_message :alert, "It's been #{days_since_latest} days since you last went running"
   end
 end
