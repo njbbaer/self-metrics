@@ -26,6 +26,10 @@ class SleepReport < ApplicationRecord
     wakeup_at.present?
   end
 
+  def self.latest
+    ordered_by_recency.last
+  end
+
   private
 
   def valid_duration_seconds

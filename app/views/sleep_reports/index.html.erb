@@ -1,6 +1,11 @@
 <h1>Sleep Reports</h1>
 
-<%= link_to 'New Sleep Report', new_sleep_report_path, class: "btn btn-primary" %>
+<%= link_to 'New Sleep Report', new_sleep_report_path, class: "btn btn-primary" %>&nbsp;
+<% if @sleep_reports.latest.complete? %>
+  <%= link_to 'Start Sleep', sleep_reports_path(sleep_report: { asleep_at: Time.now }), method: :post, class: "btn btn-success" %>
+<% else %>
+  <%# link_to 'Stop Sleep', new_sleep_report_path, class: "btn btn-danger" %>
+<% end %>
 
 <br><br>
 
