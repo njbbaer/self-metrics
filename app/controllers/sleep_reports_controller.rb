@@ -25,7 +25,7 @@ class SleepReportsController < ApplicationController
 
     respond_to do |format|
       if @sleep_report.save
-        format.html { redirect_to @sleep_report }
+        format.html { redirect_to sleep_reports_url }
       else
         format.html { render :new }
       end
@@ -36,7 +36,7 @@ class SleepReportsController < ApplicationController
   def update
     respond_to do |format|
       if @sleep_report.update(sleep_report_params)
-        format.html { redirect_to @sleep_report }
+        format.html { redirect_to sleep_reports_url }
       else
         format.html { render :edit }
       end
