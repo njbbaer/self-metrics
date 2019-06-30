@@ -51,6 +51,18 @@ class SleepReportsController < ApplicationController
     end
   end
 
+  # POST /start
+  def start
+    SleepReport.create!(asleep_at: Time.now)
+    redirect_to sleep_reports_url
+  end
+
+  # PATCH /stop
+  def stop
+    SleepReport.latest.update!(wakeup_at: Time.now)
+    redirect_to sleep_reports_url
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
