@@ -6,6 +6,8 @@ class CardioReportsController < ApplicationController
   # GET /cardio_reports
   def index
     @cardio_reports = CardioReport.all
+
+    flash_cardio_report_reminder
   end
 
   # GET /cardio_reports/1

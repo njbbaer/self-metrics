@@ -6,6 +6,8 @@ class WeightReportsController < ApplicationController
   # GET /weight_reports
   def index
     @weight_reports = WeightReport.all
+
+    flash_weight_report_reminder
   end
 
   # GET /weight_reports/1

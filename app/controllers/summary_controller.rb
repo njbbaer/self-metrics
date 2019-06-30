@@ -2,23 +2,7 @@
 
 class SummaryController < ApplicationController
   def index
-    flash_weight_report_reminder!
-    flash_cardio_report_reminder!
-  end
-
-  private
-
-  def flash_weight_report_reminder!
-    days_since_latest = WeightReport.days_since_latest
-    return if days_since_latest < 3
-
-    flash_message :alert, "It's been #{days_since_latest} days since you last recorded your weight"
-  end
-
-  def flash_cardio_report_reminder!
-    days_since_latest = CardioReport.days_since_latest
-    return if days_since_latest < 3
-
-    flash_message :alert, "It's been #{days_since_latest} days since you last went running"
+    flash_weight_report_reminder
+    flash_cardio_report_reminder
   end
 end
