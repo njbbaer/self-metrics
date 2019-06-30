@@ -9,4 +9,8 @@ module ApplicationHelper
     when 'alert' then 'alert alert-warning'
     end
   end
+
+  def current_average_weight
+    WeightReport.current_average_weight(days=30) || 'n/a'
+  end
 end

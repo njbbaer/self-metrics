@@ -28,7 +28,7 @@ class SleepReportsControllerTest < ActionDispatch::IntegrationTest
       }
     end
 
-    assert_redirected_to sleep_report_url(SleepReport.last)
+    assert_redirected_to sleep_reports_url
   end
 
   test 'should show sleep_report' do
@@ -48,7 +48,7 @@ class SleepReportsControllerTest < ActionDispatch::IntegrationTest
         wakeup_at: @sleep_report.wakeup_at
       }
     }
-    assert_redirected_to sleep_report_url(@sleep_report)
+    assert_redirected_to sleep_reports_url
   end
 
   test 'should destroy sleep_report' do
