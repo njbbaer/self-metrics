@@ -4,6 +4,8 @@
 
 <br><br>
 
+<span class="glyphicon glyphicon-search"></span>
+
 <table class="table">
   <thead>
     <tr>
@@ -18,9 +20,14 @@
       <tr>
         <td><%= weight_report.datestamp.strftime('%Y-%m-%d') %></td>
         <td><%= '%.1f' % weight_report.weight_pounds %></td>
-        <td>
-          <%= link_to 'Edit', edit_weight_report_path(weight_report) %> | 
-          <%= link_to 'Destroy', weight_report, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <td nowrap>
+          <%= link_to edit_weight_report_path(weight_report) do %>
+            <%= octicon "pencil", :height => 16 %>
+          <% end %>
+          &nbsp;|&nbsp;
+          <%= link_to weight_report, method: :delete, data: { confirm: 'Are you sure?' } do %>
+            <%= octicon "trashcan", :height => 16 %>
+          <% end %>
         </td>
       </tr>
     <% end %>

@@ -27,9 +27,14 @@
         <td><%= sleep_report.asleep_at.strftime('%I:%M %p') %></td>
         <td><%= sleep_report.wakeup_at&.strftime('%I:%M %p') %></td>
         <td><%= Time.at(sleep_report.duration_seconds).utc.strftime('%H:%M') if sleep_report.complete? %></td>
-        <td>
-          <%= link_to 'Edit', edit_sleep_report_path(sleep_report) %> | 
-          <%= link_to 'Destroy', sleep_report, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <td nowrap>
+          <%= link_to edit_sleep_report_path(sleep_report) do %>
+            <%= octicon "pencil", :height => 16 %>
+          <% end %>
+          &nbsp;|&nbsp;
+          <%= link_to sleep_report, method: :delete, data: { confirm: 'Are you sure?' } do %>
+            <%= octicon "trashcan", :height => 16 %>
+          <% end %>
         </td>
       </tr>
     <% end %>

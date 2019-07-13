@@ -20,10 +20,14 @@
         <td><%= cardio_report.datestamp.strftime('%Y-%m-%d') %></td>
         <td><%= cardio_report.duration_time.strftime('%M:%S') %></td>
         <td><%= '%.1f' % cardio_report.distance_miles %></td>
-        <td>
-          <%= link_to 'Edit', edit_cardio_report_path(cardio_report) %> | 
-          <%= link_to 'Show', cardio_report_path(cardio_report) %> | 
-          <%= link_to 'Destroy', cardio_report, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <td nowrap>
+          <%= link_to edit_cardio_report_path(cardio_report) do %>
+            <%= octicon "pencil", :height => 16 %>
+          <% end %>
+          &nbsp;|&nbsp;
+          <%= link_to cardio_report, method: :delete, data: { confirm: 'Are you sure?' } do %>
+            <%= octicon "trashcan", :height => 16 %>
+          <% end %>
         </td>
       </tr>
     <% end %>
