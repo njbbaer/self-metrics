@@ -27,7 +27,7 @@ class CardioReportsController < ApplicationController
 
     respond_to do |format|
       if @cardio_report.save
-        format.html { redirect_to @cardio_report }
+        format.html { redirect_to cardio_reports_url }
       else
         format.html { render :new }
       end

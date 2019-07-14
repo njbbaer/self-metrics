@@ -27,12 +27,6 @@ class CardioReport < ApplicationRecord
     Time.at(duration_seconds || 0).utc
   end
 
-  def speed
-    distance_miles / (duration_seconds / 3600.0)
-  end
-
-  # Handle duration components
-
   def calculate_multipart_duration
     return if duration_seconds_changed?
 
@@ -42,12 +36,8 @@ class CardioReport < ApplicationRecord
       part_seconds.to_i
   end
 
-  def duration_minutes_part
-    (duration_seconds / 60).floor
-  end
-
-  def duration_seconds_part
-    duration_seconds % 60
+  def speed
+    distance_miles / (duration_seconds / 3600.0)
   end
 
   # Static methods

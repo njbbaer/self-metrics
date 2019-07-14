@@ -30,7 +30,7 @@ class CardioReportsControllerTest < ActionDispatch::IntegrationTest
       }
     end
 
-    assert_redirected_to cardio_report_url(CardioReport.last)
+    assert_redirected_to cardio_reports_url
   end
 
   test 'should show cardio_report' do
