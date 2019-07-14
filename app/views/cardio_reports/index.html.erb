@@ -28,8 +28,8 @@
       <tr>
         <td>Distance</td>
         <td><b><%= '%.1f' % cardio_report.distance_miles %></b> miles</td>
-        <td>Calories*</td>
-        <td><b>n/a</b> cal</td>
+        <td>Calories</td>
+        <td><b><%= cardio_report.calories.to_i %></b> cal</td>
       </tr>
     </table>
   </div>

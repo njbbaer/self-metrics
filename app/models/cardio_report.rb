@@ -40,6 +40,18 @@ class CardioReport < ApplicationRecord
     distance_miles / (duration_seconds / 3600.0)
   end
 
+  def met
+    speed * 1.5 + 1.2
+  end
+
+  def met_hours
+    duration_seconds / 3600.0 * met
+  end
+
+  def calories
+    met_hours * 180 / 2.205
+  end
+
   # Static methods
 
   def self.days_since_latest
