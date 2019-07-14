@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-primary">
   <a class="navbar-brand" href=<%= summary_index_path %>><b><i>Self-Metrics</i></b></a>
-  <% if session[:authenticated] %>
+  <% if authenticated? %>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>

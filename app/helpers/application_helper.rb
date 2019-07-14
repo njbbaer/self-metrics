@@ -16,4 +16,8 @@ module ApplicationHelper
 
     format('%.1f', weight_avg)
   end
+
+  def authenticated?
+    cookies.encrypted[:password] == Rails.configuration.password
+  end
 end
