@@ -23,8 +23,22 @@ class CardioReport < ApplicationRecord
 
   scope :ordered_by_recency, -> { order(datestamp: :asc) }
 
+  class << self
+    def days_since_latest
+      (Date.today - latest.datestamp).to_i
+    end
+
+    def latest
+      ordered_by_recency.last
+    end
+  end
+
   def duration_time
     Time.at(duration_seconds || 0).utc
+  end
+
+  def duration_hours
+    duration_seconds / 3600.0
   end
 
   def calculate_multipart_duration
@@ -37,28 +51,20 @@ class CardioReport < ApplicationRecord
   end
 
   def speed
-    distance_miles / (duration_seconds / 3600.0)
+    distance_miles / duration_hours
   end
+
+  def calories
+    calc_calories(duration_hours * met)
+  end
+
+  private
 
   def met
     speed * 1.5 + 1.2
   end
+end
 
-  def met_hours
-    duration_seconds / 3600.0 * met
-  end
-
-  def calories
-    met_hours * 180 / 2.205
-  end
-
-  # Static methods
-
-  def self.days_since_latest
-    (Date.today - latest.datestamp).to_i
-  end
-
-  def self.latest
-    ordered_by_recency.last
-  end
+def calc_calories(met_hours)
+  met_hours * 180 / 2.205
 end
