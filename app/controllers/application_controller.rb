@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   private
 
   def authenticate
-    redirect_to '/login' unless session[:authenticated]
+    redirect_to '/login' unless cookies.encrypted[:password] == Rails.configuration.password
   end
 
   def flash_message(type, text)

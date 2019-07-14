@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
 
   def create
     if params[:password] == Rails.configuration.password
-      session[:authenticated] = true
+      cookies.encrypted.permanent[:password] = Rails.configuration.password
       redirect_to root_url
     else
       flash[:error] = 'Password is invalid'
@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session[:authenticated] = false
+    cookies.delete(:password)
     redirect_to root_url
   end
 end
