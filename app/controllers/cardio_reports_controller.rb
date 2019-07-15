@@ -38,7 +38,7 @@ class CardioReportsController < ApplicationController
   def update
     respond_to do |format|
       if @cardio_report.update(cardio_report_params)
-        format.html { redirect_to @cardio_report }
+        format.html { redirect_to cardio_reports_url }
       else
         format.html { render :edit }
       end
