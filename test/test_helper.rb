@@ -11,7 +11,6 @@ class ActiveSupport::TestCase
   # Add more helper methods to be used by all tests here...
 
   def authenticate
-    Rails.configuration.password = 'password'
     post sessions_path, params: { password: Rails.configuration.password }
   end
 end
