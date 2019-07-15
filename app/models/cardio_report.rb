@@ -62,12 +62,12 @@ class CardioReport < ApplicationRecord
     calc_calories(duration_hours * met)
   end
 
-  def max_calories?
-    calories == CardioReport.max_calories
-  end
-
   def ranking_by_calories
     CardioReport.all.sort_by(&:calories).reverse.pluck(:id).index(id) + 1
+  end
+
+  def featured?
+    ranking_by_calories <= 10
   end
 
   private
