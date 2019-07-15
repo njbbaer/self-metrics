@@ -9,18 +9,18 @@ class WeightReportsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should get index' do
-    get weight_reports_url
+    get weight_reports_path
     assert_response :success
   end
 
   test 'should get new' do
-    get new_weight_report_url
+    get new_weight_report_path
     assert_response :success
   end
 
   test 'should create weight_report' do
     assert_difference('WeightReport.count') do
-      post weight_reports_url, params: {
+      post weight_reports_path, params: {
         weight_report: {
           weight_pounds: @weight_report.weight_pounds,
           datestamp: @weight_report.datestamp
@@ -28,34 +28,34 @@ class WeightReportsControllerTest < ActionDispatch::IntegrationTest
       }
     end
 
-    assert_redirected_to weight_reports_url
+    assert_redirected_to weight_reports_path
   end
 
   test 'should show weight_report' do
-    get weight_report_url(@weight_report)
+    get weight_report_path(@weight_report)
     assert_response :success
   end
 
   test 'should get edit' do
-    get edit_weight_report_url(@weight_report)
+    get edit_weight_report_path(@weight_report)
     assert_response :success
   end
 
   test 'should update weight_report' do
-    patch weight_report_url(@weight_report), params: {
+    patch weight_report_path(@weight_report), params: {
       weight_report: {
         weight_pounds: @weight_report.weight_pounds,
         datestamp: @weight_report.datestamp
       }
     }
-    assert_redirected_to weight_reports_url
+    assert_redirected_to weight_reports_path
   end
 
   test 'should destroy weight_report' do
     assert_difference('WeightReport.count', -1) do
-      delete weight_report_url(@weight_report)
+      delete weight_report_path(@weight_report)
     end
 
-    assert_redirected_to weight_reports_url
+    assert_redirected_to weight_reports_path
   end
 end

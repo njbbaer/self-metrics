@@ -8,12 +8,12 @@ class CardioReportsTest < ApplicationSystemTestCase
   end
 
   test 'visiting the index' do
-    visit cardio_reports_url
+    visit cardio_reports_path
     assert_selector 'h1', text: 'Cardio Reports'
   end
 
   test 'creating a Cardio report' do
-    visit cardio_reports_url
+    visit cardio_reports_path
     click_on 'New Cardio Report'
 
     check 'Treadmill' if @cardio_report.treadmill
@@ -27,7 +27,7 @@ class CardioReportsTest < ApplicationSystemTestCase
   end
 
   test 'updating a Cardio report' do
-    visit cardio_reports_url
+    visit cardio_reports_path
     click_on 'Edit', match: :first
 
     check 'Treadmill' if @cardio_report.treadmill
@@ -41,7 +41,7 @@ class CardioReportsTest < ApplicationSystemTestCase
   end
 
   test 'destroying a Cardio report' do
-    visit cardio_reports_url
+    visit cardio_reports_path
     page.accept_confirm do
       click_on 'Destroy', match: :first
     end

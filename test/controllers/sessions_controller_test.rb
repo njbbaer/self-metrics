@@ -4,20 +4,19 @@ require 'test_helper'
 
 class SessionsControllerTest < ActionDispatch::IntegrationTest
   test 'should get new' do
-    skip
-    get sessions_new_url
+    get new_session_path
     assert_response :success
   end
 
   test 'should get create' do
     skip
-    get sessions_create_url
+    get sessions_create_path
     assert_response :success
   end
 
   test 'should get destroy' do
     skip
-    get sessions_destroy_url
+    get sessions_destroy_path
     assert_response :success
   end
 end

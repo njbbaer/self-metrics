@@ -9,18 +9,18 @@ class CardioReportsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should get index' do
-    get cardio_reports_url
+    get cardio_reports_path
     assert_response :success
   end
 
   test 'should get new' do
-    get new_cardio_report_url
+    get new_cardio_report_path
     assert_response :success
   end
 
   test 'should create cardio_report' do
     assert_difference('CardioReport.count') do
-      post cardio_reports_url, params: {
+      post cardio_reports_path, params: {
         cardio_report: {
           treadmill: @cardio_report.treadmill,
           distance_miles: @cardio_report.distance_miles,
@@ -30,21 +30,21 @@ class CardioReportsControllerTest < ActionDispatch::IntegrationTest
       }
     end
 
-    assert_redirected_to cardio_reports_url
+    assert_redirected_to cardio_reports_path
   end
 
   test 'should show cardio_report' do
-    get cardio_report_url(@cardio_report)
+    get cardio_report_path(@cardio_report)
     assert_response :success
   end
 
   test 'should get edit' do
-    get edit_cardio_report_url(@cardio_report)
+    get edit_cardio_report_path(@cardio_report)
     assert_response :success
   end
 
   test 'should update cardio_report' do
-    patch cardio_report_url(@cardio_report), params: {
+    patch cardio_report_path(@cardio_report), params: {
       cardio_report: {
         treadmill: @cardio_report.treadmill,
         distance_miles: @cardio_report.distance_miles,
@@ -57,9 +57,9 @@ class CardioReportsControllerTest < ActionDispatch::IntegrationTest
 
   test 'should destroy cardio_report' do
     assert_difference('CardioReport.count', -1) do
-      delete cardio_report_url(@cardio_report)
+      delete cardio_report_path(@cardio_report)
     end
 
-    assert_redirected_to cardio_reports_url
+    assert_redirected_to cardio_reports_path
   end
 end

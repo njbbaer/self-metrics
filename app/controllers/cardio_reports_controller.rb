@@ -27,7 +27,7 @@ class CardioReportsController < ApplicationController
 
     respond_to do |format|
       if @cardio_report.save
-        format.html { redirect_to cardio_reports_url }
+        format.html { redirect_to cardio_reports_path }
       else
         format.html { render :new }
       end
@@ -38,7 +38,7 @@ class CardioReportsController < ApplicationController
   def update
     respond_to do |format|
       if @cardio_report.update(cardio_report_params)
-        format.html { redirect_to cardio_reports_url }
+        format.html { redirect_to cardio_reports_path }
       else
         format.html { render :edit }
       end
@@ -49,7 +49,7 @@ class CardioReportsController < ApplicationController
   def destroy
     @cardio_report.destroy
     respond_to do |format|
-      format.html { redirect_to cardio_reports_url }
+      format.html { redirect_to cardio_reports_path }
     end
   end
 

@@ -8,12 +8,12 @@ class WeightReportsTest < ApplicationSystemTestCase
   end
 
   test 'visiting the index' do
-    visit weight_reports_url
+    visit weight_reports_path
     assert_selector 'h1', text: 'Weight Reports'
   end
 
   test 'creating a Weight report' do
-    visit weight_reports_url
+    visit weight_reports_path
     click_on 'New Weight Report'
 
     fill_in 'Pounds', with: @weight_report.weight_pounds
@@ -25,7 +25,7 @@ class WeightReportsTest < ApplicationSystemTestCase
   end
 
   test 'updating a Weight report' do
-    visit weight_reports_url
+    visit weight_reports_path
     click_on 'Edit', match: :first
 
     fill_in 'Pounds', with: @weight_report.weight_pounds
@@ -37,7 +37,7 @@ class WeightReportsTest < ApplicationSystemTestCase
   end
 
   test 'destroying a Weight report' do
-    visit weight_reports_url
+    visit weight_reports_path
     page.accept_confirm do
       click_on 'Destroy', match: :first
     end

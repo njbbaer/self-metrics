@@ -25,7 +25,7 @@ class SleepReportsController < ApplicationController
 
     respond_to do |format|
       if @sleep_report.save
-        format.html { redirect_to sleep_reports_url }
+        format.html { redirect_to sleep_reports_path }
       else
         format.html { render :new }
       end
@@ -36,7 +36,7 @@ class SleepReportsController < ApplicationController
   def update
     respond_to do |format|
       if @sleep_report.update(sleep_report_params)
-        format.html { redirect_to sleep_reports_url }
+        format.html { redirect_to sleep_reports_path }
       else
         format.html { render :edit }
       end
@@ -47,20 +47,20 @@ class SleepReportsController < ApplicationController
   def destroy
     @sleep_report.destroy
     respond_to do |format|
-      format.html { redirect_to sleep_reports_url }
+      format.html { redirect_to sleep_reports_path }
     end
   end
 
   # POST /start
   def start
     SleepReport.create!(asleep_at: Time.now)
-    redirect_to sleep_reports_url
+    redirect_to sleep_reports_path
   end
 
   # PATCH /stop
   def stop
     SleepReport.latest.update!(wakeup_at: Time.now)
-    redirect_to sleep_reports_url
+    redirect_to sleep_reports_path
   end
 
   private

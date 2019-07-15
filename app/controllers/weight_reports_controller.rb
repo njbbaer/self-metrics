@@ -27,7 +27,7 @@ class WeightReportsController < ApplicationController
 
     respond_to do |format|
       if @weight_report.save
-        format.html { redirect_to weight_reports_url }
+        format.html { redirect_to weight_reports_path }
       else
         format.html { render :new }
       end
@@ -38,7 +38,7 @@ class WeightReportsController < ApplicationController
   def update
     respond_to do |format|
       if @weight_report.update(weight_report_params)
-        format.html { redirect_to weight_reports_url }
+        format.html { redirect_to weight_reports_path }
       else
         format.html { render :edit }
       end
@@ -49,7 +49,7 @@ class WeightReportsController < ApplicationController
   def destroy
     @weight_report.destroy
     respond_to do |format|
-      format.html { redirect_to weight_reports_url }
+      format.html { redirect_to weight_reports_path }
     end
   end
 

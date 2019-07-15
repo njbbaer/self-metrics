@@ -8,12 +8,12 @@ class SleepReportsTest < ApplicationSystemTestCase
   end
 
   test 'visiting the index' do
-    visit sleep_reports_url
+    visit sleep_reports_path
     assert_selector 'h1', text: 'Sleep Reports'
   end
 
   test 'creating a Sleep report' do
-    visit sleep_reports_url
+    visit sleep_reports_path
     click_on 'New Sleep Report'
 
     fill_in 'Asleep at', with: @sleep_report.asleep_at
@@ -25,7 +25,7 @@ class SleepReportsTest < ApplicationSystemTestCase
   end
 
   test 'updating a Sleep report' do
-    visit sleep_reports_url
+    visit sleep_reports_path
     click_on 'Edit', match: :first
 
     fill_in 'Asleep at', with: @sleep_report.asleep_at
@@ -37,7 +37,7 @@ class SleepReportsTest < ApplicationSystemTestCase
   end
 
   test 'destroying a Sleep report' do
-    visit sleep_reports_url
+    visit sleep_reports_path
     page.accept_confirm do
       click_on 'Destroy', match: :first
     end
