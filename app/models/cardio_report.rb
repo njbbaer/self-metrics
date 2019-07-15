@@ -66,6 +66,10 @@ class CardioReport < ApplicationRecord
     calories == CardioReport.max_calories
   end
 
+  def ranking_by_calories
+    CardioReport.all.sort_by(&:calories).reverse.pluck(:id).index(id) + 1
+  end
+
   private
 
   def met
