@@ -3,20 +3,24 @@
 require 'test_helper'
 
 class SessionsControllerTest < ActionDispatch::IntegrationTest
-  test 'should get new' do
-    get new_session_path
+  test 'should get login page' do
+    get login_path
     assert_response :success
   end
 
-  test 'should get create' do
-    skip
-    get sessions_create_path
-    assert_response :success
+  test 'should successfully login with correct password' do
+    post login_path, params: { password: Rails.configuration.password }
+    assert_redirected_to root_path
   end
 
-  test 'should get destroy' do
-    skip
-    get sessions_destroy_path
-    assert_response :success
+  test 'should fail to login with incorrect password' do
+    post login_path, params: { password: 'incorrect_password' }
+    assert_redirected_to login_path
+  end
+
+  test 'should logout' do
+    authenticate
+    delete logout_path
+    assert_redirected_to login_path
   end
 end

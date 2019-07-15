@@ -3,10 +3,11 @@
 Rails.application.routes.draw do
   root to: redirect('/summary')
   resources :summary, only: :index
-  resources :sessions, only: %i[new create destroy]
+  # resources :sessions, only: %i[new create destroy]
 
-  get 'login', to: 'sessions#new', as: 'login'
-  get 'logout', to: 'sessions#destroy', as: 'logout'
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
 
   scope '/reports' do
     post '/sleep/start', to: 'sleep_reports#start'

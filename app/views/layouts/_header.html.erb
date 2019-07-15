@@ -16,7 +16,7 @@
           <a class="nav-item nav-link" href=<%= cardio_reports_path %>>Cardio</a>
         </li>
       </ul>
-      <a class="btn btn-outline-light" href="/logout">Logout</a>
+      <%= link_to "Logout", logout_path, method: :delete, class: "btn btn-outline-light" %>
     </div>
   <% end %>
 </nav>

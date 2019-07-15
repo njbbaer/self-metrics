@@ -11,12 +11,12 @@ class SessionsController < ApplicationController
       redirect_to root_path
     else
       flash[:error] = 'Password is invalid'
-      redirect_to '/login'
+      redirect_to login_path
     end
   end
 
   def destroy
     cookies.delete(:password)
-    redirect_to root_path
+    redirect_to login_path
   end
 end
