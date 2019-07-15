@@ -32,6 +32,9 @@
         <td><b><%= cardio_report.calories.to_i %></b> kcal</td>
       </tr>
     </table>
+    <% if cardio_report.max_calories? %>
+      <footer class="card-footer text-muted"><i>Most calories burned</i></footer>
+    <% end %>
   </div>
   <br>
 <% end %>
