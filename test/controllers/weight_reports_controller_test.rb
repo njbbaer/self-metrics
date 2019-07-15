@@ -28,7 +28,7 @@ class WeightReportsControllerTest < ActionDispatch::IntegrationTest
       }
     end
 
-    assert_redirected_to weight_report_url(WeightReport.last)
+    assert_redirected_to weight_reports_url
   end
 
   test 'should show weight_report' do
@@ -48,7 +48,7 @@ class WeightReportsControllerTest < ActionDispatch::IntegrationTest
         datestamp: @weight_report.datestamp
       }
     }
-    assert_redirected_to weight_report_url(@weight_report)
+    assert_redirected_to weight_reports_url
   end
 
   test 'should destroy weight_report' do
