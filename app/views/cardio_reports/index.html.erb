@@ -6,7 +6,7 @@
 
 <% @cardio_reports.ordered_by_recency.reverse.each do |cardio_report| %>
   <div class="card">
-    <div class="card-header <%= 'alert-success' if cardio_report.featured? %>">
+    <div class="card-header <%= 'alert-success' if featured?(cardio_report) %>">
       <%= cardio_report.datestamp.strftime('%a, %b %d, %Y') %>
       <div style="float:right;">
         <%= link_to edit_cardio_report_path(cardio_report) do %>
@@ -32,9 +32,9 @@
         <td><b><%= cardio_report.calories.to_i %></b> kcal</td>
       </tr>
     </table>
-    <% if cardio_report.featured? %>
+    <% if featured?(cardio_report) %>
       <footer class="card-footer text-muted">
-        <i>#<%= cardio_report.ranking_by_calories %> most calories burned</i>
+        <i>#<%= ranking(cardio_report) %> most calories burned</i>
       </footer>
     <% end %>
   </div>

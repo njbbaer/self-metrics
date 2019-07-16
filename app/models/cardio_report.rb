@@ -35,6 +35,10 @@ class CardioReport < ApplicationRecord
     def max_calories
       all.max_by(&:calories).calories
     end
+
+    def rank_by_calories
+      CardioReport.all.sort_by(&:calories).reverse.pluck(:id)
+    end
   end
 
   def duration_time
@@ -60,14 +64,6 @@ class CardioReport < ApplicationRecord
 
   def calories
     calc_calories(duration_hours * met)
-  end
-
-  def ranking_by_calories
-    CardioReport.all.sort_by(&:calories).reverse.pluck(:id).index(id) + 1
-  end
-
-  def featured?
-    ranking_by_calories <= 10
   end
 
   private
