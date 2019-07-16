@@ -22,6 +22,7 @@ class CardioReport < ApplicationRecord
   validates_numericality_of :distance_miles, greater_than: 0.0
 
   scope :ordered_by_recency, -> { order(datestamp: :asc) }
+  scope :sort_by_calories, -> { CardioReport.all.sort_by(&:calories).reverse }
 
   class << self
     def days_since_latest
@@ -34,10 +35,6 @@ class CardioReport < ApplicationRecord
 
     def max_calories
       all.max_by(&:calories).calories
-    end
-
-    def rank_by_calories
-      CardioReport.all.sort_by(&:calories).reverse.pluck(:id)
     end
   end
 

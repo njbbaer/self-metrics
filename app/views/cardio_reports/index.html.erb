@@ -34,7 +34,7 @@
     </table>
     <% if featured?(cardio_report) %>
       <footer class="card-footer text-muted">
-        <i>#<%= ranking(cardio_report) %> most calories burned</i>
+        <i>#<%= ranking_by_calories(cardio_report) %> most calories burned</i>
       </footer>
     <% end %>
   </div>
