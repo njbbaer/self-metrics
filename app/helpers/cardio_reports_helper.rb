@@ -2,7 +2,7 @@
 
 module CardioReportsHelper
   def ranking_by_calories(cardio_report)
-    @sort_by_calories.pluck(:id).index(cardio_report.id) + 1
+    @sorted_by_calories.pluck(:id).index(cardio_report.id) + 1
   end
 
   def featured?(cardio_report)
