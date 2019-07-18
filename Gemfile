@@ -74,3 +74,5 @@ gem 'jquery-rails', '~> 4.3'
 gem 'dotenv-rails', '~> 2.7'
 
 gem 'octicons_helper'
+
+gem 'chartkick'
