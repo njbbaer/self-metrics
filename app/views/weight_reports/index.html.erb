@@ -4,7 +4,7 @@
 
 <br><br>
 
-<%= line_chart WeightReport.pluck(:datestamp, :weight_pounds),  ytitle: "Weight (lb)", min: 160, max: 190 %>
+<%= line_chart WeightReport.pluck(:datestamp, :weight_pounds),  min: 160, max: 190 %>
 
 <br>
 
