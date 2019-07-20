@@ -10,8 +10,8 @@ module ApplicationHelper
     end
   end
 
-  def current_average_weight
-    weight_avg = WeightReport.current_average_weight(days=130)
+  def current_average_weight(days)
+    weight_avg = WeightReport.current_average_weight(days)
     return 'n/a' if weight_avg.nil?
 
     format('%.1f', weight_avg)

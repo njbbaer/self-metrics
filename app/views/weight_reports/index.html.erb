@@ -6,10 +6,10 @@
 
 <ul class="nav nav-tabs">
   <li class="nav-item">
-    <a class="nav-link active" href="#table" data-toggle="tab">Table</a>
+    <a class="nav-link active" href="#table" data-toggle="tab">Reports</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#charts" data-toggle="tab">Charts</a>
+    <a class="nav-link" href="#charts" data-toggle="tab">Analysis</a>
   </li>
 </ul>
 <br>
@@ -46,6 +46,21 @@
   </div>
 
   <div id="charts" class="tab-pane">
+    <h2>Statistics</h2>
+    <hr>
+    <table>
+      <tr>
+        <td><h3>30-day average: <b></h3></td>
+        <td><h3><b><%= current_average_weight(days=30) %></b> lb</h3></td>
+      </tr>
+      <tr>
+        <td><h3>1-year average: <b></h3></td>
+        <td><h3><b><%= current_average_weight(days=365) %></b> lb</h3></td>
+      </tr>
+    </table>
+    <br>
+    <h2>Charts</h2>
+    <hr> 
     <%= line_chart WeightReport.pluck(:datestamp, :weight_pounds),  min: 160, max: 190 %> 
   </div>
 </div>
