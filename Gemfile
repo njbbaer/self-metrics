@@ -76,3 +76,5 @@ gem 'dotenv-rails', '~> 2.7'
 gem 'octicons_helper'
 
 gem 'chartkick'
+
+gem 'highcharts-rails'
