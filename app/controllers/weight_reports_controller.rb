@@ -6,6 +6,7 @@ class WeightReportsController < ApplicationController
   # GET /weight_reports
   def index
     @weight_reports = WeightReport.all
+    gon.weight_reports_pounds = WeightReport.all.collect{ |wr| [wr.epoch_timestamp, wr.weight_pounds] }
 
     flash_weight_report_reminder
   end

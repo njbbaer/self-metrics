@@ -1,25 +1,51 @@
 document.addEventListener('DOMContentLoaded', function () {
-    var myChart = Highcharts.chart('container', {
+    Highcharts.chart('container', {
         chart: {
-            type: 'bar'
+            type: 'scatter',
+            zoomType: 'xy'
         },
         title: {
-            text: 'Fruit Consumption'
+            text: 'Weight over Time'
         },
         xAxis: {
-            categories: ['Apples', 'Bananas', 'Oranges']
+            type: 'datetime'
         },
         yAxis: {
             title: {
-                text: 'Fruit eaten'
+                enabled: false
+            }
+        },
+        legend: {
+            enabled: false
+        },
+        plotOptions: {
+            scatter: {
+                marker: {
+                    radius: 5,
+                    states: {
+                        hover: {
+                            enabled: true,
+                            lineColor: 'rgb(100,100,100)'
+                        }
+                    }
+                },
+                states: {
+                    hover: {
+                        marker: {
+                            enabled: false
+                        }
+                    }
+                },
+                tooltip: {
+                    headerFormat: '<b>{series.name}</b><br>',
+                    pointFormat: '{point.x} epoch, {point.y} lb'
+                }
             }
         },
         series: [{
-            name: 'Jane',
-            data: [1, 0, 4]
-        }, {
-            name: 'John',
-            data: [5, 7, 3]
+            name: 'Weight',
+            color: 'rgba(2, 117, 216, 0.5)',
+            data: gon.weight_reports_pounds,
         }]
-    });
+    });    
 });

@@ -78,3 +78,5 @@ gem 'octicons_helper'
 gem 'chartkick'
 
 gem 'highcharts-rails'
+
+gem 'gon'

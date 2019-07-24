@@ -28,4 +28,8 @@ class WeightReport < ApplicationRecord
   def self.latest
     ordered_by_recency.last
   end
+
+  def epoch_timestamp
+    datestamp.to_time.to_i * 1000
+  end
 end
