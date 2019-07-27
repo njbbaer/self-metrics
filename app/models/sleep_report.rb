@@ -22,6 +22,10 @@ class SleepReport < ApplicationRecord
     wakeup_at - asleep_at
   end
 
+  def date
+    asleep_at.to_date + (asleep_at.hour > 12 ? 1.day : 0)
+  end
+
   def complete?
     wakeup_at.present?
   end
