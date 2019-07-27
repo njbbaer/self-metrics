@@ -9,7 +9,7 @@
     <a class="nav-link active" href="#table" data-toggle="tab">Reports</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#charts" data-toggle="tab">Analysis</a>
+    <a class="nav-link" href="#analysis" data-toggle="tab" onclick="renderWeightPlot()">Analysis</a>
   </li>
 </ul>
 <br>
@@ -45,7 +45,7 @@
     </table>
   </div>
 
-  <div id="charts" class="tab-pane">
+  <div id="analysis" class="tab-pane">
     <h2>Statistics</h2>
     <hr>
     <h3>Averages</h3>
@@ -70,6 +70,6 @@
 
     <h2>Charts</h2>
     <hr>
-    <div id="container" style="width:100%; height:400px;"></div> 
+    <div id="weight-plot" style="width:100%; height:400px;"></div>
   </div>
 </div>

@@ -1,5 +1,5 @@
-document.addEventListener('DOMContentLoaded', function () {
-    Highcharts.chart('container', {
+function renderWeightPlot() {
+    Highcharts.chart('weight-plot', {
         chart: {
             type: 'scatter',
             zoomType: 'xy'
@@ -47,5 +47,5 @@ document.addEventListener('DOMContentLoaded', function () {
             color: 'rgba(2, 117, 216, 0.5)',
             data: gon.weight_reports_pounds,
         }]
-    });    
-});
+    });
+}
