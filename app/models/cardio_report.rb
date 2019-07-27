@@ -32,10 +32,6 @@ class CardioReport < ApplicationRecord
     def latest
       ordered_by_recency.last
     end
-
-    def max_calories
-      all.max_by(&:calories).calories
-    end
   end
 
   def duration_time
