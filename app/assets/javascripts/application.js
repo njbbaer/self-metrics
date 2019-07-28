@@ -20,9 +20,6 @@
 //= require popper
 //= require bootstrap-sprockets
 //
-//= require chartkick
-//= require Chart.bundle
-//
 //= require highcharts
 //= require highcharts/highcharts-more
 //
