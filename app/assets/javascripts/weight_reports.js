@@ -38,7 +38,7 @@ function renderWeightPlot() {
                 },
                 tooltip: {
                     headerFormat: '<b>{series.name}</b><br>',
-                    pointFormat: '{point.x} epoch, {point.y} lb'
+                    pointFormat: '{point.x:%m/%d/%y}, {point.y} lb'
                 }
             }
         },
