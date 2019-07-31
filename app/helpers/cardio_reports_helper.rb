@@ -16,7 +16,7 @@ module CardioReportsHelper
   end
 
   def featured_by_speed?(cardio_report)
-    ranking_by_speed_for_distance(cardio_report) <= 3
+    ranking_by_speed_for_distance(cardio_report) <= 1
   end
 
   def featured?(cardio_report)
