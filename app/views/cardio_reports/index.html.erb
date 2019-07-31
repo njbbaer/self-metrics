@@ -34,7 +34,12 @@
     </table>
     <% if featured?(cardio_report) %>
       <footer class="card-footer text-muted">
-        <i>#<%= ranking_by_calories(cardio_report) %> most calories burned</i>
+        <% if featured_by_speed?(cardio_report) %>
+          <i>#<%= ranking_by_speed_for_distance(cardio_report) %> fastest speed for this distance</i><br>
+        <% end %>
+        <% if featured_by_calories?(cardio_report) %>
+          <i>#<%= ranking_by_calories(cardio_report) %> most calories burned</i>
+        <% end %>
       </footer>
     <% end %>
   </div>

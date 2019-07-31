@@ -23,6 +23,7 @@ class CardioReport < ApplicationRecord
 
   scope :ordered_by_recency, -> { order(datestamp: :asc) }
   scope :sorted_by_calories, -> { sort_by(&:calories).reverse }
+  scope :sorted_by_speed, -> { sort_by(&:speed).reverse }
 
   class << self
     def days_since_latest
@@ -56,7 +57,7 @@ class CardioReport < ApplicationRecord
   end
 
   def calories
-    calc_calories(duration_hours * met)
+    calculate_calories(duration_hours * met)
   end
 
   private
@@ -66,6 +67,6 @@ class CardioReport < ApplicationRecord
   end
 end
 
-def calc_calories(met_hours)
+def calculate_calories(met_hours)
   met_hours * 180 / 2.205
 end
