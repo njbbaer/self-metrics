@@ -2,11 +2,11 @@
 
 module CardioReportsHelper
   def ranking_by_calories(cardio_report)
-    sorted_by_calories.pluck(:id).index(cardio_report.id) + 1
+    @sorted_by_calories.pluck(:id).index(cardio_report.id) + 1
   end
 
   def ranking_by_speed_for_distance(cardio_report)
-    sorted_by_speed.select do |cardio| 
+    @sorted_by_speed.select do |cardio| 
       cardio[:distance_miles] >= cardio_report.distance_miles
     end.pluck(:id).index(cardio_report.id) + 1
   end
@@ -23,11 +23,10 @@ module CardioReportsHelper
     featured_by_calories?(cardio_report) || featured_by_speed?(cardio_report)
   end
 
-  def sorted_by_calories
-    @sorted_by_calories ||= CardioReport.sorted_by_calories
-  end
-
-  def sorted_by_speed
-    @sorted_by_speed ||= CardioReport.sorted_by_speed
+  def days_since_previous(cardio_report)
+    previous_idx = @ordered_by_recency.pluck(:id).index(cardio_report.id) - 1
+    return nil if previous_idx < 0
+    
+    (cardio_report.datestamp - @ordered_by_recency[previous_idx].datestamp).to_i
   end
 end
