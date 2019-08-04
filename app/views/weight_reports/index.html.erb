@@ -1,9 +1,5 @@
 <h1>Weight Reports</h1>
 
-<%= link_to 'New Weight Report', new_weight_report_path, class: "btn btn-outline-primary" %>
-
-<br><br>
-
 <ul class="nav nav-tabs">
   <li class="nav-item">
     <a class="nav-link active" href="#table" data-toggle="tab">Reports</a>
@@ -16,6 +12,9 @@
 
 <div class="tab-content">
   <div id="table" class="tab-pane active show">
+    <%= link_to 'New Weight Report', new_weight_report_path, class: "btn btn-outline-primary" %>
+    <br><br>
+
     <table class="table">
       <thead>
         <tr>
