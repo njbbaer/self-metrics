@@ -57,16 +57,18 @@ class CardioReport < ApplicationRecord
   end
 
   def calories
-    calculate_calories(duration_hours * met)
+    calculate_calories(duration_hours, met)
   end
 
   private
 
   def met
-    speed * 1.5 + 1.2
+    (speed * 26.822 * 0.2 + 3.5) / 3.5
   end
 end
 
-def calculate_calories(met_hours)
+# Exclude resting calories
+def calculate_calories(duration_hours, met)
+  met_hours = duration_hours * (met - 1)
   met_hours * 180 / 2.205
 end
