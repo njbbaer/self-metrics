@@ -27,9 +27,9 @@ class SleepReport < ApplicationRecord
   end
 
   def score
-    duration_component = 0.6 * normalize(duration_seconds, 9.hours)
-    asleep_component   = 0.2 * normalize(asleep_at - ideal_asleep_at, 9.hours, true)
-    wakeup_component   = 0.2 * normalize(wakeup_at - ideal_wakeup_at, 9.hours, true)
+    duration_component = 2 / 3.0 * normalize(duration_seconds, 9.hours)
+    asleep_component   = 1 / 6.0 * normalize(asleep_at - ideal_asleep_at, 9.hours, true)
+    wakeup_component   = 1 / 6.0 * normalize(wakeup_at - ideal_wakeup_at, 9.hours, true)
     (duration_component + asleep_component + wakeup_component) * 100
   end
 
