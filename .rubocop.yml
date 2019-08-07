@@ -1,3 +1,12 @@
 AllCops:
   Exclude:
     - db/schema.rb
+
+Metrics/LineLength:
+  Max: 100
+
+Metrics/AbcSize:
+  Max: 20
+
+Documentation:
+  Enabled: false
