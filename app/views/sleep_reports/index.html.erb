@@ -32,9 +32,9 @@
       </tr>
       <tr>
         <td>Wakeup</td>
-        <td><b><%= sleep_report.wakeup_at.strftime('%I:%M %p')  if sleep_report.complete? %></b></td>
-        <td></td>
-        <td></td>
+        <td><b><%= sleep_report.wakeup_at.strftime('%I:%M %p') if sleep_report.complete? %></b></td>
+        <td>Score: </td>
+        <td><b><%= sleep_report.score.round if sleep_report.complete? %></b></td>
       </tr>
     </table>
   </div>
