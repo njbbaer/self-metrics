@@ -8,8 +8,6 @@ class CardioReportsController < ApplicationController
     @ordered_by_recency = CardioReport.ordered_by_recency
     @sorted_by_calories = CardioReport.sorted_by_calories
     @sorted_by_speed    = CardioReport.sorted_by_speed
-
-    flash_cardio_report_reminder
   end
 
   # GET /cardio_reports/1
