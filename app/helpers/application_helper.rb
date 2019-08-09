@@ -3,10 +3,11 @@
 module ApplicationHelper
   def color_class(level, bg=false)
     case level.to_sym
-    when :notice  then bg ? 'bg-info'    : 'alert-info'
-    when :success then bg ? 'bg-success' : 'alert-success'
-    when :warning then bg ? 'bg-warning' : 'alert-warning'
-    when :danger  then bg ? 'bg-danger'  : 'alert-danger'
+    when :info      then bg ? 'bg-info'      : 'alert-info'
+    when :success   then bg ? 'bg-success'   : 'alert-success'
+    when :warning   then bg ? 'bg-warning'   : 'alert-warning'
+    when :danger    then bg ? 'bg-danger'    : 'alert-danger'
+    when :secondary then bg ? 'bg-secondary' : 'alert-secondary'
     end
   end
 
@@ -30,7 +31,7 @@ module ApplicationHelper
     return if days_since_latest < 3
 
     level = days_since_latest < 7 ? :warning : :danger
-    alert_basic(level, "Your last recorded your weight #{days_since_latest} days ago")
+    alert_basic(level, "You last reported your weight #{days_since_latest} days ago")
   end
 
   def alert_cardio_report_reminder

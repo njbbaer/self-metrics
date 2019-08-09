@@ -27,8 +27,10 @@ class CardioReportsController < ApplicationController
 
     respond_to do |format|
       if @cardio_report.save
+        flash[:success] = 'Great job reporting a run!'
         format.html { redirect_to cardio_reports_path }
       else
+        flash[:danger] = 'Something went wrong'
         format.html { render :new }
       end
     end
@@ -38,9 +40,11 @@ class CardioReportsController < ApplicationController
   def update
     respond_to do |format|
       if @cardio_report.update(cardio_report_params)
+        flash[:secondary] = 'Your cardio report was updated'
         format.html { redirect_to cardio_reports_path }
       else
-        format.html { render :edit }
+        flash[:danger] = 'Something went wrong'
+        format.html { render :edit }\
       end
     end
   end
@@ -49,6 +53,7 @@ class CardioReportsController < ApplicationController
   def destroy
     @cardio_report.destroy
     respond_to do |format|
+      flash[:secondary] = 'Your cardio report was deleted'
       format.html { redirect_to cardio_reports_path }
     end
   end
