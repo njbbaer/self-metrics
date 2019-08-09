@@ -1,5 +1,5 @@
-<p id="alert"><%= alert %></p>
 <h1>Authentication</h1>
+
 <%= bootstrap_form_tag url: login_path do |form| %>
   <%= form.password_field :password, step: :any, hide_label: true %>
   <%= form.submit "Authenticate", class: "btn btn-primary" %>
