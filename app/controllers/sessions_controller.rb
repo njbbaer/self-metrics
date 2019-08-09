@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       cookies.encrypted.permanent[:password] = Rails.configuration.password
       redirect_to root_path
     else
-      flash[:error] = 'Password is invalid'
+      flash[:danger] = 'Password is invalid'
       redirect_to login_path
     end
   end

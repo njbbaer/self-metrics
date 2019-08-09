@@ -17,10 +17,9 @@
   <body>
     <%= render "layouts/banner" unless Rails.env == "production" %>
     <%= render "layouts/header" %>
+    <%= render "layouts/flash" %>
 
     <div class="container">
-      <%= render "layouts/flash" %>
-
       <%= yield %>
     </div>
   </body>

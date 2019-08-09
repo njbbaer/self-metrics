@@ -1,10 +1,7 @@
-<% flash.each do |key, messages| %>
-  <% if messages.instance_of? String %>
-    <div class="<%= alert_class(key) %>"><%= messages %></div>
-  <% elsif messages.instance_of? Array %>
-    <% messages.each do |value| %>
-      <div class="<%= alert_class(key) %>"><%= value %></div>
-    <% end %>
-  <% end %>
+<% flash.each do |level, message| %>
+  <nav class="navbar navbar-light text-white <%= color_class(level, true) %>">
+    <p style="width: 100%; text-align: center; margin: 0 0 0 0"><%= message %></p>
+  </nav>
 <% end %>
 <% flash.clear %>
+<br>

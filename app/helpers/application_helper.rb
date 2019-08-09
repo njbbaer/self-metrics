@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
 module ApplicationHelper
-  def alert_class(level)
-    case level
-    when :notice  then 'alert alert-info'
-    when :success then 'alert alert-success'
-    when :danger  then 'alert alert-danger'
-    when :warning then 'alert alert-warning'
+  def color_class(level, bg=false)
+    case level.to_sym
+    when :notice  then bg ? 'bg-info'    : 'alert-info'
+    when :success then bg ? 'bg-success' : 'alert-success'
+    when :warning then bg ? 'bg-warning' : 'alert-warning'
+    when :danger  then bg ? 'bg-danger'  : 'alert-danger'
     end
   end
 
@@ -22,7 +22,7 @@ module ApplicationHelper
   end
 
   def alert_basic(level, text)
-    "<div class='alert #{alert_class(level)}'>#{text}</div>".html_safe
+    "<div class='alert #{color_class(level)}'>#{text}</div>".html_safe
   end
 
   def alert_weight_report_reminder

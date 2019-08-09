@@ -30,7 +30,7 @@ module CardioReportsHelper
     (cardio_report.datestamp - @ordered_by_recency[previous_idx].datestamp).to_i
   end
 
-  def color_class(sleep_report)
+  def sleep_color_class(sleep_report)
     return 'alert-dark' unless sleep_report.complete?
 
     case sleep_report.score.round
