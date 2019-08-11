@@ -52,15 +52,20 @@ class SleepReportsController < ApplicationController
 
   # POST /start
   def start
-    SleepReport.create!(asleep_at: Time.now)
-    flash[:success] = 'Good night!'
+    sleep_report = SleepReport.create!(asleep_at: Time.now)
+
+    time_string = sleep_report.asleep_at.strftime('%-I:%M %p')
+    flash[:success] = "Goodnight! It's #{time_string}."
     redirect_to sleep_reports_path
   end
 
   # PATCH /stop
   def stop
-    SleepReport.latest.update!(wakeup_at: Time.now)
-    flash[:success] = 'Good morning!'
+    sleep_report = SleepReport.latest
+    sleep_report.update!(wakeup_at: Time.now)
+
+    duration_string = sleep_report.strf_duration('%-H hours %-M minutes')
+    flash[:success] = "Goodmorning! You slept for #{duration_string}."
     redirect_to sleep_reports_path
   end
 

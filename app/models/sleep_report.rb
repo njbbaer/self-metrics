@@ -49,6 +49,10 @@ class SleepReport < ApplicationRecord
     wakeup_at.change(hour: 7, min: 0, sec: 0)
   end
 
+  def strf_duration(code)
+    Time.at(duration_seconds).utc.strftime(code)
+  end
+
   private
 
   def valid_duration_seconds
