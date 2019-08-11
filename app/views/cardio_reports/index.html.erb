@@ -36,12 +36,14 @@
     </table>
     <% if featured?(cardio_report) %>
       <footer class="card-footer text-muted">
-        <% if featured_by_calories?(cardio_report) %>
-          <i>#<%= ranking_by_calories(cardio_report) %> most calories burned</i>
-        <% end %>
-        <% if featured_by_speed?(cardio_report) %>
-          <br><i>Fastest <%= '%.1f' % cardio_report.distance_miles %> miles</i>
-        <% end %>
+        <ul style="margin-bottom: 0; padding-left: 16px">
+          <% if featured_by_calories?(cardio_report) %>
+            <li>#<%= ranking_by_calories(cardio_report) %> most calories burned</li>
+          <% end %>
+          <% if featured_by_speed?(cardio_report) %>
+            <li>Fastest <%= '%.1f' % cardio_report.distance_miles %> miles</li>
+          <% end %>
+        </ul>
       </footer>
     <% end %>
   </div>
