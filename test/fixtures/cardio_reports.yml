@@ -14,13 +14,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  datestamp: 2019-03-31
-  duration_seconds: 1
-  distance_miles: 1.5
+  datestamp: 2019-03-30
+  duration_seconds: 1200
+  distance_miles: 2
   treadmill: false
 
 two:
   datestamp: 2019-03-31
-  duration_seconds: 1
-  distance_miles: 1.5
-  treadmill: false
+  duration_seconds: 1500
+  distance_miles: 2.5
+  treadmill: true
