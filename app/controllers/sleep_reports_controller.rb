@@ -25,8 +25,10 @@ class SleepReportsController < ApplicationController
 
     respond_to do |format|
       if @sleep_report.save
+        flash[:success] = 'Your sleep report was created'
         format.html { redirect_to sleep_reports_path }
       else
+        flash[:danger] = 'Something went wrong'
         format.html { render :new }
       end
     end
@@ -36,8 +38,10 @@ class SleepReportsController < ApplicationController
   def update
     respond_to do |format|
       if @sleep_report.update(sleep_report_params)
+        flash[:info] = 'Your sleep report was updated'
         format.html { redirect_to sleep_reports_path }
       else
+        flash[:danger] = 'Something went wrong'
         format.html { render :edit }
       end
     end
@@ -47,6 +51,7 @@ class SleepReportsController < ApplicationController
   def destroy
     @sleep_report.destroy
     respond_to do |format|
+      flash[:info] = 'Your sleep report was deleted'
       format.html { redirect_to sleep_reports_path }
     end
   end
@@ -54,12 +59,14 @@ class SleepReportsController < ApplicationController
   # POST /start
   def start
     SleepReport.create!(asleep_at: Time.now)
+    flash[:success] = 'Good night!'
     redirect_to sleep_reports_path
   end
 
   # PATCH /stop
   def stop
     SleepReport.latest.update!(wakeup_at: Time.now)
+    flash[:success] = 'Good morning!'
     redirect_to sleep_reports_path
   end
 
