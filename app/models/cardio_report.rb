@@ -44,12 +44,14 @@ class CardioReport < ApplicationRecord
   end
 
   def calculate_multipart_duration
-    return if duration_seconds_changed?
-
-    self.duration_seconds =
-      part_hours.to_i * 3600 +
-      part_minutes.to_i * 60 +
-      part_seconds.to_i
+    if part_hours.present? &&
+       part_minutes.present? &&
+       part_seconds.present?
+      self.duration_seconds =
+        part_hours.to_i * 3600 +
+        part_minutes.to_i * 60 +
+        part_seconds.to_i
+    end
   end
 
   def speed

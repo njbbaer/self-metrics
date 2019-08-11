@@ -52,7 +52,7 @@ class CardioReportsControllerTest < ActionDispatch::IntegrationTest
         datestamp: @cardio_report.datestamp
       }
     }
-    assert_response :success
+    assert_redirected_to cardio_reports_path
   end
 
   test 'should destroy cardio_report' do
