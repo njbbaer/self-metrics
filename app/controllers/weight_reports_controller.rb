@@ -27,12 +27,9 @@ class WeightReportsController < ApplicationController
     @weight_report = WeightReport.new(weight_report_params)
 
     respond_to do |format|
-      if @weight_report.save
+      if @weight_report.save!
         flash[:success] = 'Thanks for reporting your weight'
         format.html { redirect_to weight_reports_path }
-      else
-        flash[:danger] = 'Something went wrong'
-        format.html { render :new }
       end
     end
   end
@@ -40,12 +37,9 @@ class WeightReportsController < ApplicationController
   # PATCH/PUT /weight_reports/1
   def update
     respond_to do |format|
-      if @weight_report.update(weight_report_params)
+      if @weight_report.update!(weight_report_params)
         flash[:info] = 'Your weight report was updated'
         format.html { redirect_to weight_reports_path }
-      else
-        flash[:danger] = 'Something went wrong'
-        format.html { render :edit }
       end
     end
   end

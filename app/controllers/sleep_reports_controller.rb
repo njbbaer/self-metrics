@@ -24,12 +24,9 @@ class SleepReportsController < ApplicationController
     @sleep_report = SleepReport.new(sleep_report_params)
 
     respond_to do |format|
-      if @sleep_report.save
+      if @sleep_report.save!
         flash[:success] = 'Your sleep report was created'
         format.html { redirect_to sleep_reports_path }
-      else
-        flash[:danger] = 'Something went wrong'
-        format.html { render :new }
       end
     end
   end
@@ -37,13 +34,9 @@ class SleepReportsController < ApplicationController
   # PATCH/PUT /sleep_reports/1
   def update
     respond_to do |format|
-      if @sleep_report.update(sleep_report_params)
+      if @sleep_report.update!(sleep_report_params)
         flash[:info] = 'Your sleep report was updated'
         format.html { redirect_to sleep_reports_path }
-      else
-        flash[:danger] = 'Something went wrong'
-        format.html { render :edit }
-      end
     end
   end
 

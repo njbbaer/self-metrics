@@ -26,12 +26,9 @@ class CardioReportsController < ApplicationController
     @cardio_report = CardioReport.new(cardio_report_params)
 
     respond_to do |format|
-      if @cardio_report.save
+      if @cardio_report.save!
         flash[:success] = 'Great job going for a run!'
         format.html { redirect_to cardio_reports_path }
-      else
-        flash[:danger] = 'Something went wrong'
-        format.html { render :new }
       end
     end
   end
@@ -39,12 +36,9 @@ class CardioReportsController < ApplicationController
   # PATCH/PUT /cardio_reports/1
   def update
     respond_to do |format|
-      if @cardio_report.update(cardio_report_params)
+      if @cardio_report.update!(cardio_report_params)
         flash[:info] = 'Your cardio report was updated'
         format.html { redirect_to cardio_reports_path }
-      else
-        flash[:danger] = 'Something went wrong'
-        format.html { render :edit }\
       end
     end
   end
