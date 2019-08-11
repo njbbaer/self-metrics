@@ -37,6 +37,7 @@ class SleepReportsController < ApplicationController
       if @sleep_report.update!(sleep_report_params)
         flash[:info] = 'Your sleep report was updated'
         format.html { redirect_to sleep_reports_path }
+      end
     end
   end
 
