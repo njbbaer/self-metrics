@@ -8,6 +8,7 @@ class SessionsController < ApplicationController
   def create
     if params[:password] == Rails.configuration.password
       cookies.encrypted.permanent[:password] = Rails.configuration.password
+      flash[:success] = 'Welcome, you\'ve been authenticated'
       redirect_to root_path
     else
       flash[:danger] = 'Password is invalid'
