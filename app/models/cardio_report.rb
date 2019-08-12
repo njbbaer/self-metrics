@@ -63,6 +63,10 @@ class CardioReport < ApplicationRecord
     duration_hours * (met - 1) * 180 / 2.205
   end
 
+  def date
+    datestamp
+  end
+
   private
 
   def met

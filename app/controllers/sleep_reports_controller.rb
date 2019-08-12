@@ -6,6 +6,7 @@ class SleepReportsController < ApplicationController
   # GET /sleep_reports
   def index
     @sleep_reports = SleepReport.all
+    @ordered_by_recency = SleepReport.ordered_by_recency
   end
 
   # GET /sleep_reports/1

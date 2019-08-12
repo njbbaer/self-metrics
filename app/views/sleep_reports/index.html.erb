@@ -39,4 +39,10 @@
     </table>
   </div>
   <br>
+  <% if (days_since_previous(sleep_report) || 0) >= 2 %>
+    <div class="card alert-dark" style="text-align:center">
+      <h5 style="margin: 0.5rem 0 0.5rem 0"><b><%= days_since_previous(sleep_report) - 1%></b> days</h5>
+    </div>
+    <br>
+  <% end %>
 <% end %>

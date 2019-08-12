@@ -23,13 +23,6 @@ module CardioReportsHelper
     featured_by_calories?(cardio_report) || featured_by_speed?(cardio_report)
   end
 
-  def days_since_previous(cardio_report)
-    previous_idx = @ordered_by_recency.pluck(:id).index(cardio_report.id) - 1
-    return nil if previous_idx.negative?
-
-    (cardio_report.datestamp - @ordered_by_recency[previous_idx].datestamp).to_i
-  end
-
   def sleep_color_class(sleep_report)
     return 'alert-dark' unless sleep_report.complete?
 

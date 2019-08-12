@@ -41,4 +41,11 @@ module ApplicationHelper
     level = days_since_latest < 7 ? :warning : :danger
     alert_basic(level, "You last went running #{days_since_latest} days ago")
   end
+
+  def days_since_previous(report)
+    previous_idx = @ordered_by_recency.pluck(:id).index(report.id) - 1
+    return nil if previous_idx.negative?
+
+    (report.date - @ordered_by_recency[previous_idx].date).to_i
+  end
 end
