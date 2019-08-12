@@ -8,6 +8,7 @@ module ApplicationHelper
     when :warning   then bg ? 'bg-warning'   : 'alert-warning'
     when :danger    then bg ? 'bg-danger'    : 'alert-danger'
     when :secondary then bg ? 'bg-secondary' : 'alert-secondary'
+    when :dark      then bg ? 'bg-dark'      : 'alert-dark'
     end
   end
 
