@@ -10,7 +10,7 @@
   <div class="card">
     <div class="card-header <%= 'alert-success' if featured?(cardio_report) %>">
       <%= cardio_report.datestamp.strftime('%a, %b %d, %Y') %>
-      <div style="float:right;">
+      <div class="float-right">
         <%= link_to edit_cardio_report_path(cardio_report) do %>
           <%= octicon "pencil", :height => 16 %>
         <% end %>
@@ -20,7 +20,7 @@
         <% end %>
       </div>
     </div>
-    <table class="table" style="margin-bottom: 0; table-layout:fixed">
+    <table class="table">
       <tr>
         <td>Duration</td>
         <td><b><%= cardio_report.duration_time.strftime('%M:%S') %></b></td>

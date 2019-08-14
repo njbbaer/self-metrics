@@ -13,7 +13,7 @@
   <div class="card">
     <div class="card-header <%= sleep_color_class(sleep_report) %>">
       <%= sleep_report.date.strftime('%a, %b %d, %Y') %>
-      <div style="float:right;">
+      <div class="float-right">
         <%= link_to edit_sleep_report_path(sleep_report) do %>
           <%= octicon "pencil", :height => 16 %>
         <% end %>
@@ -23,7 +23,7 @@
         <% end %>
       </div>
     </div>
-    <table class="table" style="margin-bottom: 0; table-layout:fixed">
+    <table class="table">
       <tr>
         <td>Asleep</td>
         <td><b><%= sleep_report.asleep_at.strftime('%I:%M %p') %></b></td>
