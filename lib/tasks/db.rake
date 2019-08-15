@@ -1,6 +1,6 @@
 namespace :db do
-  desc "Synchronize local database with production"
-  task sync: :environment do
+  desc 'Replaces the local database with a copy downloaded from production'
+  task pull: :environment do
     sh 'rm -f latest.dump'
     sh 'heroku pg:backups:capture'
     sh 'heroku pg:backups:download'
