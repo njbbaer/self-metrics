@@ -33,6 +33,11 @@ class SleepReport < ApplicationRecord
     (duration_component + asleep_component + wakeup_component) * 100
   end
 
+  def score_grade
+    grades = %w[F F F F F F F F F F F F F F F F F F D- D D+ C- C C+ B- B B+ A- A A+ A+]
+    grades[(3.0 * score / 10).floor]
+  end
+
   def complete?
     wakeup_at.present?
   end
