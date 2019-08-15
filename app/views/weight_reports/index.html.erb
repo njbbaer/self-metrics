@@ -49,21 +49,21 @@
   <div id="analysis" class="tab-pane">
     <h2>Averages</h2>
     <div class="card">
-      <table class="table">
+      <table class="table text-center">
         <thead>
           <tr>
-            <th class="text-center"><b>1-week</b></h5></th>
-            <th class="text-center"><b>1-month</b></h5></th>
-            <th class="text-center"><b>3-months</b></h5></th>
-            <th class="text-center"><b>1-year</b></h5></th>
+            <th><b>1-week</b></h5></th>
+            <th><b>1-month</b></h5></th>
+            <th><b>3-months</b></h5></th>
+            <th><b>1-year</b></h5></th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td class="text-center"><h4><%= current_average_weight(days=7) %></h4></td>
-            <td class="text-center"><h4><%= current_average_weight(days=30) %></h4></td>
-            <td class="text-center"><h4><%= current_average_weight(days=91) %></h4></td>
-            <td class="text-center"><h4><%= current_average_weight(days=365) %></h4></td>
+            <td><h4><%= current_average_weight(days=7) %></h4></td>
+            <td><h4><%= current_average_weight(days=30) %></h4></td>
+            <td><h4><%= current_average_weight(days=91) %></h4></td>
+            <td><h4><%= current_average_weight(days=365) %></h4></td>
           </tr>
         </tbody>
       </table>
@@ -72,6 +72,6 @@
 
     <h2>Chart</h2>
     <hr>
-    <div id="weight-plot" style="width:100%; height:400px;"></div>
+    <div id="weight-plot"></div>
   </div>
 </div>

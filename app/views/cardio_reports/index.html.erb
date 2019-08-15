@@ -36,7 +36,7 @@
     </table>
     <% if featured?(cardio_report) %>
       <footer class="card-footer text-muted">
-        <ul style="margin-bottom: 0; padding-left: 16px">
+        <ul>
           <% if featured_by_calories?(cardio_report) %>
             <li>#<%= ranking_by_calories(cardio_report) %> most calories burned</li>
           <% end %>
@@ -49,8 +49,8 @@
   </div>
   <br>
   <% if (days_since_previous(cardio_report) || 0) >= 7 %>
-    <div class="card <%= days_since_previous(cardio_report) < 30 ? 'alert-warning' : 'alert-danger' %>" style="text-align:center">
-      <h5 style="margin: 0.5rem 0 0.5rem 0"><b><%= days_since_previous(cardio_report) %></b> days</h5>
+    <div class="card card-banner <%= days_since_previous(cardio_report) < 30 ? 'alert-warning' : 'alert-danger' %>">
+      <p><b><%= days_since_previous(cardio_report) %></b> days</p>
     </div>
     <br>
   <% end %>
