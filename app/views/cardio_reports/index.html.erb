@@ -38,10 +38,10 @@
       <footer class="card-footer text-muted">
         <ul>
           <% if featured_by_calories?(cardio_report) %>
-            <li>#<%= ranking_by_calories(cardio_report) %> most calories burned</li>
+            <li>&#9733; #<%= ranking_by_calories(cardio_report) %> most calories burned</li>
           <% end %>
           <% if featured_by_speed?(cardio_report) %>
-            <li>Fastest <%= '%.1f' % cardio_report.distance_miles %> miles</li>
+            <li>&#9733; Fastest <%= '%.1f' % cardio_report.distance_miles %> miles</li>
           <% end %>
         </ul>
       </footer>
