@@ -24,3 +24,9 @@
 //= require highcharts/highcharts-more
 //
 //= require_tree .
+
+$('document').ready(function() {
+  setTimeout(function() {
+    $('#flashbar').slideUp();
+  }, 3000);
+});
