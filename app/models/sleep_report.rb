@@ -35,7 +35,7 @@ class SleepReport < ApplicationRecord
 
   def score_grade
     grades = %w[F F F F F F F F F F F F F F F F F F D- D D+ C- C C+ B- B B+ A- A A+ A+]
-    grades[(3.0 * score / 10).floor]
+    grades[(3.0 * score.round / 10).floor]
   end
 
   def complete?

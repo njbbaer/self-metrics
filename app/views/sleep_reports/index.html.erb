@@ -37,7 +37,7 @@
         <td>
           <% if sleep_report.complete? %>
             <b><%= sleep_report.score_grade %></b>
-            (<%= sleep_report.score.floor %>%)
+            (<%= sleep_report.score.round %>%)
           <% end %>
         </td>
       </tr>
