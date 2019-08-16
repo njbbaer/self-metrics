@@ -9,20 +9,26 @@
 <% @ordered_by_recency.reverse.each do |cardio_report| %>
   <div class="card">
     <div class="card-header <%= 'alert-success' if featured?(cardio_report) %>">
-      <%= cardio_report.datestamp.strftime('%a, %b %d, %Y') %>
-      <% if cardio_report.treadmill? %>
-        &nbsp<span class="badge badge-light"><%= image_tag("icons8-treadmill-30.png", size:"15x15", title: "Treadmill") %></span>
-      <% else %>
-        &nbsp<span class="badge badge-light"><%= image_tag("icons8-sun-30.png", size:"15x15",  title: "Outdoors") %></span>
-      <% end %>
-      <div class="float-right">
-        <%= link_to edit_cardio_report_path(cardio_report) do %>
-          <%= octicon "pencil", :height => 16 %>
-        <% end %>
-        &nbsp;&nbsp;
-        <%= link_to cardio_report, method: :delete, data: { confirm: 'Are you sure?' } do %>
-          <%= octicon "trashcan", :height => 16 %>
-        <% end %>
+      <div class="row">
+        <div class="col text-left">
+          <% if cardio_report.treadmill? %>
+            &nbsp<span class="badge badge-light "><%= image_tag("icons8-treadmill-30.png", size:"15x15", title: "Treadmill") %></span>
+          <% else %>
+            &nbsp<span class="badge badge-light"><%= image_tag("icons8-sun-30.png", size:"15x15",  title: "Outdoors") %></span>
+          <% end %>
+        </div>
+        <div class="col-7 text-center">
+          <%= cardio_report.datestamp.strftime('%a, %b %d, %Y') %>
+        </div>
+        <div class="col text-right">
+          <%= link_to edit_cardio_report_path(cardio_report) do %>
+            <%= octicon "pencil", :height => 16 %>
+          <% end %>
+          &nbsp;&nbsp;
+          <%= link_to cardio_report, method: :delete, data: { confirm: 'Are you sure?' } do %>
+            <%= octicon "trashcan", :height => 16 %>
+          <% end %>
+        </div>
       </div>
     </div>
     <table class="table">
