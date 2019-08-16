@@ -12,15 +12,22 @@
 <% @sleep_reports.ordered_by_recency.reverse.each do |sleep_report| %>
   <div class="card">
     <div class="card-header <%= sleep_color_class(sleep_report) %>">
-      <%= sleep_report.date.strftime('%a, %b %d, %Y') %>
-      <div class="float-right">
-        <%= link_to edit_sleep_report_path(sleep_report) do %>
-          <%= octicon "pencil", :height => 16 %>
-        <% end %>
-        &nbsp;&nbsp;
-        <%= link_to sleep_report, method: :delete, data: { confirm: 'Are you sure?' } do %>
-          <%= octicon "trashcan", :height => 16 %>
-        <% end %>
+      <div class="row">
+        <div class="col text-left">
+          &nbsp<span class="badge badge-light "><%= sleep_report.score_grade %></span>
+        </div>
+        <div class="col-7 text-center">
+          <%= sleep_report.date.strftime('%a, %b %d, %Y') %>
+        </div>
+        <div class="col text-right">
+          <%= link_to edit_sleep_report_path(sleep_report) do %>
+            <%= octicon "pencil", :height => 16 %>
+          <% end %>
+          &nbsp;&nbsp;
+          <%= link_to sleep_report, method: :delete, data: { confirm: 'Are you sure?' } do %>
+            <%= octicon "trashcan", :height => 16 %>
+          <% end %>
+        </div>
       </div>
     </div>
     <table class="table">
@@ -36,8 +43,7 @@
         <td>Score: </td>
         <td>
           <% if sleep_report.complete? %>
-            <b><%= sleep_report.score_grade %></b>
-            (<%= sleep_report.score.round %>%)
+            <b><%= sleep_report.score.round %>%</b>
           <% end %>
         </td>
       </tr>
