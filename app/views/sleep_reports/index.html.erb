@@ -14,7 +14,9 @@
     <div class="card-header <%= sleep_color_class(sleep_report) %>">
       <div class="row">
         <div class="col text-left">
-          &nbsp<span class="badge badge-light "><%= sleep_report.score_grade %></span>
+          <% if sleep_report.complete? %>
+            &nbsp<span class="badge badge-light "><%= sleep_report.score_grade %></span>
+          <% end %>
         </div>
         <div class="col-7 text-center">
           <%= sleep_report.date.strftime('%a, %b %d, %Y') %>
