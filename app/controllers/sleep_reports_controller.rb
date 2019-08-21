@@ -56,7 +56,7 @@ class SleepReportsController < ApplicationController
     sleep_report = SleepReport.create!(asleep_at: Time.now)
 
     time_string = sleep_report.asleep_at.strftime('%-I:%M %p')
-    flash[:success] = "Goodnight! It's #{time_string}."
+    flash[:info] = "Goodnight! It's #{time_string}."
     redirect_to sleep_reports_path
   end
 
