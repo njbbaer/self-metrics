@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module ApplicationHelper
-  def color_class(level, bg=false)
+  def color_class(level, bg = false)
     case level.to_sym
     when :info      then bg ? 'bg-info'      : 'alert-info'
     when :success   then bg ? 'bg-success'   : 'alert-success'

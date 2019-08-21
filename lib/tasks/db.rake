@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 namespace :db do
   desc 'Replaces the local database with a copy downloaded from production'
   task pull: :environment do

@@ -18,7 +18,7 @@ gem 'uglifier'
 # Makes navigating your web application faster
 gem 'turbolinks'
 # Reduces boot times through caching; required in config/boot.rb
-gem 'bootsnap',  require: false
+gem 'bootsnap', require: false
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 # Includes the Boostrap front-end framework
@@ -43,7 +43,7 @@ group :development do
   gem 'listen'
   # Speeds up development by keeping  application running in the background
   gem 'spring'
-  # Makes Spring watch the filesystem for changes using Listen 
+  # Makes Spring watch the filesystem for changes using Listen
   gem 'spring-watcher-listen'
   # Annotate Rails classes with schema and routes info
   gem 'annotate'
