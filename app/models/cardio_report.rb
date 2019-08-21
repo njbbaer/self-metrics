@@ -24,7 +24,7 @@ class CardioReport < ApplicationRecord
 
   scope :ordered_by_recency, -> { order(datestamp: :asc) }
   scope :sorted_by_calories, -> { sort_by(&:calories).reverse }
-  scope :sorted_by_speed, -> { sort_by { |c| [-c.speed, -c.distance_miles] } }
+  scope :sorted_by_speed, -> { sort_by { |c| [-c.speed.round(1), -c.distance_miles] } }
 
   class << self
     def days_since_latest
