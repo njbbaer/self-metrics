@@ -28,5 +28,5 @@
 $('document').ready(function() {
   setTimeout(function() {
     $('#flashbar').slideUp();
-  }, 3000);
+  }, 5000);
 });
