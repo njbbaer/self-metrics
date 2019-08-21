@@ -49,4 +49,10 @@ module ApplicationHelper
 
     (report.date - @ordered_by_recency[previous_idx].date).to_i
   end
+
+  def nonprod_text
+    return if Rails.env == 'production'
+
+    " ― #{Rails.env.capitalize}"
+  end
 end
