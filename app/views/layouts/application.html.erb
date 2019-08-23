@@ -23,7 +23,9 @@
     <br>
 
     <div id="header-spacer"></div>
-    <div id="dev-banner-spacer"></div>
+    <% unless production? %>
+      <div id="dev-banner-spacer"></div>
+    <% end %>
     <div class="container">
       <%= yield %>
     </div>
