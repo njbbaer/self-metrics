@@ -50,9 +50,11 @@ module ApplicationHelper
     (report.date - @ordered_by_recency[previous_idx].date).to_i
   end
 
-  def nonprod_text
-    return if Rails.env == 'production'
+  def dev_banner_text_html
+    "<p><i>#{Rails.env.capitalize} Environment</i></p>".html_safe
+  end
 
-    " ― #{Rails.env.capitalize}"
+  def production?
+    Rails.env == 'production'
   end
 end
