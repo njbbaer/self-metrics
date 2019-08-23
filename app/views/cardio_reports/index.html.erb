@@ -61,7 +61,7 @@
   <br>
   <% if (days_since_previous(cardio_report) || 0) >= 7 %>
     <div class="card card-banner <%= days_since_previous(cardio_report) < 30 ? 'alert-warning' : 'alert-danger' %>">
-      <p><b><%= days_since_previous(cardio_report) %></b> days</p>
+      <p>No runs <b><%= days_since_previous(cardio_report) %></b> days</p>
     </div>
     <br>
   <% end %>

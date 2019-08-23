@@ -51,7 +51,7 @@ module ApplicationHelper
   end
 
   def dev_banner_text_html
-    "<p><i>#{Rails.env.capitalize} Environment</i></p>".html_safe
+    "<p><i>#{Rails.env.capitalize} environment</i></p>".html_safe
   end
 
   def production?
