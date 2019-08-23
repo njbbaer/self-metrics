@@ -15,9 +15,11 @@
   </head>
 
   <body>
-    <%= render "layouts/dev_banner" unless production? %>
-    <%= render "layouts/header" %>
-    <%= render "layouts/flash" %>
+    <div class='fixed-top'>
+      <%= render "layouts/dev_banner" unless production? %>
+      <%= render "layouts/header" %>
+      <%= render "layouts/flash" %>
+    </div>
 
     <div class="container">
       <%= yield %>
