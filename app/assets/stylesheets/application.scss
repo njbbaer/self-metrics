@@ -60,11 +60,15 @@
   background-color: rgba(0, 0, 0, .03)
 }
 
-.container {
-  padding-top: 119px; // Navbar height
-}
-
 #weight-plot {
   width: 100%;
   height: 400px;
+}
+
+#header-spacer {
+  height: 56px
+}
+
+#dev-banner-spacer {
+  height: 40px
 }
