@@ -22,14 +22,4 @@ module CardioReportsHelper
   def featured?(cardio_report)
     featured_by_calories?(cardio_report) || featured_by_speed?(cardio_report)
   end
-
-  def sleep_color_class(sleep_report)
-    return 'alert-dark' unless sleep_report.complete?
-
-    case sleep_report.score.round
-    when 90..100 then 'alert-success'
-    when 70..79  then 'alert-warning'
-    when 0..69   then 'alert-danger'
-    end
-  end
 end
