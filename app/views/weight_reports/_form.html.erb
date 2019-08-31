@@ -1,14 +1,14 @@
 <%= form_for @weight_report do |form| %>
   <label>Date</label>
   <div class="row">
-    <div class="input-group mb-3 col-lg-4 input-group-lg">
+    <div class="input-group mb-3 col-lg-4 input-group">
       <%= date_field(:weight_report, :datestamp, class: "form-control") %>
     </div>
   </div>
 
   <label>Weight</label>
   <div class="row">
-    <div class="input-group mb-3 col-lg-4 input-group-lg">
+    <div class="input-group mb-3 col-lg-4 input-group">
       <%= number_field(:weight_report, :weight_pounds, class: "form-control") %>
       <div class="input-group-append">
         <span class="input-group-text">pounds</span>
@@ -17,6 +17,6 @@
   </div>
 
   <hr>
-  <button type="submit" class="btn btn-primary btn-lg">Submit</button>&nbsp;&nbsp;
-  <%= link_to "Back", weight_reports_path, class: "btn btn-outline-secondary btn-lg" %>
+  <button type="submit" class="btn btn-primary btn">Submit</button>&nbsp;&nbsp;
+  <%= link_to "Back", weight_reports_path, class: "btn btn-outline-secondary btn" %>
 <% end %>
