@@ -1,5 +1,16 @@
 <%= bootstrap_form_with(model: weight_report, local: true) do |form| %>
   <%= form.date_select :datestamp, label: "Date" %>
-  <%= form.number_field :weight_pounds, step: :any %>
+  <%# form.number_field :weight_pounds, step: :any, style: "width: 100px" %>
+
+  <label>Weight</label>
+  <div class="row">
+    <div class="input-group mb-3 col-md-4 input-group-lg">
+      <input name="weight_report[weight_pounds]" type="number" class="form-control">
+      <div class="input-group-append">
+        <span class="input-group-text">pounds</span>
+      </div>
+    </div>
+  </div>
+
   <%= form.submit class: "btn btn-primary" %>
 <% end %>
