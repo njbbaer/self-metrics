@@ -9,7 +9,7 @@
   <label>Weight</label>
   <div class="row">
     <div class="input-group mb-3 col-lg-4 input-group">
-      <%= number_field(:weight_report, :weight_pounds, class: "form-control") %>
+      <%= number_field(:weight_report, :weight_pounds, step: 0.1, class: "form-control") %>
       <div class="input-group-append">
         <span class="input-group-text">pounds</span>
       </div>
