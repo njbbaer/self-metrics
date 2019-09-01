@@ -1,5 +1,19 @@
-<%= bootstrap_form_with(model: sleep_report, local: true) do |form| %>
-  <%= form.datetime_select :asleep_at, ampm: true, include_blank: true %>
-  <%= form.datetime_select :wakeup_at, ampm: true, include_blank: true %>
-  <%= form.submit class: "btn btn-primary" %>
+<%= form_for @sleep_report do |form| %>
+  <label>Alseep at</label>
+  <div class="row">
+    <div class="input-group mb-3 col-lg-4 input-group">
+      <%= datetime_field(:sleep_report, :asleep_at, class: "form-control") %>
+    </div>
+  </div>
+
+  <label>Wakeup at</label>
+  <div class="row">
+    <div class="input-group mb-3 col-lg-4 input-group">
+      <%= datetime_field(:sleep_report, :wakeup_at, class: "form-control") %>
+    </div>
+  </div>
+
+  <hr>
+  <button type="submit" class="btn btn-primary btn">Submit</button>&nbsp;&nbsp;
+  <%= link_to "Back", sleep_reports_path, class: "btn btn-outline-secondary btn" %>
 <% end %>
