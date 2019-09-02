@@ -151,6 +151,8 @@ GEM
     puma (4.1.0)
       nio4r (~> 2.0)
     rack (2.0.7)
+    rack-mini-profiler (1.0.2)
+      rack (>= 1.2.0)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rails (6.0.0)
@@ -264,6 +266,7 @@ DEPENDENCIES
   octicons_helper
   pg
   puma
+  rack-mini-profiler
   rails (~> 6.0.0)
   rubocop
   sass-rails
