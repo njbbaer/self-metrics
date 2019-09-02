@@ -17,12 +17,14 @@ class WeightReport < ApplicationRecord
 
   scope :ordered_by_recency, -> { order(datestamp: :asc) }
 
-  def self.current_average_weight(days)
-    where('datestamp > ?', days.days.ago).average(:weight_pounds)
-  end
+  class << self
+    def current_average_weight(days)
+      where('datestamp > ?', days.days.ago).average(:weight_pounds)
+    end
 
-  def self.days_since_latest
-    (Date.today - latest.datestamp).to_i
+    def days_since_latest
+      (Date.today - latest.datestamp).to_i
+    end
   end
 
   def self.latest

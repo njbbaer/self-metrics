@@ -1,5 +1,7 @@
 <h1>Sleep Reports</h1>
 
+<%= alert_sleep_report_reminder %>
+
 <%= link_to 'New Sleep Report', new_sleep_report_path, class: "btn btn-outline-primary" %>&nbsp;
 <% if @sleep_reports.latest.complete? %>
   <%= link_to 'Start Sleep', sleep_start_path, method: :post, class: "btn btn-success" %>

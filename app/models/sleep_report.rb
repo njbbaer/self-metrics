@@ -18,6 +18,16 @@ class SleepReport < ApplicationRecord
 
   scope :ordered_by_recency, -> { order(wakeup_at: :asc) }
 
+  class << self
+    def latest
+      ordered_by_recency.last
+    end
+
+    def days_since_latest
+      (Date.today - latest.asleep_at.to_date).to_i
+    end
+  end
+
   def duration_seconds
     wakeup_at - asleep_at
   end
@@ -40,10 +50,6 @@ class SleepReport < ApplicationRecord
 
   def complete?
     wakeup_at.present?
-  end
-
-  def self.latest
-    ordered_by_recency.last
   end
 
   def ideal_asleep_at

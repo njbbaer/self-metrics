@@ -20,4 +20,12 @@ module AlertsHelper
     level = days_since_latest < 7 ? :warning : :danger
     alert_basic_html(level, "You last went running #{days_since_latest} days ago")
   end
+
+  def alert_sleep_report_reminder
+    days_since_latest = SleepReport.days_since_latest
+    return if days_since_latest < 1
+
+    level = days_since_latest < 3 ? :warning : :danger
+    alert_basic_html(level, "You last recorded your sleep #{days_since_latest} days ago")
+  end
 end
