@@ -75,6 +75,8 @@ class SleepReport < ApplicationRecord
   end
 
   def valid_dates
+    return if asleep_at.nil?
+
     errors.add(:asleep_at, 'cannot be in the future') if asleep_at.future?
     errors.add(:wakeup_at, 'cannot be in the future') if wakeup_at&.future?
   end
