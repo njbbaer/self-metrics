@@ -26,7 +26,7 @@ class SleepReportsController < ApplicationController
 
     respond_to do |format|
       if @sleep_report.save!
-        flash[:success] = 'Your sleep report was created'
+        flash[:success] = 'Sleep report created'
         format.html { redirect_to sleep_reports_path }
       end
     end
@@ -36,7 +36,7 @@ class SleepReportsController < ApplicationController
   def update
     respond_to do |format|
       if @sleep_report.update!(sleep_report_params)
-        flash[:info] = 'Your sleep report was updated'
+        flash[:info] = 'Sleep report updated'
         format.html { redirect_to sleep_reports_path }
       end
     end
@@ -46,7 +46,7 @@ class SleepReportsController < ApplicationController
   def destroy
     @sleep_report.destroy
     respond_to do |format|
-      flash[:info] = 'Your sleep report was deleted'
+      flash[:info] = 'Sleep report deleted'
       format.html { redirect_to sleep_reports_path }
     end
   end
@@ -56,7 +56,7 @@ class SleepReportsController < ApplicationController
     sleep_report = SleepReport.create!(asleep_at: Time.now)
 
     time_string = sleep_report.asleep_at.strftime('%-I:%M %p')
-    flash[:info] = "Goodnight! It's #{time_string}."
+    flash[:success] = "Goodnight! It's #{time_string}."
     redirect_to sleep_reports_path
   end
 

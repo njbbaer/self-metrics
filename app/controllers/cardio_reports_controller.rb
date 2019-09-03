@@ -37,7 +37,7 @@ class CardioReportsController < ApplicationController
   def update
     respond_to do |format|
       if @cardio_report.update!(cardio_report_params)
-        flash[:info] = 'Your cardio report was updated'
+        flash[:info] = 'Cardio report updated'
         format.html { redirect_to cardio_reports_path }
       end
     end
@@ -47,7 +47,7 @@ class CardioReportsController < ApplicationController
   def destroy
     @cardio_report.destroy
     respond_to do |format|
-      flash[:info] = 'Your cardio report was deleted'
+      flash[:info] = 'Cardio report deleted'
       format.html { redirect_to cardio_reports_path }
     end
   end
