@@ -26,7 +26,7 @@ class SleepReport < ApplicationRecord
     end
 
     def days_since_latest
-      (Date.today - latest.asleep_at.to_date).to_i
+      ((Time.now - 6.hours).to_date - latest.date).to_i
     end
   end
 
