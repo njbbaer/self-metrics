@@ -13,8 +13,10 @@
 
 class SleepReport < ApplicationRecord
   validates_presence_of :asleep_at
-  validate :valid_duration_seconds, if: :complete?
+  validate :valid_duration, if: :complete?
   validate :valid_dates
+
+  before_save :round_to_minute!
 
   scope :ordered_by_recency, -> { order(wakeup_at: :asc) }
 
@@ -66,7 +68,7 @@ class SleepReport < ApplicationRecord
 
   private
 
-  def valid_duration_seconds
+  def valid_duration
     if duration_seconds.negative?
       errors.add(:wakeup_at, 'sleep duration cannot be negative')
     elsif duration_seconds > 1.day
@@ -75,10 +77,13 @@ class SleepReport < ApplicationRecord
   end
 
   def valid_dates
-    return if asleep_at.nil?
-
-    errors.add(:asleep_at, 'cannot be in the future') if asleep_at.future?
+    errors.add(:asleep_at, 'cannot be in the future') if asleep_at&.future?
     errors.add(:wakeup_at, 'cannot be in the future') if wakeup_at&.future?
+  end
+
+  def round_to_minute!
+    self.asleep_at = asleep_at.beginning_of_minute if asleep_at
+    self.wakeup_at = wakeup_at.beginning_of_minute if wakeup_at
   end
 end
 
