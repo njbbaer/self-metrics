@@ -16,7 +16,7 @@
 class CardioReport < ApplicationRecord
   attr_accessor :part_hours, :part_minutes, :part_seconds
 
-  before_validation :calculate_multipart_duration
+  before_validation :calculate_multipart_duration!
 
   validates_presence_of :datestamp
   validates_numericality_of :duration_seconds, greater_than: 0
@@ -44,7 +44,7 @@ class CardioReport < ApplicationRecord
     duration_seconds / 3600.0
   end
 
-  def calculate_multipart_duration
+  def calculate_multipart_duration!
     if part_hours.present? &&
        part_minutes.present? &&
        part_seconds.present?
@@ -59,8 +59,8 @@ class CardioReport < ApplicationRecord
     distance_miles / duration_hours
   end
 
-  # Excludes resting calories
   def calories
+    # Formula excludes resting calories
     duration_hours * (met - 1) * 180 / 2.205
   end
 
