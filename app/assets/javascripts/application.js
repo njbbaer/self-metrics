@@ -28,5 +28,6 @@
 $('document').ready(function() {
   setTimeout(function() {
     $('#flashbar').slideUp();
+    $('#flashbar-spacer').slideUp();
   }, 5000);
 });

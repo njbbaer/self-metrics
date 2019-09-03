@@ -15,6 +15,10 @@
   </head>
 
   <body>
+    <% unless flash.empty? %>
+      <div id="flashbar-spacer"></div>
+    <% end %>
+
     <div class='fixed-top'>
       <%= render "layouts/dev_banner" unless production? %>
       <%= render "layouts/header" %>
