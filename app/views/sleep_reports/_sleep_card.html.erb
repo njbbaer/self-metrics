@@ -25,7 +25,7 @@
       <td>Asleep</td>
       <td><b><%= sleep_report.asleep_at.strftime('%I:%M %p') %></b></td>
       <td>Duration</td>
-      <td><b><%= sleep_report.complete? ? sleep_report.strf_duration('%H:%M') : "N/A" %></b></td>
+      <td><b><%= sleep_report.strf_duration('%H:%M') if sleep_report.complete? %></b></td>
     </tr>
     <tr>
       <td>Wakeup</td>
