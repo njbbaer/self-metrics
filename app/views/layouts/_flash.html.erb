@@ -1,5 +1,5 @@
 <% flash.each do |level, message| %>
-  <nav id="flashbar" class="navbar <%= color_class(level) %>">
+  <nav id="flashbar" class="navbar text-white <%= color_class(level, true) %>">
     <p><%= message %></p>
   </nav>
 <% end %>
