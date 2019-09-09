@@ -22,4 +22,16 @@ module CardioReportsHelper
   def featured?(cardio_report)
     featured_by_calories?(cardio_report) || featured_by_speed?(cardio_report)
   end
+
+  def part_minutes(cardio_report)
+    return nil unless cardio_report.duration_seconds
+
+    (cardio_report.duration_seconds / 60.0).floor
+  end
+
+  def part_seconds(cardio_report)
+    return nil unless cardio_report.duration_seconds
+
+    (cardio_report.duration_seconds % 60.0).floor
+  end
 end

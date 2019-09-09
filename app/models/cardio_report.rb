@@ -14,7 +14,7 @@
 #
 
 class CardioReport < ApplicationRecord
-  attr_accessor :part_hours, :part_minutes, :part_seconds
+  attr_accessor :part_minutes, :part_seconds
 
   before_validation :calculate_multipart_duration!
 
@@ -41,15 +41,15 @@ class CardioReport < ApplicationRecord
   end
 
   def duration_hours
+    return nil unless duration_seconds
+
     duration_seconds / 3600.0
   end
 
   def calculate_multipart_duration!
-    if part_hours.present? &&
-       part_minutes.present? &&
+    if part_minutes.present? &&
        part_seconds.present?
       self.duration_seconds =
-        part_hours.to_i * 3600 +
         part_minutes.to_i * 60 +
         part_seconds.to_i
     end
