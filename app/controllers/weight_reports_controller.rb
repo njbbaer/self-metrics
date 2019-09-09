@@ -48,7 +48,7 @@ class WeightReportsController < ApplicationController
   def destroy
     @weight_report.destroy
     respond_to do |format|
-      flash[:info] = 'Weight report deleted'
+      flash[:danger] = 'Weight report deleted'
       format.html { redirect_to weight_reports_path }
     end
   end

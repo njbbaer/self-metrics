@@ -47,7 +47,7 @@ class CardioReportsController < ApplicationController
   def destroy
     @cardio_report.destroy
     respond_to do |format|
-      flash[:info] = 'Cardio report deleted'
+      flash[:danger] = 'Cardio report deleted'
       format.html { redirect_to cardio_reports_path }
     end
   end

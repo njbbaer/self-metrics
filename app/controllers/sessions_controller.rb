@@ -8,16 +8,17 @@ class SessionsController < ApplicationController
   def create
     if params[:password] == Rails.configuration.password
       cookies.encrypted.permanent[:password] = Rails.configuration.password
-      flash[:success] = 'Welcome, you\'ve been authenticated'
+      flash[:success] = 'You have authenticated successfully'
       redirect_to root_path
     else
-      flash[:danger] = 'Password is invalid'
+      flash[:danger] = 'Authentication failed'
       redirect_to login_path
     end
   end
 
   def destroy
     cookies.delete(:password)
+    flash[:danger] = 'You have been logged out'
     redirect_to login_path
   end
 end

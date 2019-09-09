@@ -46,7 +46,7 @@ class SleepReportsController < ApplicationController
   def destroy
     @sleep_report.destroy
     respond_to do |format|
-      flash[:info] = 'Sleep report deleted'
+      flash[:danger] = 'Sleep report deleted'
       format.html { redirect_to sleep_reports_path }
     end
   end
