@@ -5,12 +5,16 @@
 
 A Rails web app for collecting and analyzing personal health data.
 
-* Records sleep, running, and cardio
-* Encourages healthy behaviors
-* Mobile and desktop responsive
-* Password protected
+Records sleep, running, and weight. Displays metrics to encourage healthy behaviors.
 
-A production version of this application is deployed to Heroku for private use.
+Built for personal use, but open-source to the public.
+
+## Technical Features
+
+* Ruby on Rails web app with Postgres database
+* Bootstrap UI with mobile and desktop responsive design
+* Deployed to private Heroku instance for personal use
+* Password protected with cookie authentication
 
 # Screenshots
 ![self-metrics-screenshot](/app/assets/images/screenshots.png)
