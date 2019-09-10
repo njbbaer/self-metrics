@@ -39,7 +39,7 @@
   <label>Type</label>
   <div class="row">
     <div class="btn-group btn-group-toggle mb-3 col-lg-4" data-toggle="buttons">
-      <label class="btn btn-outline-secondary <%= "active" unless cardio_report.treadmill %>">
+      <label class="btn btn-outline-secondary <%= "active" if cardio_report.treadmill == false %>">
         <%= radio_button_tag("cardio_report[treadmill]", "0") %> Outdoors
       </label>
       <label class="btn btn-outline-secondary <%= "active" if cardio_report.treadmill %>">
