@@ -19,6 +19,7 @@ class CardioReport < ApplicationRecord
   before_validation :calculate_multipart_duration!
 
   validates_presence_of :datestamp
+  validates_inclusion_of :treadmill, in: [true, false]
   validates_numericality_of :duration_seconds, greater_than: 0
   validates_numericality_of :distance_miles, greater_than: 0.0
 

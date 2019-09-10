@@ -36,11 +36,18 @@
     </div>
   </div>
 
-
-  <div class="form-group">
-    <%= form.check_box :treadmill, label: "Treadmill?", custom: true %>
+  <label>Type</label>
+  <div class="row">
+    <div class="btn-group btn-group-toggle mb-3 col-lg-4" data-toggle="buttons">
+      <label class="btn btn-outline-secondary">
+        <%= radio_button_tag("cardio_report[treadmill]", "0") %> Outdoors
+      </label>
+      <label class="btn btn-outline-secondary">
+        <%= radio_button_tag("cardio_report[treadmill]", "1") %> Treadmill
+      </label>
+    </div>
   </div>
-  
+    
   <hr>
   <button type="submit" class="btn btn-primary btn">Submit</button>&nbsp;&nbsp;
   <%= link_to "Back", cardio_reports_path, class: "btn btn-outline-secondary btn" %>
