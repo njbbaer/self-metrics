@@ -1,14 +1,14 @@
 <%= form_for @sleep_report do |form| %>
   <label>Alseep at</label>
   <div class="row">
-    <div class="input-group mb-3 col-lg-4 input-group">
+    <div class="input-group mb-3 col-lg-4">
       <%= datetime_field(:sleep_report, :asleep_at, class: "form-control") %>
     </div>
   </div>
 
   <label>Wakeup at</label>
   <div class="row">
-    <div class="input-group mb-3 col-lg-4 input-group">
+    <div class="input-group mb-3 col-lg-4">
       <%= datetime_field(:sleep_report, :wakeup_at, class: "form-control") %>
     </div>
   </div>

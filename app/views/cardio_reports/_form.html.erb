@@ -1,14 +1,14 @@
 <%= bootstrap_form_with(model: cardio_report, local: true) do |form| %>
   <label>Date</label>
   <div class="row">
-    <div class="input-group mb-3 col-lg-4 input-group">
+    <div class="input-group mb-3 col-lg-4">
       <%= date_field(:cardio_report, :datestamp, class: "form-control") %>
     </div>
   </div>
   
   <label>Duration</label>
   <div class="row">
-    <div class="input-group mb-3 col-lg-4 input-group align-input-right">
+    <div class="input-group mb-3 col-lg-4 align-input-right">
       <%= number_field(:cardio_report, :part_minutes, step: 1, class: "form-control", value: part_minutes(cardio_report)) %>
       <div class="input-group-append">
         <span class="input-group-text">m</span>
@@ -23,7 +23,7 @@
   
   <label>Distance</label>
   <div class="row">
-    <div class="input-group mb-3 col-lg-4 input-group">
+    <div class="input-group mb-3 col-lg-4">
       <%= number_field(:cardio_report, :distance_miles, step: 0.1, class: "form-control") %>
       <div class="input-group-append">
         <span class="input-group-text">miles</span>
