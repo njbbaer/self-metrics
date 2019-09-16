@@ -60,6 +60,10 @@
   background-color: rgba(0, 0, 0, .03)
 }
 
+input[type=number]::-webkit-inner-spin-button { 
+  -webkit-appearance: none; 
+}
+
 #weight-plot {
   width: 100%;
   height: 400px;
