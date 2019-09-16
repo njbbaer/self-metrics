@@ -25,32 +25,23 @@ class WeightReportsController < ApplicationController
   # POST /weight_reports
   def create
     @weight_report = WeightReport.new(weight_report_params)
-
-    respond_to do |format|
-      if @weight_report.save!
-        flash[:success] = 'Thank you for reporting your weight!'
-        format.html { redirect_to weight_reports_path }
-      end
-    end
+    @weight_report.save!
+    flash[:success] = 'Thank you for reporting your weight!'
+    redirect_to weight_reports_path
   end
 
   # PATCH/PUT /weight_reports/1
   def update
-    respond_to do |format|
-      if @weight_report.update!(weight_report_params)
-        flash[:info] = 'Weight report updated'
-        format.html { redirect_to weight_reports_path }
-      end
-    end
+    @weight_report.update!(weight_report_params)
+    flash[:info] = 'Weight report updated'
+    redirect_to weight_reports_path
   end
 
   # DELETE /weight_reports/1
   def destroy
     @weight_report.destroy
-    respond_to do |format|
-      flash[:danger] = 'Weight report deleted'
-      format.html { redirect_to weight_reports_path }
-    end
+    flash[:danger] = 'Weight report deleted'
+    redirect_to weight_reports_path
   end
 
   private

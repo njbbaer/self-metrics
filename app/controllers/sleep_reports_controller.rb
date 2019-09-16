@@ -23,38 +23,28 @@ class SleepReportsController < ApplicationController
   # POST /sleep_reports
   def create
     @sleep_report = SleepReport.new(sleep_report_params)
-
-    respond_to do |format|
-      if @sleep_report.save!
-        flash[:success] = 'Sleep report created'
-        format.html { redirect_to sleep_reports_path }
-      end
-    end
+    @sleep_report.save!
+    flash[:success] = 'Sleep report created'
+    redirect_to sleep_reports_path
   end
 
   # PATCH/PUT /sleep_reports/1
   def update
-    respond_to do |format|
-      if @sleep_report.update!(sleep_report_params)
-        flash[:info] = 'Sleep report updated'
-        format.html { redirect_to sleep_reports_path }
-      end
-    end
+    @sleep_report.update!(sleep_report_params)
+    flash[:info] = 'Sleep report updated'
+    redirect_to sleep_reports_path
   end
 
   # DELETE /sleep_reports/1
   def destroy
     @sleep_report.destroy
-    respond_to do |format|
-      flash[:danger] = 'Sleep report deleted'
-      format.html { redirect_to sleep_reports_path }
-    end
+    flash[:danger] = 'Sleep report deleted'
+    redirect_to sleep_reports_path
   end
 
   # POST /start
   def start
     sleep_report = SleepReport.create!(asleep_at: Time.now)
-
     time_string = sleep_report.asleep_at.strftime('%-I:%M %p')
     flash[:success] = "Goodnight! It's #{time_string}"
     redirect_to sleep_reports_path
@@ -64,7 +54,6 @@ class SleepReportsController < ApplicationController
   def stop
     sleep_report = SleepReport.latest
     sleep_report.update!(wakeup_at: Time.now)
-
     duration_string = sleep_report.strf_duration('%-Hh %-Mm')
     flash[:success] = "Goodmorning! You slept for #{duration_string}"
     redirect_to sleep_reports_path

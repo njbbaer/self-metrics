@@ -24,32 +24,23 @@ class CardioReportsController < ApplicationController
   # POST /cardio_reports
   def create
     @cardio_report = CardioReport.new(cardio_report_params)
-
-    respond_to do |format|
-      if @cardio_report.save!
-        flash[:success] = 'Great job going for a run!'
-        format.html { redirect_to cardio_reports_path }
-      end
-    end
+    @cardio_report.save!
+    flash[:success] = 'Great job going for a run!'
+    redirect_to cardio_reports_path
   end
 
   # PATCH/PUT /cardio_reports/1
   def update
-    respond_to do |format|
-      if @cardio_report.update!(cardio_report_params)
-        flash[:info] = 'Cardio report updated'
-        format.html { redirect_to cardio_reports_path }
-      end
-    end
+    @cardio_report.update!(cardio_report_params)
+    flash[:info] = 'Cardio report updated'
+    redirect_to cardio_reports_path
   end
 
   # DELETE /cardio_reports/1
   def destroy
     @cardio_report.destroy
-    respond_to do |format|
-      flash[:danger] = 'Cardio report deleted'
-      format.html { redirect_to cardio_reports_path }
-    end
+    flash[:danger] = 'Cardio report deleted'
+    redirect_to cardio_reports_path
   end
 
   private
