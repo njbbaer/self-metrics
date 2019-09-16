@@ -16,7 +16,7 @@ class WeightReportsController < ApplicationController
 
   # GET /weight_reports/new
   def new
-    @weight_report = WeightReport.new
+    @weight_report = WeightReport.new(datestamp: Date.current)
   end
 
   # GET /weight_reports/1/edit
