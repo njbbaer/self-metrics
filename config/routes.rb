@@ -10,11 +10,11 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
 
   scope '/reports' do
-    post '/sleep/start', to: 'sleep_reports#start'
-    patch '/sleep/stop', to: 'sleep_reports#stop'
-
     resources :weight, as: 'weight_reports', controller: 'weight_reports'
     resources :cardio, as: 'cardio_reports', controller: 'cardio_reports'
-    resources :sleep, as: 'sleep_reports', controller: 'sleep_reports'
+    resources :sleep, as: 'sleep_reports', controller: 'sleep_reports' do
+      post :start, on: :collection
+      patch :stop, on: :collection
+    end
   end
 end

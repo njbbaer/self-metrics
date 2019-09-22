@@ -4,9 +4,9 @@
 
 <%= link_to 'New Sleep Report', new_sleep_report_path, class: "btn btn-outline-primary" %>&nbsp;
 <% if @sleep_reports.latest.complete? %>
-  <%= link_to 'Start Sleep', sleep_start_path, method: :post, class: "btn btn-success" %>
+  <%= link_to 'Start Sleep', start_sleep_reports_path, method: :post, class: "btn btn-success" %>
 <% else %>
-  <%= link_to 'Stop Sleep', sleep_stop_path, method: :patch, class: "btn btn-danger" %>
+  <%= link_to 'Stop Sleep', stop_sleep_reports_path, method: :patch, class: "btn btn-danger" %>
 <% end %>
 
 <br><br>
