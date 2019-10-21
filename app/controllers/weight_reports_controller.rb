@@ -6,6 +6,7 @@ class WeightReportsController < ApplicationController
   # GET /weight_reports
   def index
     @weight_reports = WeightReport.all
+    @weight_exp_avg_calculator = WeightExpAvgCalculator.new(@weight_reports, 0.1)
     gon.weight_reports_pounds = WeightReport.all.collect do |wr|
       [wr.epoch_timestamp, wr.weight_pounds]
     end
