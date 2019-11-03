@@ -5,7 +5,7 @@ function renderWeightPlot() {
             zoomType: 'xy'
         },
         title: {
-            text: 'Weight over Time'
+            text: null
         },
         xAxis: {
             type: 'datetime'
