@@ -3,13 +3,18 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Self-Metrics<%= " [DEV]" unless production? %></title>
+    <title>
+      Self-Metrics<%= " [DEV]" unless production? %>
+    </title>
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= favicon_link_tag asset_path('icons8-pass-fail.png') %>
+
+    <script src="https://code.highcharts.com/stock/highstock.js"></script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   </head>

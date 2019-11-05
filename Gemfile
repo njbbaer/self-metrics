@@ -18,7 +18,6 @@ gem 'bootstrap_form'
 gem 'jquery-rails'
 gem 'dotenv-rails'
 gem 'octicons_helper'
-gem 'highcharts-rails'
 gem 'gon'
 
 group :development do

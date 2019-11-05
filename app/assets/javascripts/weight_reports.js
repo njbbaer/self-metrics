@@ -1,5 +1,5 @@
 function renderWeightPlot() {
-    Highcharts.chart('weight-plot', {
+    Highcharts.stockChart('weight-plot', {
         chart: {
             type: 'scatter',
             zoomType: 'xy'
@@ -17,6 +17,12 @@ function renderWeightPlot() {
         },
         legend: {
             enabled: false
+        },
+        navigator: {
+            enabled: false
+        },
+        rangeSelector: {
+            inputEnabled: false
         },
         plotOptions: {
             scatter: {

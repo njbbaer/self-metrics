@@ -20,9 +20,6 @@
 //= require popper
 //= require bootstrap-sprockets
 //
-//= require highcharts
-//= require highcharts/highcharts-more
-//
 //= require_tree .
 
 $('document').ready(function() {
