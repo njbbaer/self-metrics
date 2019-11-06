@@ -50,7 +50,7 @@ function renderWeightPlot() {
         series: [{
             name: 'Weight',
             type: 'scatter',
-            color: 'rgba(2, 117, 216, 0.2)',
+            color: 'rgba(0, 0, 0, 0.1)',
             data: gon.weight_reports_pounds,
         }, {
             name: 'EMA',
