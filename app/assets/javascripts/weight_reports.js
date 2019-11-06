@@ -1,7 +1,6 @@
 function renderWeightPlot() {
     Highcharts.stockChart('weight-plot', {
         chart: {
-            type: 'scatter',
             zoomType: 'xy'
         },
         title: {
@@ -50,8 +49,14 @@ function renderWeightPlot() {
         },
         series: [{
             name: 'Weight',
-            color: 'rgba(2, 117, 216, 0.5)',
+            type: 'scatter',
+            color: 'rgba(2, 117, 216, 0.2)',
             data: gon.weight_reports_pounds,
+        }, {
+            name: 'EMA',
+            type: 'line',
+            color: 'rgba(2, 117, 216, 0.5)',
+            data: gon.weight_exp_avg,
         }]
     });
 }
