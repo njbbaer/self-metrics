@@ -19,7 +19,7 @@ function renderWeightPlot() {
             enabled: false
         },
         navigator: {
-            enabled: false
+            enabled: true
         },
         rangeSelector: {
             inputEnabled: false
