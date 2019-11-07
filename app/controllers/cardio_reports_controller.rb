@@ -15,7 +15,7 @@ class CardioReportsController < ApplicationController
 
   # GET /cardio_reports/new
   def new
-    @cardio_report = CardioReport.new(datestamp: Date.current)
+    @cardio_report = CardioReport.new(datestamp: pseudo_current_date)
   end
 
   # GET /cardio_reports/1/edit

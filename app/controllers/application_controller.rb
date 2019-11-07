@@ -13,4 +13,8 @@ class ApplicationController < ActionController::Base
   def authenticate
     redirect_to login_path unless cookies.encrypted[:password] == Rails.configuration.password
   end
+
+  def pseudo_current_date
+    (0..5).include?(Time.now.hour) ? Date.current.prev_day : Date.current
+  end
 end
