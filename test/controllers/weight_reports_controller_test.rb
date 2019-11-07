@@ -31,11 +31,6 @@ class WeightReportsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to weight_reports_path
   end
 
-  test 'should show weight_report' do
-    get weight_report_path(@weight_report)
-    assert_response :success
-  end
-
   test 'should get edit' do
     get edit_weight_report_path(@weight_report)
     assert_response :success

@@ -33,11 +33,6 @@ class CardioReportsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to cardio_reports_path
   end
 
-  test 'should show cardio_report' do
-    get cardio_report_path(@cardio_report)
-    assert_response :success
-  end
-
   test 'should get edit' do
     get edit_cardio_report_path(@cardio_report)
     assert_response :success

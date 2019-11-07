@@ -31,11 +31,6 @@ class SleepReportsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to sleep_reports_path
   end
 
-  test 'should show sleep_report' do
-    get sleep_report_path(@sleep_report)
-    assert_response :success
-  end
-
   test 'should get edit' do
     get edit_sleep_report_path(@sleep_report)
     assert_response :success
