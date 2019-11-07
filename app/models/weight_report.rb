@@ -12,7 +12,7 @@
 #
 
 class WeightReport < ApplicationRecord
-  validates_presence_of :datestamp
+  validates :datestamp, presence: true, uniqueness: true
   validates_numericality_of :weight_pounds, greater_than: 0.0
 
   scope :ordered_by_recency, -> { order(datestamp: :asc) }
