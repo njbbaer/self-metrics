@@ -14,7 +14,6 @@ gem 'turbolinks'
 gem 'bootsnap', require: false
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'bootstrap'
-gem 'bootstrap_form'
 gem 'jquery-rails'
 gem 'dotenv-rails'
 gem 'octicons_helper'
