@@ -34,9 +34,10 @@
     <tr>
       <td>Duration</td>
       <td><b><%= sleep_report.strf_duration('%H:%M') if sleep_report.complete? %></b></td>
-      </td>
-        <td>Debt</td>
-      <td><b>XXm</b> (XX%)</td>
+      <td>Debt</td>
+      <% if sleep_report.complete? %>
+        <td><b>XXm</b> (XX%)</td>
+      <% end %>
     </tr>
   </table>
 </div>
