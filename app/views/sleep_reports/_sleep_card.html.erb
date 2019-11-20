@@ -24,7 +24,7 @@
         <b><%= sleep_report.asleep_at.strftime('%I:%M') %></b> /
         <b><%= sleep_report.wakeup_at.strftime('%I:%M') if sleep_report.complete? %></b>
       </td>
-      <td>Score: </td>
+      <td>Score</td>
       <td>
         <% if sleep_report.complete? %>
           <b><%= sleep_report.score_grade %></b> (<%= sleep_report.score.round %>%)
