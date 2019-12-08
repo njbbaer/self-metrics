@@ -14,9 +14,9 @@
 <% @sleep_reports.ordered_by_recency.reverse.each do |sleep_report| %>
   <%= render 'sleep_card', sleep_report: sleep_report %>
   <br>
-  <% if (days_since_previous(sleep_report) || 0) >= 2 %>
+  <% if (days_since_previous_sleep(sleep_report) || 0) >= 2 %>
     <div class="card card-banner card-cap-bg">
-      <p>Missing <b><%= days_since_previous(sleep_report) - 1%></b> days</p>
+      <p>Missing <b><%= days_since_previous_sleep(sleep_report) - 1%></b> days</p>
     </div>
     <br>
   <% end %>

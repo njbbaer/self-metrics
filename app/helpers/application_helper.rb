@@ -16,13 +16,6 @@ module ApplicationHelper
     cookies.encrypted[:password] == Rails.configuration.password
   end
 
-  def days_since_previous(report)
-    previous_idx = @ordered_by_recency.pluck(:id).index(report.id) - 1
-    return nil if previous_idx.negative?
-
-    (report.date - @ordered_by_recency[previous_idx].date).to_i
-  end
-
   def dev_banner_text_html
     "<p><i>#{Rails.env.capitalize} environment</i></p>".html_safe
   end

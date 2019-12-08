@@ -34,4 +34,11 @@ module CardioReportsHelper
 
     (cardio_report.duration_seconds % 60.0).floor
   end
+
+  def days_since_previous_cardio(cardio_report)
+    previous_idx = @ordered_by_recency.pluck(:id).index(cardio_report.id) - 1
+    return nil if previous_idx.negative?
+
+    (cardio_report.date - @ordered_by_recency[previous_idx].date).to_i
+  end
 end
