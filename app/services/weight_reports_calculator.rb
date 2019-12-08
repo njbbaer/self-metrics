@@ -5,7 +5,7 @@ class WeightReportsCalculator
     @weight_reports = weight_reports.ordered_by_recency
   end
 
-  def calculate_exp_avg(alpha, initial_weight)
+  def calculate_exp_avg(alpha:, initial_weight:)
     exp_avg = initial_weight
     @exp_avg_data = @weight_reports.map do |weight_report|
       exp_avg = alpha * weight_report.weight_pounds + (1 - alpha) * exp_avg
