@@ -25,12 +25,6 @@ class WeightReport < ApplicationRecord
     def latest
       ordered_by_recency.last
     end
-
-    def weight_data_table
-      ordered_by_recency.map do |weight_report|
-        [weight_report.epoch_timestamp, weight_report.weight_pounds]
-      end
-    end
   end
 
   def epoch_timestamp

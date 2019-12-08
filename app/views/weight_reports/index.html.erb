@@ -32,7 +32,7 @@
           <tr>
             <td><%= weight_report.datestamp.strftime('%Y-%m-%d') %></td>
             <td><b><%= '%.1f' % weight_report.weight_pounds %></b> lb</td>
-            <td><%= '%.1f' % @weight_reports_calculator.exp_avg(weight_report) %></td>
+            <td><%= '%.1f' % @weight_reports.exp_avg(weight_report) %></td>
             <td nowrap>
               <%= link_to edit_weight_report_path(weight_report) do %>
                 <%= octicon "pencil", :height => 16 %>
