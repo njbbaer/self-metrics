@@ -40,7 +40,7 @@ module AlertsHelper
     return if calories < 1000
 
     "<div class='alert alert-success'>
-      In the last <b>7</b> days you burned <b>#{calories}</b> calories running
+      In the last <b>7</b> days you burned <b>#{calories}</b> calories
     </div>".html_safe
   end
 end
