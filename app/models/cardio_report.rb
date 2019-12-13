@@ -35,6 +35,10 @@ class CardioReport < ApplicationRecord
     def latest
       ordered_by_recency.last
     end
+
+    def sum_calories(start_date: Date.today, end_date:)
+      where(datestamp: end_date..start_date).map(&:calories).sum
+    end
   end
 
   def duration_time

@@ -34,4 +34,13 @@ module AlertsHelper
     level = days_since_latest < 3 ? :warning : :danger
     alert_days_since_latest_html(level, days_since_latest, 'recorded your sleep')
   end
+
+  def alert_cardio_report_calories
+    calories = CardioReport.sum_calories(end_date: Date.today - 7.days).to_i
+    return if calories < 1000
+
+    "<div class='alert alert-success'>
+      In the last <b>7</b> days you burned <b>#{calories}</b> calories running
+    </div>".html_safe
+  end
 end
