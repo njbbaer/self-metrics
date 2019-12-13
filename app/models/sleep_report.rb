@@ -38,28 +38,8 @@ class SleepReport < ApplicationRecord
     asleep_at.to_date + (asleep_at.hour > 12 ? 1.day : 0)
   end
 
-  def score
-    duration_component = 2 / 3.0 * normalize(duration_seconds, 9.hours)
-    asleep_component   = 1 / 6.0 * normalize(asleep_at - ideal_asleep_at, 9.hours, true)
-    wakeup_component   = 1 / 6.0 * normalize(wakeup_at - ideal_wakeup_at, 9.hours, true)
-    (duration_component + asleep_component + wakeup_component) * 100
-  end
-
-  def score_grade
-    grades = %w[F F F F F F F F F F F F F F F F F F D- D D+ C- C C+ B- B B+ A- A A+ A+]
-    grades[(3.0 * score.round / 10).floor]
-  end
-
   def complete?
     wakeup_at.present?
-  end
-
-  def ideal_asleep_at
-    (wakeup_at - 1.day).change(hour: 22, min: 0, sec: 0)
-  end
-
-  def ideal_wakeup_at
-    wakeup_at.change(hour: 7, min: 0, sec: 0)
   end
 
   def strf_duration(code)
@@ -85,9 +65,4 @@ class SleepReport < ApplicationRecord
     self.asleep_at = asleep_at.beginning_of_minute if asleep_at
     self.wakeup_at = wakeup_at.beginning_of_minute if wakeup_at
   end
-end
-
-def normalize(val, max, invert = false)
-  result = [val.abs, max].min / max
-  invert ? 1 - result : result
 end

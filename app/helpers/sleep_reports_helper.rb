@@ -4,10 +4,10 @@ module SleepReportsHelper
   def sleep_color_class(sleep_report)
     return 'alert-dark' unless sleep_report.complete?
 
-    case sleep_report.score.round
-    when 90..100 then 'alert-success'
-    when 70..79  then 'alert-warning'
-    when 0..69   then 'alert-danger'
+    case sleep_report.duration_seconds / 3600
+    when 8..99 then 'alert-success'
+    when 7..8  then 'alert-warning'
+    when 0..7  then 'alert-danger'
     end
   end
 
