@@ -23,7 +23,7 @@ class WeightReportsControllerTest < ActionDispatch::IntegrationTest
       post weight_reports_path, params: {
         weight_report: {
           weight_pounds: @weight_report.weight_pounds,
-          datestamp: @weight_report.datestamp
+          date: @weight_report.date
         }
       }
     end
@@ -40,7 +40,7 @@ class WeightReportsControllerTest < ActionDispatch::IntegrationTest
     patch weight_report_path(@weight_report), params: {
       weight_report: {
         weight_pounds: @weight_report.weight_pounds,
-        datestamp: @weight_report.datestamp
+        date: @weight_report.date
       }
     }
     assert_redirected_to weight_reports_path

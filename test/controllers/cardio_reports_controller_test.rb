@@ -25,7 +25,7 @@ class CardioReportsControllerTest < ActionDispatch::IntegrationTest
           treadmill: @cardio_report.treadmill,
           distance_miles: @cardio_report.distance_miles,
           duration_seconds: @cardio_report.duration_seconds,
-          datestamp: @cardio_report.datestamp
+          date: @cardio_report.date
         }
       }
     end
@@ -44,7 +44,7 @@ class CardioReportsControllerTest < ActionDispatch::IntegrationTest
         treadmill: @cardio_report.treadmill,
         distance_miles: @cardio_report.distance_miles,
         duration_seconds: @cardio_report.duration_seconds,
-        datestamp: @cardio_report.datestamp
+        date: @cardio_report.date
       }
     }
     assert_redirected_to cardio_reports_path

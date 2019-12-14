@@ -9,7 +9,7 @@
         <% end %>
       </div>
       <div class="col-7 text-center">
-        <%= cardio_report.datestamp.strftime('%a, %b %d, %Y') %>
+        <%= cardio_report.date.strftime('%a, %b %d, %Y') %>
       </div>
       <div class="col text-right">
         <%= link_to edit_cardio_report_path(cardio_report) do %>

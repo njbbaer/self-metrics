@@ -15,7 +15,7 @@ class CardioReportsController < ApplicationController
 
   # GET /cardio_reports/new
   def new
-    @cardio_report = CardioReport.new(datestamp: pseudo_current_date)
+    @cardio_report = CardioReport.new(date: pseudo_current_date)
   end
 
   # GET /cardio_reports/1/edit
@@ -54,7 +54,7 @@ class CardioReportsController < ApplicationController
   def cardio_report_params
     params.require(:cardio_report).permit(
       :part_minutes, :part_seconds,
-      :datestamp,
+      :date,
       :duration_seconds,
       :distance_miles,
       :treadmill

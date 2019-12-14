@@ -10,7 +10,7 @@ class WeightReportsPresenter < ReportsPresenter
   end
 
   def days_since_latest
-    (Date.today - latest.datestamp).to_i
+    (Date.today - latest.date).to_i
   end
 
   def calculate_exp_avg!(alpha:, initial_weight:)

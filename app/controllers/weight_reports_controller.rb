@@ -17,7 +17,7 @@ class WeightReportsController < ApplicationController
 
   # GET /weight_reports/new
   def new
-    @weight_report = WeightReport.new(datestamp: pseudo_current_date)
+    @weight_report = WeightReport.new(date: pseudo_current_date)
   end
 
   # GET /weight_reports/1/edit
@@ -54,6 +54,6 @@ class WeightReportsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def weight_report_params
-    params.require(:weight_report).permit(:datestamp, :weight_pounds)
+    params.require(:weight_report).permit(:date, :weight_pounds)
   end
 end

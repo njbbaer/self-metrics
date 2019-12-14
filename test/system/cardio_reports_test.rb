@@ -19,7 +19,7 @@ class CardioReportsTest < ApplicationSystemTestCase
     check 'Treadmill' if @cardio_report.treadmill
     fill_in 'Miles', with: @cardio_report.distance_miles
     fill_in 'Duration', with: @cardio_report.duration_seconds
-    fill_in 'Finished at', with: @cardio_report.datestamp
+    fill_in 'Finished at', with: @cardio_report.date
     click_on 'Create Cardio report'
 
     assert_text 'Cardio report was successfully created'
@@ -33,7 +33,7 @@ class CardioReportsTest < ApplicationSystemTestCase
     check 'Treadmill' if @cardio_report.treadmill
     fill_in 'Miles', with: @cardio_report.distance_miles
     fill_in 'Duration', with: @cardio_report.duration_seconds
-    fill_in 'Finished at', with: @cardio_report.datestamp
+    fill_in 'Finished at', with: @cardio_report.date
     click_on 'Update Cardio report'
 
     assert_text 'Cardio report was successfully updated'

@@ -5,7 +5,7 @@
 # Table name: cardio_reports
 #
 #  id               :bigint(8)        not null, primary key
-#  datestamp        :date
+#  date        :date
 #  distance_miles   :float
 #  duration_seconds :integer
 #  treadmill        :boolean

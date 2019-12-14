@@ -5,7 +5,7 @@
 # Table name: cardio_reports
 #
 #  id               :bigint(8)        not null, primary key
-#  datestamp        :date
+#  date        :date
 #  distance_miles   :float
 #  duration_seconds :integer
 #  treadmill        :boolean
@@ -18,18 +18,18 @@ class CardioReport < ApplicationRecord
 
   before_validation :calculate_multipart_duration!
 
-  validates_presence_of :datestamp
+  validates_presence_of :date
   validates_inclusion_of :treadmill, in: [true, false]
   validates_numericality_of :duration_seconds, greater_than: 0
   validates_numericality_of :distance_miles, greater_than: 0.0
 
-  scope :ordered_by_recency, -> { order(datestamp: :asc) }
+  scope :ordered_by_recency, -> { order(date: :asc) }
   scope :sorted_by_calories, -> { sort_by(&:calories).reverse }
   scope :sorted_by_speed, -> { sort_by { |c| [-c.speed.round(1), -c.distance_miles] } }
 
   class << self
     def days_since_latest
-      (Date.today - latest.datestamp).to_i
+      (Date.today - latest.date).to_i
     end
 
     def latest
@@ -37,7 +37,7 @@ class CardioReport < ApplicationRecord
     end
 
     def sum_calories(start_date: Date.today, end_date:)
-      where(datestamp: end_date..start_date).map(&:calories).sum
+      where(date: end_date..start_date).map(&:calories).sum
     end
   end
 
@@ -66,10 +66,6 @@ class CardioReport < ApplicationRecord
   def calories
     # Formula excludes resting calories
     duration_hours * (met - 1) * 180 / 2.205
-  end
-
-  def date
-    datestamp
   end
 
   private

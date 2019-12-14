@@ -3,7 +3,7 @@
 # Table name: cardio_reports
 #
 #  id               :bigint(8)        not null, primary key
-#  datestamp        :date
+#  date        :date
 #  distance_miles   :float
 #  duration_seconds :integer
 #  treadmill        :boolean
@@ -14,13 +14,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  datestamp: 2019-03-30
+  date: 2019-03-30
   duration_seconds: 1200
   distance_miles: 2
   treadmill: false
 
 two:
-  datestamp: 2019-03-31
+  date: 2019-03-31
   duration_seconds: 1500
   distance_miles: 2.5
   treadmill: true

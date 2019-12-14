@@ -3,7 +3,7 @@
 # Table name: weight_reports
 #
 #  id            :bigint(8)        not null, primary key
-#  datestamp     :date
+#  date     :date
 #  weight_pounds :float
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
@@ -12,9 +12,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  datestamp: 2019-03-31
+  date: 2019-03-31
   weight_pounds: 175.5
 
 two:
-  datestamp: 2019-03-31
+  date: 2019-03-31
   weight_pounds: 175.5

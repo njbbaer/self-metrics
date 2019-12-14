@@ -30,7 +30,7 @@
       <tbody>
         <% @weight_reports.ordered_by_recency.reverse.each do |weight_report| %>
           <tr>
-            <td><%= weight_report.datestamp.strftime('%Y-%m-%d') %></td>
+            <td><%= weight_report.date.strftime('%Y-%m-%d') %></td>
             <td><b><%= '%.1f' % weight_report.weight_pounds %></b> lb</td>
             <td><%= '%.1f' % @weight_reports.exp_avg(weight_report) %></td>
             <td nowrap>
