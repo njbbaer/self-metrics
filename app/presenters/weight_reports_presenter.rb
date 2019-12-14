@@ -1,16 +1,8 @@
 # frozen_string_literal: true
 
 class WeightReportsPresenter < ReportsPresenter
-  def self.all
-    new(WeightReport.all)
-  end
-
-  def latest
-    ordered_by_recency.last
-  end
-
-  def days_since_latest
-    (Date.today - latest.date).to_i
+  def self.model
+    WeightReport
   end
 
   def calculate_exp_avg!(alpha:, initial_weight:)
@@ -35,9 +27,5 @@ class WeightReportsPresenter < ReportsPresenter
     ordered_by_recency.map do |weight_report|
       [weight_report.epoch_timestamp, weight_report.weight_pounds]
     end
-  end
-
-  def ordered_by_recency
-    @ordered_by_recency ||= __getobj__.ordered_by_recency
   end
 end
