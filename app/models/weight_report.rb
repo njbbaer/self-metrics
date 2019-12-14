@@ -17,16 +17,6 @@ class WeightReport < ApplicationRecord
 
   scope :ordered_by_recency, -> { order(datestamp: :asc) }
 
-  class << self
-    def days_since_latest
-      (Date.today - latest.datestamp).to_i
-    end
-
-    def latest
-      ordered_by_recency.last
-    end
-  end
-
   def epoch_timestamp
     datestamp.to_time.to_i * 1000
   end

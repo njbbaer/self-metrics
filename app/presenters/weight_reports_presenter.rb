@@ -1,8 +1,16 @@
 # frozen_string_literal: true
 
-class WeightReportsPresenter < SimpleDelegator
+class WeightReportsPresenter < ReportsPresenter
   def self.all
     new(WeightReport.all)
+  end
+
+  def latest
+    ordered_by_recency.last
+  end
+
+  def days_since_latest
+    (Date.today - latest.datestamp).to_i
   end
 
   def calculate_exp_avg!(alpha:, initial_weight:)

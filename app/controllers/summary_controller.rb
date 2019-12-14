@@ -3,5 +3,6 @@
 class SummaryController < ApplicationController
   def index
     @sleep_reports = SleepReportsPresenter.all
+    @weight_reports = WeightReportsPresenter.all
   end
 end
