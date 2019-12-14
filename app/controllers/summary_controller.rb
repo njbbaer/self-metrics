@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
 class SummaryController < ApplicationController
-  def index; end
+  def index
+    @sleep_reports = SleepReportsPresenter.all
+  end
 end

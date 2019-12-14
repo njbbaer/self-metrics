@@ -28,7 +28,7 @@ module AlertsHelper
   end
 
   def alert_sleep_report_reminder
-    days_since_latest = SleepReport.days_since_latest
+    days_since_latest = @sleep_reports.days_since_latest
     return if days_since_latest < 1
 
     level = days_since_latest < 3 ? :warning : :danger
