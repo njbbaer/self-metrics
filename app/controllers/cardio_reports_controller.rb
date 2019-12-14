@@ -5,9 +5,7 @@ class CardioReportsController < ApplicationController
 
   # GET /cardio_reports
   def index
-    @ordered_by_recency = CardioReport.ordered_by_recency
-    @sorted_by_calories = CardioReport.sorted_by_calories
-    @sorted_by_speed    = CardioReport.sorted_by_speed
+    @cardio_reports = CardioReportsPresenter.all
   end
 
   # GET /cardio_reports/1

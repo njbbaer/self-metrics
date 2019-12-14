@@ -24,22 +24,8 @@ class CardioReport < ApplicationRecord
   validates_numericality_of :distance_miles, greater_than: 0.0
 
   scope :ordered_by_recency, -> { order(date: :asc) }
-  scope :sorted_by_calories, -> { sort_by(&:calories).reverse }
-  scope :sorted_by_speed, -> { sort_by { |c| [-c.speed.round(1), -c.distance_miles] } }
-
-  class << self
-    def days_since_latest
-      (Date.today - latest.date).to_i
-    end
-
-    def latest
-      ordered_by_recency.last
-    end
-
-    def sum_calories(start_date: Date.today, end_date:)
-      where(date: end_date..start_date).map(&:calories).sum
-    end
-  end
+  scope :ordered_by_calories, -> { sort_by(&:calories).reverse }
+  scope :ordered_by_speed, -> { sort_by { |c| [-c.speed.round(1), -c.distance_miles] } }
 
   def duration_time
     Time.at(duration_seconds || 0).utc

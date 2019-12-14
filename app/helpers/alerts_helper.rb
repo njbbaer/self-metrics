@@ -20,7 +20,7 @@ module AlertsHelper
   end
 
   def alert_cardio_report_reminder
-    days_since_latest = CardioReport.days_since_latest
+    days_since_latest = @cardio_reports.days_since_latest
     return if days_since_latest < 3
 
     level = days_since_latest < 7 ? :warning : :danger
@@ -36,7 +36,7 @@ module AlertsHelper
   end
 
   def alert_cardio_report_calories
-    calories = CardioReport.sum_calories(end_date: Date.today - 7.days).to_i
+    calories = @cardio_reports.sum_calories(end_date: Date.today - 7.days).to_i
     return if calories < 1000
 
     "<div class='alert alert-success'>
