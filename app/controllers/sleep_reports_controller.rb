@@ -51,7 +51,7 @@ class SleepReportsController < ApplicationController
 
   # PATCH /stop
   def stop
-    sleep_report = SleepReport.latest
+    sleep_report = SleepReportsPresenter.all.latest
     sleep_report.update!(wakeup_at: Time.now)
     duration_string = sleep_report.strf_duration('%-Hh %-Mm')
     flash[:success] = "Goodmorning! You slept for #{duration_string}"
