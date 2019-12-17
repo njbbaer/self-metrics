@@ -6,7 +6,7 @@ class WeightReportsController < ApplicationController
   # GET /weight_reports
   def index
     @weight_reports = WeightReportsPresenter.all
-    @weight_reports.calculate_exp_avg!(alpha: 0.1, initial_weight: 170)
+    @weight_reports.calculate_exp_avg!(alpha: 0.1, initial: 170)
 
     gon.weight_reports_pounds = @weight_reports.weight_table
     gon.weight_exp_avg = @weight_reports.exp_avg_table
