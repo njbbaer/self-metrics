@@ -39,8 +39,6 @@ module AlertsHelper
     calories = @cardio_reports.sum_calories(end_date: Date.today - 7.days).to_i
     return if calories < 1000
 
-    "<div class='alert alert-success'>
-      In the last <b>7</b> days you burned <b>#{calories}</b> calories
-    </div>".html_safe
+    alert_basic_html(:success, "You've burned over 1k calories in 7 days")
   end
 end
