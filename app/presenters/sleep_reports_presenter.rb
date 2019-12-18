@@ -7,12 +7,15 @@ class SleepReportsPresenter < ReportsPresenter
 
   def calculate_exp_avg!(alpha:)
     start_date = ordered_by_recency.first.date
+    end_date = ordered_by_recency.last.date
+    average_duration = 28_800
+
+    # Initializers
+    @exp_avg_data = {}
     exp_avg = ordered_by_recency.first.duration_seconds
     accuracy = 0.0
-    average_duration = 28_800
-    @exp_avg_data = {}
 
-    (start_date..Date.today).each do |date|
+    (start_date..end_date).each do |date|
       if sleep_report = hash_by_date[date]
         exp_avg = alpha * sleep_report.duration_seconds + (1 - alpha) * exp_avg
         accuracy = alpha + (1 - alpha) * accuracy
@@ -25,18 +28,18 @@ class SleepReportsPresenter < ReportsPresenter
   end
 
   def exp_avg(sleep_report)
-    @exp_avg_data[sleep_report.id][:exp_avg]
+    @exp_avg_data.dig(sleep_report.id, :exp_avg)
   end
 
   def accuracy(sleep_report)
-    @exp_avg_data[sleep_report.id][:accuracy]
+    @exp_avg_data.dig(sleep_report.id, :accuracy)
   end
 
   private
 
   def hash_by_date
     @hash_by_date ||=
-      ordered_by_recency.map do |sleep_report|
+      ordered_by_recency.completed.map do |sleep_report|
         [sleep_report.date, sleep_report]
       end.to_h
   end

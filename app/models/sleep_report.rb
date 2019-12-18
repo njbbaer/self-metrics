@@ -19,6 +19,7 @@ class SleepReport < ApplicationRecord
   before_save :round_to_minute!
 
   scope :ordered_by_recency, -> { order(wakeup_at: :asc) }
+  scope :completed, -> { where.not(wakeup_at: nil) }
 
   def duration_seconds
     wakeup_at - asleep_at
