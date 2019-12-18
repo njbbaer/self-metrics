@@ -27,7 +27,7 @@
     <tr>
       <td>Wakeup</td>
       <td><b><%= sleep_report.wakeup_at.strftime('%I:%M %p') if sleep_report.complete? %></b></td>
-      <td>Restfulness</td>
+      <td>Restedness</td>
       <% if sleep_report.complete? && @sleep_reports.accuracy(sleep_report) > 0.8 %>
         <td><b><%= '%.1f' % (@sleep_reports.exp_avg(sleep_report) / 3600) %></b> hours</td>
       <% end %>
