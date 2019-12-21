@@ -1,5 +1,5 @@
 <div class="card">
-  <div class="card-header">
+  <div class="card-header <%= 'alert-dark' unless sleep_report.complete? %>">
     <div class="row">
       <div class="col text-left">
       </div>
@@ -22,7 +22,9 @@
       <td>Asleep</td>
       <td><b><%= sleep_report.asleep_at.strftime('%I:%M %p') %></b></td>
       <td>Duration</td>
-      <td><b><%= sleep_report.strf_duration('%-H:%M') if sleep_report.complete? %></b></td>
+      <td style='color: <%= sleep_color_style(sleep_report)%>; font-size: 22px'>
+        <b><%= sleep_report.strf_duration('%-H:%M') if sleep_report.complete? %></b>
+      </td>
     </tr>
     <tr>
       <td>Wakeup</td>

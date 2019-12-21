@@ -1,14 +1,19 @@
 # frozen_string_literal: true
 
 module SleepReportsHelper
-  def sleep_color_class(sleep_report)
-    return 'alert-dark' unless sleep_report.complete?
+  def sleep_color_style(sleep_report)
+    return unless sleep_report.complete?
 
-    case sleep_report.duration_seconds / 3600
-    when 8..99 then 'alert-success'
-    when 7..8  then 'alert-warning'
-    when 0..7  then 'alert-danger'
-    end
+    hours = sleep_report.duration_seconds / 3600
+    normalized =
+      if hours > 9 then 1
+      elsif hours < 6 then 0
+      else (hours - 6) / 3
+      end
+
+    red = normalized > 0.5 ? (1 - normalized) * 2 * 255 : 255
+    green = normalized < 0.5 ? normalized * 2 * 255 : 255
+    "rgb(#{red},#{green},0)"
   end
 
   def days_since_previous_sleep(sleep_report)
