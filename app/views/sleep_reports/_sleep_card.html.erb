@@ -31,7 +31,7 @@
         <td style='color: <%= sleep_duration_color_style(sleep_report.duration_seconds) %>; font-size: 22px'>
           <b><%= sleep_report.strf_duration('%-H:%M') %></b>
         </td>
-        <% if @sleep_reports.accuracy(sleep_report) > 0.8 %>
+        <% if @sleep_reports.accuracy(sleep_report) &.> 0.8 %>
           <td style='color: <%= sleep_duration_color_style(@sleep_reports.exp_avg(sleep_report)) %>; font-size: 22px'>
             <b><%= Time.at(@sleep_reports.exp_avg(sleep_report)).utc.strftime('%-H:%M')%></b>
           </td>
