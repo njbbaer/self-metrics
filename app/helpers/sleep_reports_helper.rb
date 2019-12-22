@@ -1,10 +1,8 @@
 # frozen_string_literal: true
 
 module SleepReportsHelper
-  def sleep_color_style(sleep_report)
-    return unless sleep_report.complete?
-
-    hours = sleep_report.duration_seconds / 3600
+  def sleep_duration_color_style(duration_seconds)
+    hours = duration_seconds / 3600
     normalized =
       if hours > 9 then 1
       elsif hours < 6 then 0

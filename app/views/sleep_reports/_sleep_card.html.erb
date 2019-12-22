@@ -20,18 +20,20 @@
   <table class="table">
     <tr>
       <td>Asleep</td>
-      <td><b><%= sleep_report.asleep_at.strftime('%I:%M %p') %></b></td>
+      <td>Wakeup</td>
       <td>Duration</td>
-      <td style='color: <%= sleep_color_style(sleep_report)%>; font-size: 22px'>
-        <b><%= sleep_report.strf_duration('%-H:%M') if sleep_report.complete? %></b>
-      </td>
+      <td>Average</td>
     </tr>
     <tr>
-      <td>Wakeup</td>
+      <td><b><%= sleep_report.asleep_at.strftime('%I:%M %p') %></b></td>
       <td><b><%= sleep_report.wakeup_at.strftime('%I:%M %p') if sleep_report.complete? %></b></td>
-      <td>Restedness</td>
+      <td style='color: <%= sleep_duration_color_style(sleep_report.duration_seconds) %>; font-size: 22px'>
+        <b><%= sleep_report.strf_duration('%-H:%M') if sleep_report.complete? %></b>
+      </td>
       <% if sleep_report.complete? && @sleep_reports.accuracy(sleep_report) > 0.8 %>
-        <td><b><%= '%.1f' % (@sleep_reports.exp_avg(sleep_report) / 3600) %></b> hours</td>
+        <td style='color: <%= sleep_duration_color_style(@sleep_reports.exp_avg(sleep_report)) %>; font-size: 22px'>
+          <b><%= Time.at(@sleep_reports.exp_avg(sleep_report)).utc.strftime('%-H:%M')%></b>
+        </td>
       <% end %>
     </tr>
   </table>
