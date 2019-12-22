@@ -17,4 +17,6 @@ Rails.application.routes.draw do
       patch :stop, on: :collection
     end
   end
+
+  get '/reports', to: redirect('/')
 end
