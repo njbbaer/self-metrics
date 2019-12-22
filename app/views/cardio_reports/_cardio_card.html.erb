@@ -25,14 +25,14 @@
   <table class="table">
     <tr>
       <td>Duration</td>
-      <td><b><%= cardio_report.duration_time.strftime('%M:%S') %></b></td>
+      <td>Distance</td>
       <td>Speed</td>
-      <td><b><%= '%.1f' % cardio_report.speed %></b> mph</td>
+      <td>Calories</td>
     </tr>
     <tr>
-      <td>Distance</td>
+      <td><b><%= cardio_report.duration_time.strftime('%M:%S') %></b></td>
       <td><b><%= '%.1f' % cardio_report.distance_miles %></b> miles</td>
-      <td>Calories</td>
+      <td><b><%= '%.1f' % cardio_report.speed %></b> mph</td>
       <td><b><%= cardio_report.calories.to_i %></b> kcal</td>
     </tr>
   </table>
