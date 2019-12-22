@@ -26,14 +26,16 @@
     </tr>
     <tr>
       <td><b><%= sleep_report.asleep_at.strftime('%I:%M %p') %></b></td>
-      <td><b><%= sleep_report.wakeup_at.strftime('%I:%M %p') if sleep_report.complete? %></b></td>
-      <td style='color: <%= sleep_duration_color_style(sleep_report.duration_seconds) %>; font-size: 22px'>
-        <b><%= sleep_report.strf_duration('%-H:%M') if sleep_report.complete? %></b>
-      </td>
-      <% if sleep_report.complete? && @sleep_reports.accuracy(sleep_report) > 0.8 %>
-        <td style='color: <%= sleep_duration_color_style(@sleep_reports.exp_avg(sleep_report)) %>; font-size: 22px'>
-          <b><%= Time.at(@sleep_reports.exp_avg(sleep_report)).utc.strftime('%-H:%M')%></b>
+      <% if sleep_report.complete? %>
+        <td><b><%= sleep_report.wakeup_at.strftime('%I:%M %p') %></b></td>
+        <td style='color: <%= sleep_duration_color_style(sleep_report.duration_seconds) %>; font-size: 22px'>
+          <b><%= sleep_report.strf_duration('%-H:%M') %></b>
         </td>
+        <% if @sleep_reports.accuracy(sleep_report) > 0.8 %>
+          <td style='color: <%= sleep_duration_color_style(@sleep_reports.exp_avg(sleep_report)) %>; font-size: 22px'>
+            <b><%= Time.at(@sleep_reports.exp_avg(sleep_report)).utc.strftime('%-H:%M')%></b>
+          </td>
+        <% end %>
       <% end %>
     </tr>
   </table>
