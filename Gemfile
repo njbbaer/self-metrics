@@ -26,15 +26,10 @@ group :development do
   gem 'spring-watcher-listen'
   gem 'annotate'
   gem 'rubocop'
-end
-
-group :test do
-  gem 'capybara'
-  gem 'selenium-webdriver'
-  gem 'chromedriver-helper'
+  gem 'rack-mini-profiler'
 end
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
-  gem 'rack-mini-profiler'
+  gem 'rspec-rails'
 end
