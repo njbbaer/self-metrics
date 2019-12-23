@@ -29,6 +29,10 @@ group :development do
   gem 'rack-mini-profiler'
 end
 
+group :test do
+  gem 'capybara'
+end
+
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'rspec-rails'
