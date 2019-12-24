@@ -20,6 +20,6 @@ module SelfMetrics
 
     config.time_zone = 'Pacific Time (US & Canada)'
 
-    config.password = ENV['PASSWORD']
+    config.password = ENV['PASSWORD'] || ''
   end
 end
