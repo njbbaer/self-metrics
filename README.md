@@ -6,7 +6,7 @@
 
 A Rails web app for collecting and analyzing personal health data.
 
-Records sleep, running, and weight. Displays metrics to encourage healthy behaviors.
+Collects data about sleep, exercise, and weight. Displays metrics, charts, and achievements to encourage healthy behaviors.
 
 Built for personal use, but open-source to the public.
 
