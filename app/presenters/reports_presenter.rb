@@ -10,6 +10,8 @@ class ReportsPresenter < SimpleDelegator
   end
 
   def days_since_latest(offset: 0.hours)
+    return nil if latest.nil?
+
     ((Time.now - offset).to_date - latest.date).to_i
   end
 
