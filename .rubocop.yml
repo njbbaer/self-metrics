@@ -10,3 +10,6 @@ Metrics/AbcSize:
 
 Documentation:
   Enabled: false
+
+Metrics/BlockLength:
+  ExcludedMethods: ['feature', 'describe', 'context']
