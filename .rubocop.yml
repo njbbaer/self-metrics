@@ -12,4 +12,4 @@ Documentation:
   Enabled: false
 
 Metrics/BlockLength:
-  ExcludedMethods: ['feature', 'describe', 'context']
+  ExcludedMethods: ['describe', 'context']

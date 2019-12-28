@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.feature 'authentication', type: :feature do
+RSpec.describe 'Authentication', type: :feature do
   include Authentication
 
   context 'logged out' do
@@ -12,17 +12,18 @@ RSpec.feature 'authentication', type: :feature do
     end
 
     describe 'log in' do
-      scenario 'with valid password' do
+      scenario 'successfully' do
         visit login_path
         fill_in 'Password', with: Rails.configuration.password
         click_button 'Authenticate'
         expect(page).to have_content 'You have authenticated successfully'
       end
 
-      scenario 'with invalid password' do
+      scenario 'unsuccessfully' do
         visit login_path
         fill_in 'Password', with: 'invalid_password'
         click_button 'Authenticate'
+        expect(current_path).to eql '/login'
         expect(page).to have_content 'Authentication failed'
       end
     end
