@@ -1,4 +1,4 @@
-![self-metrics-logo](/app/assets/images/logo.png)
+# Self-Metrics
 
 [![CircleCI](https://circleci.com/gh/njbbaer/self-metrics.svg?style=svg)](https://circleci.com/gh/njbbaer/self-metrics) 
 [![Maintainability](https://api.codeclimate.com/v1/badges/97d3f6de5aca55f1f21b/maintainability)](https://codeclimate.com/github/njbbaer/self-metrics/maintainability) 
