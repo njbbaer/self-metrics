@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Authentication', type: :feature do
+RSpec.describe 'Authentication', type: :system do
   include Authentication
 
   context 'logged out' do

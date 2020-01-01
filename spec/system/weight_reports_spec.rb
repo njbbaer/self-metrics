@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Weight Reports', type: :feature do
+RSpec.describe 'Weight Reports', type: :system do
   include Authentication
 
   before { log_in }
