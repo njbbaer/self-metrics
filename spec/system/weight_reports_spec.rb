@@ -7,19 +7,22 @@ RSpec.describe 'Weight Reports', type: :system do
 
   before { log_in }
 
-  scenario 'view list of reports' do
-    visit weight_reports_path
-    expect(page).to have_content 'Weight Reports'
+  describe 'Weight reports index' do
+    before { visit weight_reports_path }
+
+    scenario 'view weight reports index page' do
+      expect(page).to have_content 'Weight Reports'
+    end
   end
 
-  describe 'create report' do
+  describe 'create weight report' do
     before { visit new_weight_report_path }
 
-    scenario 'visit new report page' do
+    scenario 'view new weight report page' do
       expect(page).to have_content 'New Weight Report'
     end
 
-    scenario 'create valid report' do
+    scenario 'create valid weight report' do
       fill_in 'weight_report_date', with: Date.today
       fill_in 'weight_report_weight_pounds', with: 180
       click_button 'Submit'
@@ -38,16 +41,16 @@ RSpec.describe 'Weight Reports', type: :system do
     end
   end
 
-  describe 'update report' do
+  describe 'update weight report' do
     let(:weight_report) { create :weight_report }
 
     before { visit weight_reports_path + "/#{weight_report.id}/edit" }
 
-    scenario 'visit report\'s edit page' do
+    scenario 'view weight report\'s edit page' do
       expect(page).to have_content 'Editing Weight Report'
     end
 
-    scenario 'update valid report' do
+    scenario 'update valid weight report' do
       fill_in 'weight_report_date', with: Date.today - 1.day
       fill_in 'weight_report_weight_pounds', with: 175
       click_button 'Submit'
@@ -57,6 +60,4 @@ RSpec.describe 'Weight Reports', type: :system do
       expect(page).not_to have_content Date.today
     end
   end
-
-  describe 'delete report'
 end
