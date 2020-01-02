@@ -5,13 +5,23 @@ require 'rails_helper'
 RSpec.describe 'Weight Reports', type: :system do
   include Authentication
 
+  let!(:weight_report) { create :weight_report }
+  let(:free_date) { weight_report.date - 1.day }
+
   before { log_in }
 
-  describe 'Weight reports index' do
+  describe 'weight reports index' do
     before { visit weight_reports_path }
 
     scenario 'view weight reports index page' do
       expect(page).to have_content 'Weight Reports'
+    end
+
+    scenario 'delete weight report', js: true do
+      accept_alert do
+        find('.octicon-trashcan').click
+      end
+      expect(page).to have_content 'Weight report deleted'
     end
   end
 
@@ -23,16 +33,16 @@ RSpec.describe 'Weight Reports', type: :system do
     end
 
     scenario 'create valid weight report' do
-      fill_in 'weight_report_date', with: Date.today
+      fill_in 'weight_report_date', with: free_date
       fill_in 'weight_report_weight_pounds', with: 180
       click_button 'Submit'
 
       expect(current_path).to eql weight_reports_path
-      expect(page).to have_content Date.today
+      expect(page).to have_content free_date
     end
 
-    scenario 'fail to create report with invalid weight' do
-      fill_in 'weight_report_date', with: Date.today
+    scenario 'fail to create invalid weight report' do
+      fill_in 'weight_report_date', with: free_date
       fill_in 'weight_report_weight_pounds', with: -180
       click_button 'Submit'
 
@@ -42,8 +52,6 @@ RSpec.describe 'Weight Reports', type: :system do
   end
 
   describe 'update weight report' do
-    let(:weight_report) { create :weight_report }
-
     before { visit weight_reports_path + "/#{weight_report.id}/edit" }
 
     scenario 'view weight report\'s edit page' do
@@ -51,12 +59,12 @@ RSpec.describe 'Weight Reports', type: :system do
     end
 
     scenario 'update valid weight report' do
-      fill_in 'weight_report_date', with: Date.today - 1.day
+      fill_in 'weight_report_date', with: free_date
       fill_in 'weight_report_weight_pounds', with: 175
       click_button 'Submit'
 
       expect(current_path).to eql weight_reports_path
-      expect(page).to have_content Date.today - 1.day
+      expect(page).to have_content free_date
       expect(page).not_to have_content Date.today
     end
   end
