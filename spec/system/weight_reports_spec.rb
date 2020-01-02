@@ -15,7 +15,11 @@ RSpec.describe 'Weight Reports', type: :system do
   describe 'create report' do
     before { visit new_weight_report_path }
 
-    scenario 'successfully' do
+    scenario 'visit new report page' do
+      expect(page).to have_content 'New Weight Report'
+    end
+
+    scenario 'create valid report' do
       fill_in 'weight_report_date', with: Date.today
       fill_in 'weight_report_weight_pounds', with: 180
       click_button 'Submit'
@@ -24,7 +28,7 @@ RSpec.describe 'Weight Reports', type: :system do
       expect(page).to have_content Date.today
     end
 
-    scenario 'unsuccessfully' do
+    scenario 'fail to create report with invalid weight' do
       fill_in 'weight_report_date', with: Date.today
       fill_in 'weight_report_weight_pounds', with: -180
       click_button 'Submit'
@@ -33,4 +37,26 @@ RSpec.describe 'Weight Reports', type: :system do
       expect(page).to have_content 'Validation failed: Weight pounds must be greater than 0.0'
     end
   end
+
+  describe 'update report' do
+    let(:weight_report) { create :weight_report }
+
+    before { visit weight_reports_path + "/#{weight_report.id}/edit" }
+
+    scenario 'visit report\'s edit page' do
+      expect(page).to have_content 'Editing Weight Report'
+    end
+
+    scenario 'update valid report' do
+      fill_in 'weight_report_date', with: Date.today - 1.day
+      fill_in 'weight_report_weight_pounds', with: 175
+      click_button 'Submit'
+
+      expect(current_path).to eql weight_reports_path
+      expect(page).to have_content Date.today - 1.day
+      expect(page).not_to have_content Date.today
+    end
+  end
+
+  describe 'delete report'
 end

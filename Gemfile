@@ -19,6 +19,12 @@ gem 'dotenv-rails'
 gem 'octicons_helper'
 gem 'gon'
 
+group :development, :test do
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
+end
+
 group :development do
   gem 'web-console'
   gem 'listen'
@@ -33,9 +39,4 @@ group :test do
   gem 'capybara'
   gem 'rspec_junit_formatter'
   gem 'selenium-webdriver'
-end
-
-group :development, :test do
-  gem 'byebug', platforms: %i[mri mingw x64_mingw]
-  gem 'rspec-rails'
 end
