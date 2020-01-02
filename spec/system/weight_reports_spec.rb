@@ -10,14 +10,14 @@ RSpec.describe 'Weight Reports', type: :system do
 
   before { log_in }
 
-  describe 'weight reports index' do
+  describe 'list reports' do
     before { visit weight_reports_path }
 
-    scenario 'view weight reports index page' do
+    scenario 'view index page' do
       expect(page).to have_content 'Weight Reports'
     end
 
-    scenario 'delete weight report', js: true do
+    scenario 'delete report', js: true do
       accept_alert do
         find('.octicon-trashcan').click
       end
@@ -25,14 +25,14 @@ RSpec.describe 'Weight Reports', type: :system do
     end
   end
 
-  describe 'create weight report' do
+  describe 'create report' do
     before { visit new_weight_report_path }
 
-    scenario 'view new weight report page' do
+    scenario 'view new report page' do
       expect(page).to have_content 'New Weight Report'
     end
 
-    scenario 'create valid weight report' do
+    scenario 'create valid report' do
       fill_in 'weight_report_date', with: free_date
       fill_in 'weight_report_weight_pounds', with: 180
       click_button 'Submit'
@@ -41,7 +41,7 @@ RSpec.describe 'Weight Reports', type: :system do
       expect(page).to have_content free_date
     end
 
-    scenario 'fail to create invalid weight report' do
+    scenario 'fail to create invalid report' do
       fill_in 'weight_report_date', with: free_date
       fill_in 'weight_report_weight_pounds', with: -180
       click_button 'Submit'
@@ -51,14 +51,14 @@ RSpec.describe 'Weight Reports', type: :system do
     end
   end
 
-  describe 'update weight report' do
+  describe 'update report' do
     before { visit weight_reports_path + "/#{weight_report.id}/edit" }
 
-    scenario 'view weight report\'s edit page' do
+    scenario 'view edit report page' do
       expect(page).to have_content 'Editing Weight Report'
     end
 
-    scenario 'update valid weight report' do
+    scenario 'update valid report' do
       fill_in 'weight_report_date', with: free_date
       fill_in 'weight_report_weight_pounds', with: 175
       click_button 'Submit'
