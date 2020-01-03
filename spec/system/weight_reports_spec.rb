@@ -6,7 +6,7 @@ RSpec.describe 'Weight Reports', type: :system do
   include Authentication
 
   let!(:weight_report) { create :weight_report }
-  let(:free_date) { weight_report.date - 1.day }
+  let!(:new_weight_report) { build :weight_report }
 
   before { log_in }
 
@@ -33,21 +33,19 @@ RSpec.describe 'Weight Reports', type: :system do
     end
 
     scenario 'create valid report' do
-      fill_in 'weight_report_date', with: free_date
-      fill_in 'weight_report_weight_pounds', with: 180
+      fill_in 'weight_report_date', with: new_weight_report.date
+      fill_in 'weight_report_weight_pounds', with: new_weight_report.weight_pounds
       click_button 'Submit'
 
       expect(current_path).to eql weight_reports_path
-      expect(page).to have_content free_date
+      expect(page).to have_content new_weight_report.date
     end
 
     scenario 'fail to create invalid report' do
-      fill_in 'weight_report_date', with: free_date
-      fill_in 'weight_report_weight_pounds', with: -180
       click_button 'Submit'
 
       expect(page).to have_content 'New Weight Report'
-      expect(page).to have_content 'Validation failed: Weight pounds must be greater than 0.0'
+      expect(page).to have_content 'Validation failed'
     end
   end
 
@@ -59,13 +57,13 @@ RSpec.describe 'Weight Reports', type: :system do
     end
 
     scenario 'update valid report' do
-      fill_in 'weight_report_date', with: free_date
-      fill_in 'weight_report_weight_pounds', with: 175
+      fill_in 'weight_report_date', with: new_weight_report.date
+      fill_in 'weight_report_weight_pounds', with: new_weight_report.weight_pounds
       click_button 'Submit'
 
       expect(current_path).to eql weight_reports_path
-      expect(page).to have_content free_date
-      expect(page).not_to have_content Date.today
+      expect(page).to have_content new_weight_report.date
+      expect(page).not_to have_content weight_report.date
     end
   end
 end
