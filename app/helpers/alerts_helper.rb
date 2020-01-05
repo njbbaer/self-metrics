@@ -34,11 +34,4 @@ module AlertsHelper
     level = days_since_latest < 3 ? :warning : :danger
     alert_days_since_latest_html(level, days_since_latest, 'recorded your sleep')
   end
-
-  def alert_cardio_report_calories
-    calories = @cardio_reports.sum_calories(end_date: Date.today - 7.days).to_i
-    return if calories < 1000
-
-    alert_basic_html(:success, "You've burned over 1k calories in 7 days")
-  end
 end
