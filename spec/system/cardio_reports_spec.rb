@@ -6,7 +6,6 @@ RSpec.describe 'Cardio Reports', type: :system do
   include Authentication
 
   let!(:cardio_report) { create :cardio_report }
-  let!(:new_cardio_report) { build :cardio_report }
 
   before { log_in }
 
@@ -33,15 +32,15 @@ RSpec.describe 'Cardio Reports', type: :system do
     end
 
     scenario 'create valid report' do
-      fill_in 'cardio_report_date', with: new_cardio_report.date
-      fill_in 'cardio_report_distance_miles', with: new_cardio_report.distance_miles
-      fill_in 'cardio_report_part_minutes', with: new_cardio_report.duration_time.min
-      fill_in 'cardio_report_part_seconds', with: new_cardio_report.duration_time.sec
+      fill_in 'cardio_report_date', with: '01/01/2020'
+      fill_in 'cardio_report_distance_miles', with: 3.0
+      fill_in 'cardio_report_part_minutes', with: 30
+      fill_in 'cardio_report_part_seconds', with: 0
       choose 'Treadmill'
       click_button 'Submit'
 
       expect(current_path).to eql cardio_reports_path
-      expect(page).to have_content new_cardio_report.date.strftime('%a, %b %d, %Y')
+      expect(page).to have_content('Wed, Jan 01, 2020')
     end
 
     scenario 'fail to create invalid report' do
@@ -60,12 +59,11 @@ RSpec.describe 'Cardio Reports', type: :system do
     end
 
     scenario 'update valid report' do
-      fill_in 'cardio_report_date', with: new_cardio_report.date
+      fill_in 'cardio_report_date', with: '01/01/2020'
       click_button 'Submit'
 
       expect(current_path).to eql cardio_reports_path
-      expect(page).to have_content new_cardio_report.date.strftime('%a, %b %d, %Y')
-      expect(page).not_to have_content cardio_report.date.strftime('%a, %b %d, %Y')
+      expect(page).to have_content 'Wed, Jan 01, 2020'
     end
   end
 end

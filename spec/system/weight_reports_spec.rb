@@ -6,7 +6,6 @@ RSpec.describe 'Weight Reports', type: :system do
   include Authentication
 
   let!(:weight_report) { create :weight_report }
-  let!(:new_weight_report) { build :weight_report }
 
   before { log_in }
 
@@ -33,12 +32,12 @@ RSpec.describe 'Weight Reports', type: :system do
     end
 
     scenario 'create valid report' do
-      fill_in 'weight_report_date', with: new_weight_report.date
-      fill_in 'weight_report_weight_pounds', with: new_weight_report.weight_pounds
+      fill_in 'weight_report_date', with: '01/01/2020'
+      fill_in 'weight_report_weight_pounds', with: 180
       click_button 'Submit'
 
       expect(current_path).to eql weight_reports_path
-      expect(page).to have_content new_weight_report.date
+      expect(page).to have_content '2020-01-01'
     end
 
     scenario 'fail to create invalid report' do
@@ -57,13 +56,11 @@ RSpec.describe 'Weight Reports', type: :system do
     end
 
     scenario 'update valid report' do
-      fill_in 'weight_report_date', with: new_weight_report.date
-      fill_in 'weight_report_weight_pounds', with: new_weight_report.weight_pounds
+      fill_in 'weight_report_date', with: '01/01/2020'
       click_button 'Submit'
 
       expect(current_path).to eql weight_reports_path
-      expect(page).to have_content new_weight_report.date
-      expect(page).not_to have_content weight_report.date
+      expect(page).to have_content '2020-01-01'
     end
   end
 end
