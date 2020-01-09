@@ -12,14 +12,14 @@ class SleepReportsPresenter < ReportsPresenter
 
     # Initializers
     @exp_avg_data = {}
-    exp_avg = ordered_by_recency.first.duration_seconds
+    exp_avg = ordered_by_recency.first.duration.seconds
     accuracy = 0.0
 
     (start_date..end_date).each do |date|
       if sleep_report = hash_by_date[date]
-        exp_avg = alpha * sleep_report.duration_seconds + (1 - alpha) * exp_avg
+        exp_avg = alpha * sleep_report.duration.seconds + (1 - alpha) * exp_avg
         accuracy = alpha + (1 - alpha) * accuracy
-        @exp_avg_data[sleep_report.id] = { exp_avg: exp_avg, accuracy: accuracy }
+        @exp_avg_data[sleep_report.id] = { exp_avg: Duration.new(exp_avg), accuracy: accuracy }
       else
         exp_avg = alpha * average_duration + (1 - alpha) * exp_avg
         accuracy = (1 - alpha) * accuracy

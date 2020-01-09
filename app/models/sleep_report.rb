@@ -21,8 +21,8 @@ class SleepReport < ApplicationRecord
   scope :ordered_by_recency, -> { order(wakeup_at: :asc) }
   scope :completed, -> { where.not(wakeup_at: nil) }
 
-  def duration_seconds
-    wakeup_at - asleep_at
+  def duration
+    Duration.new(wakeup_at - asleep_at)
   end
 
   def date
@@ -33,16 +33,12 @@ class SleepReport < ApplicationRecord
     wakeup_at.present?
   end
 
-  def strf_duration(code)
-    Time.at(duration_seconds).utc.strftime(code)
-  end
-
   private
 
   def valid_duration
-    if duration_seconds.negative?
+    if duration.seconds.negative?
       errors.add(:wakeup_at, 'sleep duration cannot be negative')
-    elsif duration_seconds > 1.day
+    elsif duration.seconds > 1.day
       errors.add(:wakeup_at, 'sleep duration cannot be greater than a day')
     end
   end

@@ -10,14 +10,14 @@
   <div class="row">
     <div class="btn-group mb-3 col-lg-4">
       <div class="input-group">
-        <%= number_field(:cardio_report, :part_minutes, step: 1, class: "form-control", value: part_minutes(cardio_report)) %>
+        <%= number_field(:cardio_report, :part_minutes, step: 1, class: "form-control", value: cardio_report.duration&.part_minutes) %>
         <div class="input-group-append">
           <span class="input-group-text">minutes</span>
         </div>
       </div>
       <div style="width: 10%"></div>
       <div class="input-group">
-        <%= number_field(:cardio_report, :part_seconds, step: 1, class: "form-control", value: part_seconds(cardio_report)) %>
+        <%= number_field(:cardio_report, :part_seconds, step: 1, class: "form-control", value: cardio_report.duration&.part_seconds) %>
         <div class="input-group-append">
           <span class="input-group-text">seconds</span>
         </div>

@@ -27,14 +27,8 @@ class CardioReport < ApplicationRecord
   scope :ordered_by_calories, -> { sort_by(&:calories).reverse }
   scope :ordered_by_speed, -> { sort_by { |c| [-c.speed.round(1), -c.distance_miles] } }
 
-  def duration_time
-    Time.at(duration_seconds || 0).utc
-  end
-
-  def duration_hours
-    return nil unless duration_seconds
-
-    duration_seconds / 3600.0
+  def duration
+    Duration.new(duration_seconds) if duration_seconds
   end
 
   def calculate_multipart_duration!
@@ -46,12 +40,12 @@ class CardioReport < ApplicationRecord
   end
 
   def speed
-    distance_miles / duration_hours
+    distance_miles / duration.hours
   end
 
   def calories
     # Formula excludes resting calories
-    duration_hours * (met - 1) * 180 / 2.205
+    duration.hours * (met - 1) * 180 / 2.205
   end
 
   private
