@@ -6,6 +6,8 @@ class SleepReportsPresenter < ReportsPresenter
   end
 
   def calculate_exp_avg!(alpha:)
+    return if ordered_by_recency.empty?
+
     start_date = ordered_by_recency.first.date
     end_date = ordered_by_recency.last.date
     average_duration = 28_800
