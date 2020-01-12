@@ -1,9 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  root to: redirect('/summary')
-  resources :summary, only: :index
-  # resources :sessions, only: %i[new create destroy]
+  root to: redirect('/home')
+  resources :home, only: :index
 
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
