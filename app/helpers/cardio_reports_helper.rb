@@ -1,26 +1,26 @@
 # frozen_string_literal: true
 
 module CardioReportsHelper
-  def ranking_by_calories(cardio_report)
-    @cardio_reports.ordered_by_calories.pluck(:id).index(cardio_report.id) + 1
+  # def ranking_by_calories(cardio_report)
+  #   @cardio_reports.ordered_by_calories.pluck(:id).index(cardio_report.id) + 1
+  # end
+
+  # def ranking_by_speed_for_distance(cardio_report)
+  #   @cardio_reports.ordered_by_speed.select do |cardio|
+  #     cardio[:distance_miles] >= cardio_report.distance_miles
+  #   end.pluck(:id).index(cardio_report.id) + 1
+  # end
+
+  def featured_by_calories?(report)
+    report.ranking_by_calories <= 10
   end
 
-  def ranking_by_speed_for_distance(cardio_report)
-    @cardio_reports.ordered_by_speed.select do |cardio|
-      cardio[:distance_miles] >= cardio_report.distance_miles
-    end.pluck(:id).index(cardio_report.id) + 1
+  def featured_by_speed_for_distance?(report)
+    report.ranking_by_speed <= 1
   end
 
-  def featured_by_calories?(cardio_report)
-    ranking_by_calories(cardio_report) <= 10
-  end
-
-  def featured_by_speed?(cardio_report)
-    ranking_by_speed_for_distance(cardio_report) <= 1
-  end
-
-  def featured?(cardio_report)
-    featured_by_calories?(cardio_report) || featured_by_speed?(cardio_report)
+  def featured?(report)
+    featured_by_calories?(report) || featured_by_speed_for_distance?(report)
   end
 
   def days_since_previous_cardio(cardio_report)

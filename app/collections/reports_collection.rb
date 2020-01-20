@@ -12,7 +12,7 @@ class ReportsCollection
   end
 
   def collection
-    @collection ||= self.class.model.all
+    @collection ||= model.all
   end
 
   def ordered_by_recency

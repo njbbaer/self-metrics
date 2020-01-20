@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class WeightReportsCollection < ReportsCollection
-  def self.model
+  def model
     WeightReport
   end
 
