@@ -13,4 +13,9 @@ module SleepReportsHelper
     green = normalized < 0.5 ? normalized * 2 * 255 : 255
     "rgb(#{red},#{green},0)"
   end
+
+  def pluralized_days_content(days)
+    plural = days > 1 ? 's' : ''
+    "<b>#{days}</b> day#{plural}".html_safe
+  end
 end

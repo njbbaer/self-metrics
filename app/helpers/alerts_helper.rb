@@ -7,7 +7,7 @@ module AlertsHelper
 
   def alert_days_since_latest_html(level, days, modifier)
     "<div class='alert #{color_class(level)}'>
-      You last #{modifier} <b>#{days}</b> days ago
+      You last #{modifier} #{pluralized_days_content(days)} ago
     </div>".html_safe
   end
 
