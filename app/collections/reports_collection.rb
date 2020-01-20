@@ -5,6 +5,10 @@ class ReportsCollection
     ordered_by_recency.last
   end
 
+  def first
+    ordered_by_recency.first
+  end
+
   def days_since_latest(offset: 0.hours)
     return nil if latest.nil?
 

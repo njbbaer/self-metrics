@@ -5,7 +5,7 @@ class SleepReportsController < ApplicationController
 
   # GET /sleep_reports
   def index
-    @sleep_reports = SleepReportsPresenter.all
+    @sleep_reports = SleepReportsCollection.new
     @sleep_reports.calculate_exp_avg!(alpha: 0.5)
   end
 
