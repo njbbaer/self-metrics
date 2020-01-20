@@ -13,11 +13,4 @@ module SleepReportsHelper
     green = normalized < 0.5 ? normalized * 2 * 255 : 255
     "rgb(#{red},#{green},0)"
   end
-
-  def days_since_previous_sleep(sleep_report)
-    previous_idx = @sleep_reports.ordered_by_recency.pluck(:id).index(sleep_report.id) - 1
-    return nil if previous_idx.negative?
-
-    (sleep_report.date - @sleep_reports.ordered_by_recency[previous_idx].date).to_i
-  end
 end

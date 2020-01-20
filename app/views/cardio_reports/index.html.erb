@@ -9,9 +9,9 @@
 <% @cardio_reports.ordered_by_recency.reverse.each do |cardio_report| %>
   <%= render 'cardio_card', cardio_report: cardio_report %>
   <br>
-  <% if (days_since_previous_cardio(cardio_report) || 0) >= 7 %>
-    <div class="card card-banner <%= days_since_previous_cardio(cardio_report) < 30 ? 'alert-warning' : 'alert-danger' %>">
-      <p><b><%= days_since_previous_cardio(cardio_report) %></b> days</p>
+  <% if (cardio_report.days_since_previous || 0) >= 7 %>
+    <div class="card card-banner <%= cardio_report.days_since_previous < 30 ? 'alert-warning' : 'alert-danger' %>">
+      <p><b><%= cardio_report.days_since_previous %></b> days</p>
     </div>
     <br>
   <% end %>

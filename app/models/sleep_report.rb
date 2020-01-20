@@ -13,6 +13,7 @@
 
 class SleepReport < ApplicationRecord
   attr_accessor :exp_avg, :exp_avg_accuracy
+  attr_accessor :days_since_previous
 
   validates_presence_of :asleep_at
   validate :valid_duration, if: :complete?

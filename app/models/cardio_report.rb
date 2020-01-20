@@ -16,6 +16,7 @@
 class CardioReport < ApplicationRecord
   attr_accessor :part_minutes, :part_seconds
   attr_accessor :ranking_by_calories, :ranking_by_speed
+  attr_accessor :days_since_previous
 
   before_validation :calculate_multipart_duration!
 
