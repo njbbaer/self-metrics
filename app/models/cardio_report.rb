@@ -45,8 +45,19 @@ class CardioReport < ApplicationRecord
   end
 
   def calories
-    # Formula excludes resting calories
     duration.hours * (met - 1) * 180 / 2.205
+  end
+
+  def featured_by_calories?
+    ranking_by_calories <= 10
+  end
+
+  def featured_by_speed_for_distance?
+    ranking_by_speed <= 1
+  end
+
+  def featured?
+    featured_by_calories? || featured_by_speed_for_distance?
   end
 
   private

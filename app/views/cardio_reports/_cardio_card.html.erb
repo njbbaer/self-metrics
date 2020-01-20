@@ -1,5 +1,5 @@
 <div class="card">
-  <div class="card-header <%= 'alert-success' if featured?(cardio_report) %>">
+  <div class="card-header <%= 'alert-success' if cardio_report.featured? %>">
     <div class="row">
       <div class="col text-left">
         <% if cardio_report.treadmill? %>
@@ -36,13 +36,13 @@
       <td><b><%= cardio_report.calories.to_i %></b> kcal</td>
     </tr>
   </table>
-  <% if featured?(cardio_report) %>
+  <% if cardio_report.featured? %>
     <footer class="card-footer text-muted">
       <ul>
-        <% if featured_by_calories?(cardio_report) %>
+        <% if cardio_report.featured_by_calories? %>
           <li>&#9733; #<%= cardio_report.ranking_by_calories %> most calories burned</li>
         <% end %>
-        <% if featured_by_speed_for_distance?(cardio_report) %>
+        <% if cardio_report.featured_by_speed_for_distance? %>
           <li>&#9733; Fastest <%= '%.1f' % cardio_report.distance_miles %> miles</li>
         <% end %>
       </ul>
