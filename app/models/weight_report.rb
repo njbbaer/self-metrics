@@ -12,10 +12,10 @@
 #
 
 class WeightReport < ApplicationRecord
+  attr_accessor :exp_avg
+
   validates :date, presence: true, uniqueness: true
   validates_numericality_of :weight_pounds, greater_than: 0.0
-
-  scope :ordered_by_recency, -> { order(date: :asc) }
 
   def epoch_timestamp
     date.to_time.to_i * 1000
