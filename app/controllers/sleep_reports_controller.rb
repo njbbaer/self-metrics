@@ -5,9 +5,10 @@ class SleepReportsController < ApplicationController
 
   # GET /sleep_reports
   def index
-    @sleep_reports = SleepReportsCollection.new
-    @sleep_reports.calculate_days_since_previous!
-    @sleep_reports.calculate_exp_avg!(alpha: 0.5)
+    @sleep_reports = SleepReportsCollection.new.tap do |report|
+      report.calculate_days_since_previous!
+      report.calculate_exp_avg!(alpha: 0.5)
+    end
   end
 
   # GET /sleep_reports/1
