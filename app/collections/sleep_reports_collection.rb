@@ -6,6 +6,8 @@ class SleepReportsCollection < ReportsCollection
   end
 
   def calculate_exp_avg!(alpha:)
+    return if collection.empty?
+
     avg_duration = 28_800
     exp_avg = 28_800
     accuracy = 0.0
