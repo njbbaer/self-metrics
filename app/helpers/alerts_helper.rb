@@ -29,7 +29,7 @@ module AlertsHelper
 
   def alert_sleep_report_reminder
     days_since_latest = @sleep_reports.days_since_latest(offset: 6.hours)
-    return unless days_since_latest &.> 1
+    return unless days_since_latest &.>= 1
 
     level = days_since_latest < 3 ? :warning : :danger
     alert_days_since_latest_html(level, days_since_latest, 'recorded your sleep')
