@@ -6,6 +6,8 @@
 
 <br><br>
 
+<p>Total Calories: <b><%= number_with_delimiter(@cardio_reports.sum_calories.round) %></b> kcal</p>
+
 <% @cardio_reports.ordered_by_recency.reverse.each do |cardio_report| %>
   <%= render 'cardio_card', cardio_report: cardio_report %>
   <br>

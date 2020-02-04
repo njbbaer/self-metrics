@@ -5,8 +5,8 @@ class CardioReportsCollection < ReportsCollection
     CardioReport
   end
 
-  def sum_calories(start_date: Date.today, end_date:)
-    model.where(date: end_date..start_date).map(&:calories).sum
+  def sum_calories
+    collection.map(&:calories).sum
   end
 
   def calculate_ranking_by_calories!
