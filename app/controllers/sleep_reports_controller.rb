@@ -7,7 +7,7 @@ class SleepReportsController < ApplicationController
   def index
     @sleep_reports = SleepReportsCollection.new.tap do |report|
       report.calculate_days_since_previous!
-      report.calculate_exp_avg!(alpha: 0.5)
+      report.calculate_restedness_exp_avg!(alpha: 0.5)
     end
   end
 

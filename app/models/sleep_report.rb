@@ -12,8 +12,9 @@
 #
 
 class SleepReport < ApplicationRecord
-  attr_accessor :exp_avg, :exp_avg_accuracy
-  attr_accessor :days_since_previous
+  attr_accessor :restedness_exp_avg,
+                :restedness_exp_avg_accuracy,
+                :days_since_previous
 
   validates_presence_of :asleep_at
   validate :valid_duration, if: :complete?
@@ -34,6 +35,10 @@ class SleepReport < ApplicationRecord
 
   def complete?
     wakeup_at.present?
+  end
+
+  def restedness_score
+    (duration.seconds.clamp(0, 9.hours.to_i) - 3.hours) / 6.hours.to_i * 100
   end
 
   private

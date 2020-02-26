@@ -5,21 +5,21 @@ class SleepReportsCollection < ReportsCollection
     SleepReport
   end
 
-  def calculate_exp_avg!(alpha:)
+  def calculate_restedness_exp_avg!(alpha:)
     return if collection.empty?
 
-    avg_duration = 28_800
-    exp_avg = 28_800
+    avg_duration = 88.88
+    exp_avg = 88.88
     accuracy = 0.0
 
     @exp_avg_data = {}
     (first.date..latest.date).each do |date|
       report = hash_by_date[date]
       if report&.complete?
-        exp_avg = alpha * report.duration.seconds + (1 - alpha) * exp_avg
+        exp_avg = alpha * report.restedness_score + (1 - alpha) * exp_avg
         accuracy = alpha + (1 - alpha) * accuracy
-        report.exp_avg = Duration.new(exp_avg)
-        report.exp_avg_accuracy = accuracy
+        report.restedness_exp_avg = exp_avg
+        report.restedness_exp_avg_accuracy = accuracy
       else
         exp_avg = alpha * avg_duration + (1 - alpha) * exp_avg
         accuracy = (1 - alpha) * accuracy
