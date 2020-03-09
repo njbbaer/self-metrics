@@ -38,7 +38,7 @@ class SleepReport < ApplicationRecord
   end
 
   def restedness_score
-    (duration.seconds.clamp(0, 9.hours.to_i) - 3.hours) / 6.hours.to_i * 100
+    (duration.seconds.clamp(0, 9.hours.to_i) - 3.hours.to_i) / 6.hours.to_i * 100
   end
 
   private
