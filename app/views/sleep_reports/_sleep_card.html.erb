@@ -28,11 +28,11 @@
       <td><b><%= sleep_report.asleep_at.strftime('%I:%M %p') %></b></td>
       <% if sleep_report.complete? %>
         <td><b><%= sleep_report.wakeup_at.strftime('%I:%M %p') %></b></td>
-        <td style='color: <%= sleep_duration_color_style(sleep_report.duration) %>; font-size: 22px'>
+        <td style='font-size: 20px'>
           <b><%= sleep_report.duration.strftime('%-H:%M') %></b>
         </td>
         <% if sleep_report.restedness_exp_avg_accuracy &.> 0.8 %>
-          <td style='color: <%= restedness_score_color_style(sleep_report.restedness_exp_avg) %>; font-size: 22px'>
+          <td style='color: <%= restedness_score_color_style(sleep_report.restedness_exp_avg) %>; font-size: 28px'>
             <b><%= sleep_report.restedness_exp_avg.round %></b>
           </td>
         <% end %>
