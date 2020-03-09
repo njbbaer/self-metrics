@@ -16,7 +16,7 @@
   <br>
   <% if (sleep_report.days_since_previous || 0) >= 2 %>
     <div class="card card-banner card-cap-bg">
-      <p><%= pluralized_days_content(sleep_report.days_since_previous - 1) %></p>
+      <p>Missing <%= pluralized_days_content(sleep_report.days_since_previous - 1) %></p>
     </div>
     <br>
   <% end %>
