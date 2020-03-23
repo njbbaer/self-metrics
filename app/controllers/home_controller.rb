@@ -2,8 +2,10 @@
 
 class HomeController < ApplicationController
   def index
-    @sleep_reports = SleepReportsCollection.new
     @weight_reports = WeightReportsCollection.new
     @cardio_reports = CardioReportsCollection.new
+    @sleep_reports = SleepReportsCollection.new.tap do |report|
+      report.calculate_restedness_exp_avg!(alpha: 0.5)
+    end
   end
 end

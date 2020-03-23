@@ -1,23 +1,23 @@
 <h1>Sleep Reports</h1>
 
+<%= alert_sleep_restedness_low %>
 <%= alert_sleep_report_reminder %>
 
-<%= link_to 'New Sleep Report', new_sleep_report_path, class: "btn btn-outline-primary" %>&nbsp;
-<% if @sleep_reports.latest&.complete? %>
-  <%= link_to 'Start Sleep', start_sleep_reports_path, method: :post, class: "btn btn-success" %>
-<% else %>
-  <%= link_to 'Stop Sleep', stop_sleep_reports_path, method: :patch, class: "btn btn-danger" %>
-<% end %>
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link active" href="#reports" data-toggle="tab">Reports</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#metrics" data-toggle="tab">Metrics</a>
+  </li>
+</ul>
+<br>
 
-<br><br>
-
-<% @sleep_reports.ordered_by_recency.reverse.each do |sleep_report| %>
-  <%= render 'sleep_card', sleep_report: sleep_report %>
-  <br>
-  <% if (sleep_report.days_since_previous || 0) >= 2 %>
-    <div class="card card-banner card-cap-bg">
-      <p>Missing <%= pluralized_days_content(sleep_report.days_since_previous - 1) %></p>
-    </div>
-    <br>
-  <% end %>
-<% end %>
+<div class="tab-content">
+  <div id="reports" class="tab-pane active show">
+    <%= render "reports" %>
+  </div>
+  <div id="metrics" class="tab-pane">
+    <%= render "metrics" %>
+  </div>
+</div>
