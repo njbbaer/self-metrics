@@ -22,10 +22,8 @@
 //
 //= require_tree .
 
-$('document').ready(function() {
-  console.log("start")
+$(document).on('ready turbolinks:load', function() {
   setTimeout(function() {
-    console.log("run")
     $('#flashbar').slideUp();
     $('#flashbar-spacer').slideUp();
   }, 5000);
