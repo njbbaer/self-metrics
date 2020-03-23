@@ -44,4 +44,10 @@ module AlertsHelper
       Your sleep restedness score is <b>#{restedness.round}</b>
     </div>".html_safe
   end
+
+  def alert_asleep
+    return if @sleep_reports.latest.complete?
+
+    alert_basic_html('dark', 'Your currently asleep')
+  end
 end
