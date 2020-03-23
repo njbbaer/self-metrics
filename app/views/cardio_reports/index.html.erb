@@ -14,23 +14,9 @@
 
 <div class="tab-content">
   <div id="reports" class="tab-pane active show">
-    <%= link_to 'New Cardio Report', new_cardio_report_path, class: "btn btn-outline-primary" %>
-
-    <br><br>
-
-    <% @cardio_reports.ordered_by_recency.reverse.each do |cardio_report| %>
-      <%= render 'cardio_card', cardio_report: cardio_report %>
-      <br>
-    <% if (cardio_report.days_since_previous || 0) >= 8 %>
-        <div class="card card-banner <%= cardio_report.days_since_previous < 30 ? 'alert-warning' : 'alert-danger' %>">
-          <p>Missing <b><%= cardio_report.days_since_previous - 1 %></b> days</p>
-        </div>
-        <br>
-      <% end %>
-    <% end %>
+    <%= render 'reports' %>
   </div>
-
   <div id="metrics" class="tab-pane">
-    <p>Total Calories: <b><%= number_with_delimiter(@cardio_reports.sum_calories.round) %></b> kcal</p>
+    <%= render 'metrics' %>
   </div>
 </div>
