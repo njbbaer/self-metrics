@@ -8,7 +8,7 @@
 <br><br>
 
 <% @sleep_reports.ordered_by_recency.reverse.each do |sleep_report| %>
-  <%= render 'sleep_card', sleep_report: sleep_report %>
+  <%= render 'card', sleep_report: sleep_report %>
   <br>
   <% if (sleep_report.days_since_previous || 0) >= 2 %>
     <div class="card card-banner card-cap-bg">
