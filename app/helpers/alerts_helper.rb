@@ -36,7 +36,7 @@ module AlertsHelper
   end
 
   def alert_sleep_restedness_low
-    restedness = @sleep_reports.latest.restedness_exp_avg
+    restedness = @sleep_reports.latest&.restedness_exp_avg
     return unless restedness &.<= 75
 
     level = restedness <= 65 ? :danger : :warning
@@ -46,7 +46,7 @@ module AlertsHelper
   end
 
   def alert_asleep
-    return if @sleep_reports.latest.complete?
+    return unless @sleep_reports.latest&.complete? == false
 
     alert_basic_html('dark', 'You\'re currently asleep')
   end
