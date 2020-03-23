@@ -23,7 +23,9 @@
 //= require_tree .
 
 $('document').ready(function() {
+  console.log("start")
   setTimeout(function() {
+    console.log("run")
     $('#flashbar').slideUp();
     $('#flashbar-spacer').slideUp();
   }, 5000);
