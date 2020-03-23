@@ -1,0 +1,32 @@
+<%= link_to 'New Weight Report', new_weight_report_path, class: "btn btn-outline-primary" %>
+<br><br>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Weight</th>
+      <th>Average</th>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @weight_reports.ordered_by_recency.reverse.each do |weight_report| %>
+      <tr>
+        <td><%= weight_report.date.strftime('%Y-%m-%d') %></td>
+        <td><b><%= '%.1f' % weight_report.weight_pounds %></b> lb</td>
+        <td><%= '%.1f' % weight_report.exp_avg %></td>
+        <td nowrap>
+          <%= link_to edit_weight_report_path(weight_report) do %>
+            <%= octicon "pencil", :height => 16 %>
+          <% end %>
+          &nbsp;&nbsp;
+          <%= link_to weight_report, method: :delete, data: { confirm: 'Are you sure?' } do %>
+            <%= octicon "trashcan", :height => 16 %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
