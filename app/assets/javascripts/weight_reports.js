@@ -7,7 +7,8 @@ function renderWeightPlot() {
             text: null
         },
         xAxis: {
-            type: 'datetime'
+            type: 'datetime',
+            ordinal: false
         },
         yAxis: {
             title: {
