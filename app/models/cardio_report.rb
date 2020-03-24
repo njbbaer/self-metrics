@@ -13,7 +13,7 @@
 #  updated_at       :datetime         not null
 #
 class CardioReport < ApplicationRecord
-  enum activity_type: %i[run_outdoors run_treadmill hike]
+  enum activity_type: %i[run treadmill hike]
 
   attr_accessor :part_minutes, :part_seconds
   attr_accessor :ranking_by_calories, :ranking_by_speed

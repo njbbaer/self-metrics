@@ -10,7 +10,7 @@ FactoryBot.define do
     sequence(:date) { |n| Date.today - n.days }
     distance_miles { 3.0 }
     duration_seconds { 1800 }
-    activity_type { 'run_treadmill' }
+    activity_type { 'treadmill' }
   end
 
   factory :sleep_report do

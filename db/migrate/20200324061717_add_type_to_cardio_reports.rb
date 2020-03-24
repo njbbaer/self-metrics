@@ -5,7 +5,7 @@ class AddTypeToCardioReports < ActiveRecord::Migration[6.0]
     add_column :cardio_reports, :activity_type, :int
 
     CardioReport.all.each do |report|
-      report.activity_type = report.treadmill? ? 'run_treadmill' : 'run_outdoors'
+      report.activity_type = report.treadmill? ? 'treadmill' : 'run'
       report.save!
     end
 
