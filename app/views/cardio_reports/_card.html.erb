@@ -2,7 +2,7 @@
   <div class="card-header <%= 'alert-success' if cardio_report.featured? %>">
     <div class="row">
       <div class="col text-left">
-        <% if cardio_report.treadmill? %>
+        <% if cardio_report.activity_type == 'run_treadmill' %>
           &nbsp<span class="badge badge-light "><%= image_tag("icons8-treadmill-30.png", size:"15x15", title: "Treadmill") %></span>
         <% else %>
           &nbsp<span class="badge badge-light"><%= image_tag("icons8-sun-30.png", size:"15x15",  title: "Outdoors") %></span>

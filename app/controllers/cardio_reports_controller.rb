@@ -59,7 +59,7 @@ class CardioReportsController < ApplicationController
       :date,
       :duration_seconds,
       :distance_miles,
-      :treadmill
+      :activity_type
     )
   end
 end

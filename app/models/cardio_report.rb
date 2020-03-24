@@ -5,15 +5,16 @@
 # Table name: cardio_reports
 #
 #  id               :bigint(8)        not null, primary key
-#  date        :date
+#  activity_type    :integer
+#  date             :date
 #  distance_miles   :float
 #  duration_seconds :integer
-#  treadmill        :boolean
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
 #
-
 class CardioReport < ApplicationRecord
+  enum activity_type: %i[run_outdoors run_treadmill hike]
+
   attr_accessor :part_minutes, :part_seconds
   attr_accessor :ranking_by_calories, :ranking_by_speed
   attr_accessor :days_since_previous
@@ -21,7 +22,7 @@ class CardioReport < ApplicationRecord
   before_validation :calculate_multipart_duration!
 
   validates_presence_of :date
-  validates_inclusion_of :treadmill, in: [true, false]
+  validates_inclusion_of :activity_type, in: activity_types.keys
   validates_numericality_of :duration_seconds, greater_than: 0
   validates_numericality_of :distance_miles, greater_than: 0.0
 
