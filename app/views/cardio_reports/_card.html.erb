@@ -1,14 +1,16 @@
 <div class="card">
   <div class="card-header <%= 'alert-success' if cardio_report.featured? %>">
-    <div class="row">
+    <div class="row align-items-center">
       <div class="col text-left">
         <% if cardio_report.activity_type == 'treadmill' %>
-          &nbsp<span class="badge badge-light"><%= image_tag("icons8-treadmill-30.png", size:"15x15", title: "Treadmill") %></span>
-        <% else %>
-          &nbsp<span class="badge badge-light"><%= image_tag("icons8-running-30.png", size:"15x15",  title: "Outdoors") %></span>
+          <%= image_tag("icons8-treadmill-96.png", size:"24x24", title: "Treadmill") %>
+        <% elsif cardio_report.activity_type == 'run' %>
+          <%= image_tag("icons8-running-96.png", size:"24x24",  title: "Run") %>
+        <% elsif cardio_report.activity_type == 'hike' %>
+          <%= image_tag("icons8-trekking-96.png", size:"24x24",  title: "Hike") %>
         <% end %>
       </div>
-      <div class="col-7 text-center">
+      <div class="col-auto text-center">
         <%= cardio_report.date.strftime('%a, %b %d, %Y') %>
       </div>
       <div class="col text-right">
