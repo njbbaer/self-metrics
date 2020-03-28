@@ -9,14 +9,17 @@
   <label>Type</label>
   <div class="row">
     <div class="btn-group btn-group-toggle d-flex mb-3 col-lg-4" data-toggle="buttons">
-      <label class="btn w-100 btn-outline-secondary <%= "active" if cardio_report.activity_type == "treadmill" %>">
-        <%= radio_button_tag("cardio_report[activity_type]", "treadmill", cardio_report.activity_type == "treadmill") %> Treadmill
+      <label class="btn w-100 btn-light <%= "active" if cardio_report.activity_type == "treadmill" %>">
+        <%= radio_button_tag("cardio_report[activity_type]", "treadmill", cardio_report.activity_type == "treadmill") %>
+        <%= image_tag("icons8-treadmill-96.png", size:"24x24", title: "Treadmill") %>
       </label>
-      <label class="btn w-100 btn-outline-secondary <%= "active" if cardio_report.activity_type == "running" %>">
-        <%= radio_button_tag("cardio_report[activity_type]", "running", cardio_report.activity_type == "running") %> Running
+      <label class="btn w-100 btn-light <%= "active" if cardio_report.activity_type == "running" %>">
+        <%= radio_button_tag("cardio_report[activity_type]", "running", cardio_report.activity_type == "running") %>
+        <%= image_tag("icons8-running-96.png", size:"24x24", title: "Treadmill") %>
       </label>
-      <label class="btn w-100 btn-outline-secondary <%= "active" if cardio_report.activity_type == "hiking" %>">
-        <%= radio_button_tag("cardio_report[activity_type]", "hiking", cardio_report.activity_type == "hiking") %> Hiking
+      <label class="btn w-100 btn-light <%= "active" if cardio_report.activity_type == "hiking" %>">
+        <%= radio_button_tag("cardio_report[activity_type]", "hiking", cardio_report.activity_type == "hiking")%>
+        <%= image_tag("icons8-trekking-96.png", size:"24x24", title: "Treadmill") %>
       </label>
     </div>
   </div>
