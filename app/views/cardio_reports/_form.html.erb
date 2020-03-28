@@ -42,11 +42,11 @@
       <label class="btn w-100 btn-outline-secondary <%= "active" if cardio_report.activity_type == "treadmill" %>">
         <%= radio_button_tag("cardio_report[activity_type]", "treadmill", cardio_report.activity_type == "treadmill") %> Treadmill
       </label>
-      <label class="btn w-100 btn-outline-secondary <%= "active" if cardio_report.activity_type == "run" %>">
-        <%= radio_button_tag("cardio_report[activity_type]", "run", cardio_report.activity_type == "run") %> Run
+      <label class="btn w-100 btn-outline-secondary <%= "active" if cardio_report.activity_type == "running" %>">
+        <%= radio_button_tag("cardio_report[activity_type]", "running", cardio_report.activity_type == "running") %> Running
       </label>
-      <label class="btn w-100 btn-outline-secondary <%= "active" if cardio_report.activity_type == "hike" %>">
-        <%= radio_button_tag("cardio_report[activity_type]", "hike", cardio_report.activity_type == "hike") %> Hike
+      <label class="btn w-100 btn-outline-secondary <%= "active" if cardio_report.activity_type == "hiking" %>">
+        <%= radio_button_tag("cardio_report[activity_type]", "hiking", cardio_report.activity_type == "hiking") %> Hiking
       </label>
     </div>
   </div>
