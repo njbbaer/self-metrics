@@ -24,7 +24,7 @@ module AlertsHelper
     return unless days_since_latest &.> 3
 
     level = days_since_latest >= 7 ? :danger : :warning
-    alert_days_since_latest_html(level, days_since_latest, 'went running')
+    alert_days_since_latest_html(level, days_since_latest, 'did cardio exercise')
   end
 
   def alert_sleep_report_reminder
