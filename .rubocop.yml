@@ -13,3 +13,6 @@ Documentation:
 
 Metrics/BlockLength:
   ExcludedMethods: ['describe', 'context']
+
+AlignParameters:
+  Enabled: false
