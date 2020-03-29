@@ -51,7 +51,7 @@ class CardioReport < ApplicationRecord
   end
 
   def featured_by_calories?
-    ranking_by_calories <= 10
+    ranking_by_calories&. <= 10
   end
 
   def featured_by_speed_for_distance?

@@ -7,8 +7,8 @@ class CardioReportsController < ApplicationController
   def index
     @cardio_reports = CardioReportsCollection.new.tap do |collection|
       collection.calculate_days_since_previous!
-      collection.calculate_ranking_by_calories!
-      collection.calculate_ranking_by_speed_for_distance!
+      collection.calculate_running_ranking_by_calories!
+      collection.calculate_running_ranking_by_speed_for_distance!
     end
   end
 
