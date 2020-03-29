@@ -23,7 +23,8 @@ class CardioReport < ApplicationRecord
 
   validates_presence_of :date
   validates_inclusion_of :activity_type, in: activity_types.keys
-  validates_numericality_of :duration_seconds, greater_than: 0
+  validates_numericality_of :duration_seconds, greater_than: 0, unless: :hike?
+  validates_absence_of :duration_seconds, if: :hike?
   validates_numericality_of :distance_miles, greater_than: 0.0
 
   scope :ordered_by_recency, -> { order(date: :asc) }
@@ -43,7 +44,11 @@ class CardioReport < ApplicationRecord
   end
 
   def speed
-    distance_miles / duration.hours
+    if hike?
+      2.5
+    else
+      distance_miles / duration.hours
+    end
   end
 
   def calories
@@ -62,9 +67,17 @@ class CardioReport < ApplicationRecord
     featured_by_calories? || featured_by_speed_for_distance?
   end
 
+  def run?
+    run_outdoors? || run_treadmill?
+  end
+
   private
 
   def met
-    (speed * 26.822 * 0.2 + 3.5) / 3.5
+    if run?
+      (speed * 26.822 * 0.2 + 3.5) / 3.5
+    elsif hike?
+      6
+    end
   end
 end

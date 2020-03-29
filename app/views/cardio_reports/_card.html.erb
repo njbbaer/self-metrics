@@ -26,15 +26,19 @@
   </div>
   <table class="table">
     <tr>
-      <td>Duration</td>
+      <% unless cardio_report.hike? %><td>Duration</td><% end %>
       <td>Distance</td>
-      <td>Speed</td>
+      <% unless cardio_report.hike? %><td>Speed</td><% end %>
       <td>Calories</td>
     </tr>
     <tr>
-      <td><b><%= cardio_report.duration.strftime('%M:%S') %></b></td>
+      <% unless cardio_report.hike? %>
+        <td><b><%= cardio_report.duration.strftime('%M:%S') %></b></td>
+      <% end %>
       <td><b><%= '%.1f' % cardio_report.distance_miles %></b> miles</td>
-      <td><b><%= '%.1f' % cardio_report.speed %></b> mph</td>
+      <% unless cardio_report.hike? %>
+        <td><b><%= '%.1f' % cardio_report.speed %></b> mph</td>
+      <% end %>
       <td><b><%= cardio_report.calories.to_i %></b> kcal</td>
     </tr>
   </table>
