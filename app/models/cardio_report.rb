@@ -32,7 +32,11 @@ class CardioReport < ApplicationRecord
   scope :ordered_by_speed, -> { sort_by { |c| [-c.speed.round(1), -c.distance_miles] } }
 
   def duration
-    Duration.new(duration_seconds) if duration_seconds
+    if hike?
+      Duration.new(distance_miles / 2.5 * 3600)
+    else
+      Duration.new(duration_seconds) if duration_seconds
+    end
   end
 
   def calculate_multipart_duration!
