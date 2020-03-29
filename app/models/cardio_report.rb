@@ -55,7 +55,7 @@ class CardioReport < ApplicationRecord
   end
 
   def featured_by_speed_for_distance?
-    ranking_by_speed <= 1
+    ranking_by_speed&. <= 1
   end
 
   def featured?
