@@ -36,7 +36,7 @@ RSpec.describe 'Cardio Reports', type: :system do
       fill_in 'cardio_report_distance_miles', with: 3.0
       fill_in 'cardio_report_part_minutes', with: 30
       fill_in 'cardio_report_part_seconds', with: 0
-      choose 'cardio_report_activity_type_treadmill'
+      choose 'cardio_report_activity_type_run_treadmill'
       click_button 'Submit'
 
       expect(current_path).to eql cardio_reports_path

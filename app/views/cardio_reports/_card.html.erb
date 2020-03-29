@@ -2,11 +2,11 @@
   <div class="card-header <%= 'alert-success' if cardio_report.featured? %>">
     <div class="row align-items-center">
       <div class="col text-left">
-        <% if cardio_report.activity_type == 'treadmill' %>
+        <% if cardio_report.run_treadmill? %>
           <%= image_tag("icons8-treadmill-96.png", size:"24x24") %>
-        <% elsif cardio_report.activity_type == 'running' %>
+        <% elsif cardio_report.run_outdoors? %>
           <%= image_tag("icons8-running-96.png", size:"24x24") %>
-        <% elsif cardio_report.activity_type == 'hiking' %>
+        <% elsif cardio_report.hike? %>
           <%= image_tag("icons8-trekking-96.png", size:"24x24") %>
         <% end %>
       </div>
