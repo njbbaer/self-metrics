@@ -29,14 +29,14 @@
     <div class="row">
       <div class="btn-group mb-3 col-lg-4">
         <div class="input-group">
-          <%= number_field(:cardio_report, :part_minutes, step: 1, class: "form-control", value: cardio_report.duration&.part_minutes) %>
+          <%= number_field(:cardio_report, :part_minutes, step: 1, class: "form-control") %>
           <div class="input-group-append">
             <span class="input-group-text">minutes</span>
           </div>
         </div>
         <div style="width: 10%"></div>
         <div class="input-group">
-          <%= number_field(:cardio_report, :part_seconds, step: 1, class: "form-control", value: cardio_report.duration&.part_seconds) %>
+          <%= number_field(:cardio_report, :part_seconds, step: 1, class: "form-control") %>
           <div class="input-group-append">
             <span class="input-group-text">seconds</span>
           </div>
@@ -60,3 +60,24 @@
   <button type="submit" class="btn btn-primary btn">Submit</button>&nbsp;&nbsp;
   <%= link_to "Back", cardio_reports_path, class: "btn btn-outline-secondary btn" %>
 <% end %>
+
+<script type="text/javascript">
+  $(document).on("ready turbolinks:load", function() {
+    setVisibilityForType();
+  });
+
+  $(document).on("change", "input[name='cardio_report[activity_type]']", function() {
+    setVisibilityForType();
+  });
+
+  function setVisibilityForType() {
+    if ($("input[name='cardio_report[activity_type]']:checked").val() == "hike") {
+      $("#duration-input").hide();
+      $("#cardio_report_part_minutes, #cardio_report_part_seconds").val(null)
+    } else {
+      $("#cardio_report_part_minutes").val(<%= @cardio_report.duration&.part_minutes %>) 
+      $("#cardio_report_part_seconds").val(<%= @cardio_report.duration&.part_seconds %>)
+      $("#duration-input").show();
+    }
+  }
+</script>
