@@ -41,7 +41,7 @@ module AlertsHelper
 
     level = restedness <= 65 ? :danger : :warning
     "<div class='alert #{color_class(level)}'>
-      &#128164; Your sleep restedness score is <b>#{restedness.round}</b>%
+      &#128164; Your sleep restedness score is only <b>#{restedness.round}</b>%
     </div>".html_safe
   end
 
