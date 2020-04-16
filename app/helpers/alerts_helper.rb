@@ -48,6 +48,6 @@ module AlertsHelper
   def alert_asleep
     return unless @sleep_reports.latest&.complete? == false
 
-    alert_basic_html('dark', 'You are currently asleep')
+    alert_basic_html('dark', '&#128164; You are currently asleep')
   end
 end
