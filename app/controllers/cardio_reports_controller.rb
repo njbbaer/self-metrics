@@ -58,8 +58,9 @@ class CardioReportsController < ApplicationController
       :part_minutes, :part_seconds,
       :date,
       :duration_seconds,
+      :elevation_gain_feet,
       :distance_miles,
-      :activity_type
+      :activity_type,
     )
   end
 end

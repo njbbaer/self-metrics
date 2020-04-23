@@ -29,6 +29,9 @@
       <% unless cardio_report.hike? %><td>Duration</td><% end %>
       <td>Distance</td>
       <% unless cardio_report.hike? %><td>Speed</td><% end %>
+      <% if cardio_report.hike? && cardio_report.gain_feet_per_mile %>
+        <td>Gain</td>
+      <% end %>
       <td>Calories</td>
     </tr>
     <tr>
@@ -38,6 +41,9 @@
       <td><b><%= '%.1f' % cardio_report.distance_miles %></b> miles</td>
       <% unless cardio_report.hike? %>
         <td><b><%= '%.1f' % cardio_report.speed %></b> mph</td>
+      <% end %>
+      <% if cardio_report.hike? && cardio_report.gain_feet_per_mile %>
+        <td><b><%= cardio_report.gain_feet_per_mile.to_i %></b> ft/mi</td>
       <% end %>
       <td><b><%= cardio_report.calories.to_i %></b> kcal</td>
     </tr>

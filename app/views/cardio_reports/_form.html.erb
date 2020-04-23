@@ -55,6 +55,16 @@
       </div>
     </div>
   </div>
+
+  <label>Elevation Gain</label>
+  <div class="row">
+    <div class="input-group mb-3 col-lg-4">
+    <%= number_field(:cardio_report, :elevation_gain_feet, step: 1, class: "form-control") %>
+      <div class="input-group-append">
+        <span class="input-group-text">feet</span>
+      </div>
+    </div>
+  </div>
     
   <hr>
   <button type="submit" class="btn btn-primary btn">Submit</button>&nbsp;&nbsp;

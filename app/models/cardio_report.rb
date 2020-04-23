@@ -4,13 +4,14 @@
 #
 # Table name: cardio_reports
 #
-#  id               :bigint(8)        not null, primary key
-#  activity_type    :integer
-#  date             :date
-#  distance_miles   :float
-#  duration_seconds :integer
-#  created_at       :datetime         not null
-#  updated_at       :datetime         not null
+#  id                  :bigint           not null, primary key
+#  activity_type       :integer
+#  date                :date
+#  distance_miles      :float
+#  duration_seconds    :integer
+#  elevation_gain_feet :integer
+#  created_at          :datetime         not null
+#  updated_at          :datetime         not null
 #
 class CardioReport < ApplicationRecord
   enum activity_type: %i[run_outdoors run_treadmill hike]
@@ -73,6 +74,10 @@ class CardioReport < ApplicationRecord
 
   def run?
     run_outdoors? || run_treadmill?
+  end
+
+  def gain_feet_per_mile
+    elevation_gain_feet &./ distance_miles
   end
 
   private
