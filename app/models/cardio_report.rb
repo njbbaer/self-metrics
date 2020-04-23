@@ -76,8 +76,8 @@ class CardioReport < ApplicationRecord
     run_outdoors? || run_treadmill?
   end
 
-  def gain_feet_per_mile
-    elevation_gain_feet &./ distance_miles
+  def elevation_grade
+    elevation_gain_feet &./ (distance_miles * 5280 / 2)
   end
 
   private
