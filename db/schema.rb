@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_23_063600) do
+ActiveRecord::Schema.define(version: 2020_04_27_053201) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 2020_04_23_063600) do
     t.datetime "updated_at", null: false
     t.integer "activity_type"
     t.integer "elevation_gain_feet"
+    t.string "location"
   end
 
   create_table "sleep_reports", force: :cascade do |t|

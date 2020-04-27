@@ -10,6 +10,7 @@
 #  distance_miles      :float
 #  duration_seconds    :integer
 #  elevation_gain_feet :integer
+#  location            :string
 #  created_at          :datetime         not null
 #  updated_at          :datetime         not null
 #

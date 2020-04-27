@@ -43,7 +43,7 @@
         <td><b><%= cardio_report.duration.strftime('%M:%S') %></b></td>
       <% end %>
       <% if cardio_report.hike? %>
-        <td>N/A</td>
+        <td><%= cardio_report.location || 'N/A' %></td>
       <% end %>
       <% unless cardio_report.hike? %>
         <td><b><%= '%.1f' % cardio_report.speed %></b> mph</td>

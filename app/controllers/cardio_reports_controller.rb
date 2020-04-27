@@ -61,6 +61,7 @@ class CardioReportsController < ApplicationController
       :elevation_gain_feet,
       :distance_miles,
       :activity_type,
+      :location
     )
   end
 end
