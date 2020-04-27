@@ -26,8 +26,11 @@
   </div>
   <table class="table">
     <tr>
-      <% unless cardio_report.hike? %><td>Duration</td><% end %>
       <td>Distance</td>
+      <% unless cardio_report.hike? %><td>Duration</td><% end %>
+      <% if cardio_report.hike? && cardio_report.elevation_grade %>
+        <td>Location</td>
+      <% end %>
       <% unless cardio_report.hike? %><td>Speed</td><% end %>
       <% if cardio_report.hike? && cardio_report.elevation_grade %>
         <td>Grade</td>
@@ -35,10 +38,13 @@
       <td>Calories</td>
     </tr>
     <tr>
+      <td><b><%= '%.1f' % cardio_report.distance_miles %></b> miles</td>
       <% unless cardio_report.hike? %>
         <td><b><%= cardio_report.duration.strftime('%M:%S') %></b></td>
       <% end %>
-      <td><b><%= '%.1f' % cardio_report.distance_miles %></b> miles</td>
+      <% if cardio_report.hike? %>
+        <td>N/A</td>
+      <% end %>
       <% unless cardio_report.hike? %>
         <td><b><%= '%.1f' % cardio_report.speed %></b> mph</td>
       <% end %>
