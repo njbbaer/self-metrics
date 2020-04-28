@@ -1,0 +1,14 @@
+<table class="table">
+  <tr>
+    <td>Distance</td>
+    <td>Duration</td>
+    <td>Speed</td>
+    <td>Calories</td>
+  </tr>
+  <tr>
+    <td><b><%= '%.1f' % cardio_report.distance_miles %></b> miles</td>
+    <td><b><%= cardio_report.duration.strftime('%M:%S') %></b></td>
+    <td><b><%= '%.1f' % cardio_report.speed %></b> mph</td>
+    <td><b><%= cardio_report.calories.to_i %></b> kcal</td>
+  </tr>
+</table>

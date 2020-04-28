@@ -24,36 +24,11 @@
       </div>
     </div>
   </div>
-  <table class="table">
-    <tr>
-      <td>Distance</td>
-      <% unless cardio_report.hike? %><td>Duration</td><% end %>
-      <% if cardio_report.hike? && cardio_report.elevation_grade %>
-        <td>Location</td>
-      <% end %>
-      <% unless cardio_report.hike? %><td>Speed</td><% end %>
-      <% if cardio_report.hike? && cardio_report.elevation_grade %>
-        <td>Grade</td>
-      <% end %>
-      <td>Calories</td>
-    </tr>
-    <tr>
-      <td><b><%= '%.1f' % cardio_report.distance_miles %></b> miles</td>
-      <% unless cardio_report.hike? %>
-        <td><b><%= cardio_report.duration.strftime('%M:%S') %></b></td>
-      <% end %>
-      <% if cardio_report.hike? %>
-        <td><%= cardio_report.location || 'N/A' %></td>
-      <% end %>
-      <% unless cardio_report.hike? %>
-        <td><b><%= '%.1f' % cardio_report.speed %></b> mph</td>
-      <% end %>
-      <% if cardio_report.hike? && cardio_report.elevation_grade %>
-        <td><b><%= (cardio_report.elevation_grade * 100).to_i %></b>%</td>
-      <% end %>
-      <td><b><%= cardio_report.calories.to_i %></b> kcal</td>
-    </tr>
-  </table>
+  <% if cardio_report.hike? %>
+    <%= render "card_hike_table", cardio_report: cardio_report %>
+  <% elsif cardio_report.run? ||  cardio_report.treadmill? %>
+    <%= render "card_run_table", cardio_report: cardio_report %>
+  <% end %>
   <% if cardio_report.featured? %>
     <footer class="card-footer text-muted">
       <ul>
