@@ -1,8 +1,8 @@
 <table class="table">
   <tr>
     <td>Distance</td>
-    <% if cardio_report.location %><td>Location</td><% end %>
-    <% if cardio_report.elevation_grade %><td>Grade</td><% end %>
+    <td>Location</td>
+    <td>Grade</td>
     <td>Calories</td>
   </tr>
   <tr>
@@ -10,7 +10,7 @@
     <td><%= cardio_report.location || 'N/A' %></td>
     <% if cardio_report.elevation_grade %>
       <td><b><%= (cardio_report.elevation_grade * 100).to_i %></b>%</td>
-    <% end %>
+    <% else %><td>N/A</td><% end %>
     <td><b><%= cardio_report.calories.to_i %></b> kcal</td>
   </tr>
 </table>
