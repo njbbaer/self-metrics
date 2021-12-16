@@ -13,10 +13,10 @@ gem 'uglifier'
 gem 'turbolinks'
 gem 'bootsnap', require: false
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
-gem 'bootstrap'
+gem 'bootstrap', '~> 4.4'
 gem 'jquery-rails'
 gem 'dotenv-rails'
-gem 'octicons_helper'
+gem 'octicons_helper', '~> 9.6.0'
 gem 'gon'
 
 group :development, :test do
