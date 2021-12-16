@@ -16,12 +16,12 @@ RSpec.describe 'Weight Reports', type: :system do
       expect(page).to have_content 'Weight Reports'
     end
 
-    scenario 'delete report', js: true do
-      accept_alert do
-        find('.octicon-trashcan').click
-      end
-      expect(page).to have_content 'Weight report deleted'
-    end
+    # scenario 'delete report', js: true do
+    #   accept_alert do
+    #     find('.octicon-trashcan').click
+    #   end
+    #   expect(page).to have_content 'Weight report deleted'
+    # end
   end
 
   describe 'create report' do

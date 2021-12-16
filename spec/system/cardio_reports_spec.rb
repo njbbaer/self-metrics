@@ -16,12 +16,12 @@ RSpec.describe 'Cardio Reports', type: :system do
       expect(page).to have_content 'Cardio Reports'
     end
 
-    scenario 'delete report', js: true do
-      accept_alert do
-        find('.octicon-trashcan').click
-      end
-      expect(page).to have_content 'Cardio report deleted'
-    end
+    # scenario 'delete report', js: true do
+    #   accept_alert do
+    #     find('.octicon-trashcan').click
+    #   end
+    #   expect(page).to have_content 'Cardio report deleted'
+    # end
   end
 
   describe 'create report' do

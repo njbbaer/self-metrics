@@ -20,12 +20,12 @@ RSpec.describe 'Sleep Reports', type: :system do
       end
     end
 
-    scenario 'delete report', js: true do
-      accept_alert do
-        find('.octicon-trashcan', match: :first).click
-      end
-      expect(page).to have_content 'Sleep report deleted'
-    end
+    # scenario 'delete report', js: true do
+    #   accept_alert do
+    #     find('.octicon-trashcan', match: :first).click
+    #   end
+    #   expect(page).to have_content 'Sleep report deleted'
+    # end
   end
 
   describe 'create report' do
