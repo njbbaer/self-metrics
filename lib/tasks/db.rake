@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 namespace :db do
-  desc 'Replaces the local database with a copy downloaded from production'
-  task pull: :environment do
+  desc 'Replaces the local database with a copy downloaded from Heroku'
+  task download: :environment do
     raise "Do not use in production!" if Rails.env == "production"
 
     sh 'rm -f latest.dump'
