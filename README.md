@@ -25,7 +25,7 @@ Built for personal use, but open-source to the public.
 
 ## Setup
 
-1. Requires `Ruby`, `Bundler`, and `Postgres` to be installed.
+1. Requires `Ruby`, `Bundler`, and `Postgres` to be installed. Using `rbenv` is recommended for managing Ruby versions.
 
 2. Clone the repository:
 
@@ -42,13 +42,13 @@ bundle install
 4. Setup the database
 
 ```bash
-bundle exec rails db:create
+bundle exec rails db:setup
 ```
 
 4. Run the server:
 
 ```bash
-bundle exec rails
+bundle exec rails server
 ```
 
 ### Run tests
