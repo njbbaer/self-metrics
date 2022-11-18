@@ -3,12 +3,13 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.1'
+ruby '3.1.2'
 
 gem 'rails', '~> 6.1'
 gem 'pg'
 gem 'puma'
 gem 'sass-rails'
+
 gem 'uglifier'
 gem 'turbolinks'
 gem 'bootsnap', require: false
@@ -18,6 +19,10 @@ gem 'jquery-rails'
 gem 'dotenv-rails'
 gem 'octicons_helper', '~> 9.6.0'
 gem 'gon'
+
+# Remove after upgrade to Rails 7
+# https://stackoverflow.com/questions/70500220/rails-7-ruby-3-1-loaderror-cannot-load-such-file-net-smtp
+gem 'net-smtp', require: false
 
 group :development, :test do
   gem 'rspec-rails'
