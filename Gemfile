@@ -20,10 +20,6 @@ gem 'dotenv-rails'
 gem 'octicons_helper', '~> 9.6.0'
 gem 'gon'
 
-# Remove after upgrade to Rails 7
-# https://stackoverflow.com/questions/70500220/rails-7-ruby-3-1-loaderror-cannot-load-such-file-net-smtp
-gem 'net-smtp', require: false
-
 group :development, :test do
   gem 'rspec-rails'
   gem 'factory_bot_rails'

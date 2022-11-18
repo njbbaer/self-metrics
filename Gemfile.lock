@@ -303,7 +303,6 @@ DEPENDENCIES
   gon
   jquery-rails
   listen
-  net-smtp
   octicons_helper (~> 9.6.0)
   pg
   pry
