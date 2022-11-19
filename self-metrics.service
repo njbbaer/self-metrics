@@ -8,8 +8,9 @@ StartLimitIntervalSec=0
 Type=simple
 Restart=always
 RestartSec=60
+User=nate
 WorkingDirectory=/home/nate/self-metrics
 ExecStart=/home/nate/.rbenv/shims/bundle exec rails server -e production
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=default.target
