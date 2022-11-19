@@ -25,30 +25,67 @@ Built for personal use, but open-source to the public.
 
 ## Setup
 
-1. Requires `Ruby`, `Bundler`, and `Postgres` to be installed. Using `rbenv` is recommended for managing Ruby versions.
-
-2. Clone the repository:
+1. Clone the repository:
 
 ```bash
 git clone git@github.com:njbbaer/self-metrics.git && cd self-metrics
 ```
 
-3. Install dependencies:
+2. Install `ruby` and `bundler` with `rbenv`:
+
+```bash
+rbenv install
+```
+
+3. Install Postgres and create db user:
+
+```bash
+sudo apt install postgresql postgresql-contrib
+sudo -u postgres createuser -s $USER
+```
+
+4. Install Bundler dependencies:
 
 ```bash
 bundle install
 ```
 
-4. Setup the database
+5. Create the database
 
 ```bash
-bundle exec rails db:setup
+bundle exec rails db:create db:setup
 ```
 
-4. Run the server:
+6. Run the server:
 
 ```bash
 bundle exec rails server
+```
+
+## Additional Steps for Production
+
+1. Ensure Node JS is installed:
+
+```bash
+sudo apt install nodejs
+```
+
+2. Precompile assets:
+
+```bash
+bundle exec rails assets:precompile
+```
+
+3. Enable the service:
+
+```bash
+sudo systemctl enable $(pwd)/self-metrics.service
+```
+
+4. Start the service:
+
+```bash
+sudo systemctl start self-metrics
 ```
 
 ### Run tests
