@@ -1,0 +1,15 @@
+[Unit]
+Description=Self-Metrics production service
+After=network.target
+After=postgresql.service
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=60
+WorkingDirectory=/home/nate/self-metrics
+ExecStart=/home/nate/.rbenv/shims/bundle exec rails server -e production
+
+[Install]
+WantedBy=multi-user.target
