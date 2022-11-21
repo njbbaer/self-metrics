@@ -50,10 +50,10 @@ sudo -u postgres createuser -s $USER
 bundle install
 ```
 
-5. Create the database
+5. Setup the database
 
 ```bash
-bundle exec rails db:create db:setup
+bundle exec rails db:setup
 ```
 
 6. Run the server:
