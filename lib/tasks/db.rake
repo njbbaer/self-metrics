@@ -22,11 +22,12 @@ namespace :db do
   end
 
   def pg_dump(filename)
-    sh "pg_dump --format custom #{database_name} > ./backups/#{filename}"
+    sh 'mkdir -p backups'
+    sh "pg_dump --format custom #{database_name} > backups/#{filename}"
   end
 
   def upload_google_drive(filename)
     session = GoogleDrive::Session.from_config("google_drive.json")
-    session.upload_from_file("./backups/#{filename}", filename, convert: false, parents: ['1ZFoGRkIZmkM0SIof62YZH8ZOniYX2iRV'])
+    session.upload_from_file("backups/#{filename}", filename, convert: false, parents: ['1ZFoGRkIZmkM0SIof62YZH8ZOniYX2iRV'])
   end
 end
