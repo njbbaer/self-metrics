@@ -19,6 +19,7 @@ gem 'jquery-rails'
 gem 'dotenv-rails'
 gem 'octicons_helper', '~> 9.6.0'
 gem 'gon'
+gem 'google_drive'
 
 group :development, :test do
   gem 'rspec-rails'

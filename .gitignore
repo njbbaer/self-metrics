@@ -35,5 +35,8 @@
 # Ignore env file
 .env
 
-# Ignore postgres dumps
+# Ignore Postgres dumps
 *.dump*
+
+# Ignore Google Drive config
+google_drive.json
