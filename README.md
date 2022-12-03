@@ -25,7 +25,7 @@ Built for personal use, but open-source to the public.
 
 ## Setup
 
-1. Clone the repository:
+1. Clone repository:
 
 ```bash
 git clone git@github.com:njbbaer/self-metrics.git && cd self-metrics
@@ -50,19 +50,21 @@ sudo -u postgres createuser -s $USER
 bundle install
 ```
 
-5. Setup the database
+5. Setup database
 
 ```bash
 bundle exec rails db:setup
 ```
 
-6. Run the server:
+6. Run server:
 
 ```bash
 bundle exec rails server
 ```
 
-## Additional Steps for Production
+## Production Setup
+
+First, follow the steps above to set up the app locally. Then perform the following steps:
 
 1. Ensure Node JS is installed:
 
@@ -76,17 +78,21 @@ sudo apt install nodejs
 bundle exec rails assets:precompile
 ```
 
-3. Enable the service:
+3. Enable service:
 
 ```bash
 sudo systemctl enable $(pwd)/self-metrics.service
 ```
 
-4. Start the service:
+4. Start service:
 
 ```bash
 sudo systemctl start self-metrics
 ```
+
+5. See instructions below to set up automatic backups.
+
+## Usage
 
 ### Run tests
 
@@ -94,12 +100,20 @@ sudo systemctl start self-metrics
 bundle exec rspec
 ```
 
-### Download database
+### Backup
 
-Replaces the local database with a copy of production data downloaded from Heroku.
+Upload a copy of the database to Google Drive.
 
-Requires installation of the Heroku CLI.
+Note: `google_drive.json` must contain valid oauth credentials.
 
 ```bash
-bundle exec rake db:download
+bundle exec rake db:backup
+```
+
+To set up automatic backups, add the following to your crontab:
+
+Note: `db:backup` must be run at least once first to autorize Google Drive access.
+
+```bash
+0 5 * * * cd /path/to/self-metrics && /path/to/shim/bundle exec rake db:backup
 ```
