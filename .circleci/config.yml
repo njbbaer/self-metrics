@@ -7,7 +7,7 @@ jobs:
   build:
     docker:
       # specify the version you desire here
-      - image: circleci/ruby:2.6.1-node-browsers
+      - image: circleci/ruby:3.1.2-node-browsers
         environment:
           RAILS_ENV: test
           PGHOST: localhost
@@ -37,7 +37,8 @@ jobs:
           name: install dependencies
           command: |
             gem update bundler
-            bundle install --jobs=4 --retry=3 --path vendor/bundle
+            bundle config set --local path 'vendor/bundle'
+            bundle install --jobs=4 --retry=3
 
       - save_cache:
           paths:
