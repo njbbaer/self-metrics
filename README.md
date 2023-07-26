@@ -37,26 +37,19 @@ git clone git@github.com:njbbaer/self-metrics.git && cd self-metrics
 rbenv install
 ```
 
-3. Install Postgres and create db user:
-
-```bash
-sudo apt install postgresql postgresql-contrib
-sudo -u postgres createuser -s $USER
-```
-
-4. Install Bundler dependencies:
+3. Install Bundler dependencies:
 
 ```bash
 bundle install
 ```
 
-5. Setup database
+4. Setup database
 
 ```bash
 bundle exec rails db:setup
 ```
 
-6. Run server:
+5. Run server:
 
 ```bash
 bundle exec rails server
@@ -90,30 +83,8 @@ sudo systemctl enable $(pwd)/self-metrics.service
 sudo systemctl start self-metrics
 ```
 
-5. See instructions below to set up automatic backups.
-
-## Usage
-
-### Run tests
+## Run tests
 
 ```bash
 bundle exec rspec
-```
-
-### Backup
-
-Upload a copy of the database to Google Drive.
-
-Note: `google_drive.json` must contain valid oauth credentials.
-
-```bash
-bundle exec rake db:backup
-```
-
-To set up automatic backups, add the following to your crontab:
-
-Note: `db:backup` must be run at least once first to autorize Google Drive access.
-
-```bash
-0 5 * * * cd /path/to/self-metrics && /path/to/shim/bundle exec rake db:backup
 ```
