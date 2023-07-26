@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  build:
+  test:
     docker:
       - image: cimg/ruby:3.1.2-node
         environment:
@@ -13,7 +13,7 @@ jobs:
             - v1-dependencies-{{ checksum "Gemfile.lock" }}
             - v1-dependencies-
       - run:
-          name: install dependencies
+          name: Install dependencies
           command: |
             gem update bundler
             bundle config set --local path 'vendor/bundle'
@@ -25,7 +25,7 @@ jobs:
       - run: bundle exec rake db:create
       - run: bundle exec rake db:schema:load
       - run:
-          name: run tests
+          name: Run tests
           command: |
             mkdir /tmp/test-results
             TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | \
@@ -42,3 +42,28 @@ jobs:
       - store_artifacts:
           path: /tmp/test-results
           destination: test-results
+  publish:
+    docker:
+      - image: cimg/ruby:3.1.2-node
+    working_directory: ~/self-metrics
+    steps:
+      - checkout
+      - setup_remote_docker:
+          docker_layer_caching: true
+      - run:
+          name: Docker login
+          command: echo $GHCR_TOKEN | docker login ghcr.io -u $GHCR_USERNAME --password-stdin
+      - run:
+          name: Build image
+          command: docker build -t ghcr.io/$GHCR_USERNAME/self-metrics:latest .
+      - run:
+          name: Push image
+          command: docker push ghcr.io/$GHCR_USERNAME/self-metrics:latest
+workflows:
+  version: 2
+  test-and-publish:
+    jobs:
+      - test
+      - publish:
+          requires:
+            - test
