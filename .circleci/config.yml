@@ -5,20 +5,12 @@ jobs:
       - image: cimg/ruby:3.1.2-node
         environment:
           RAILS_ENV: test
-          PGHOST: localhost
-          PGUSER: self-metrics
-      - image: circleci/postgres:12.1
-        environment:
-          POSTGRES_USER: self-metrics
-          POSTGRES_DB: self_metrics_test
-          POSTGRES_PASSWORD: ""
     working_directory: ~/self-metrics
     steps:
       - checkout
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "Gemfile.lock" }}
-            # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
       - run:
           name: install dependencies
@@ -26,7 +18,6 @@ jobs:
             gem update bundler
             bundle config set --local path 'vendor/bundle'
             bundle install --jobs=4 --retry=3
-
       - save_cache:
           paths:
             - ./vendor/bundle
