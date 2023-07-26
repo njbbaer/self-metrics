@@ -4,7 +4,7 @@
 #
 # Table name: weight_reports
 #
-#  id            :bigint           not null, primary key
+#  id            :integer          not null, primary key
 #  date          :date
 #  weight_pounds :float
 #  created_at    :datetime         not null

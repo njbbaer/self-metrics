@@ -4,7 +4,7 @@
 #
 # Table name: sleep_reports
 #
-#  id         :bigint           not null, primary key
+#  id         :integer          not null, primary key
 #  asleep_at  :datetime
 #  wakeup_at  :datetime
 #  created_at :datetime         not null

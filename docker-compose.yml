@@ -1,15 +1,7 @@
 services:
-  db:
-    image: postgres
-    volumes:
-      - ./tmp/db:/var/lib/postgresql/data
-    environment:
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
   web:
     build: .
     volumes:
       - .:/self-metrics
     ports:
       - "3000:3000"
-    depends_on:
-      - db

@@ -6,10 +6,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.1.2'
 
 gem 'rails', '~> 7.0'
-gem 'pg'
 gem 'puma'
 gem 'sass-rails'
-
 gem 'uglifier'
 gem 'turbolinks'
 gem 'bootsnap', require: false
@@ -20,6 +18,7 @@ gem 'dotenv-rails'
 gem 'octicons_helper', '~> 9.6.0'
 gem 'gon'
 gem 'google_drive'
+gem 'sqlite3'
 
 group :development, :test do
   gem 'rspec-rails'

@@ -4,7 +4,7 @@
 #
 # Table name: cardio_reports
 #
-#  id                  :bigint           not null, primary key
+#  id                  :integer          not null, primary key
 #  activity_type       :integer
 #  date                :date
 #  distance_miles      :float
