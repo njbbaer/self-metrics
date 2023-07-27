@@ -1,7 +1,8 @@
 FROM ruby:3.1.2
 
-RUN apt-get update -qq
-RUN apt-get install -y nodejs postgresql-client sqlite3 libsqlite3-dev
+RUN apt-get update -qq && \
+    apt-get install -y nodejs postgresql-client sqlite3 libsqlite3-dev && \
+    rm -rf /var/lib/apt/lists/*
 RUN mkdir /self-metrics
 WORKDIR /self-metrics
 COPY Gemfile* ./
