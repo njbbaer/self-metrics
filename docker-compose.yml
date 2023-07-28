@@ -1,7 +1,11 @@
 services:
-  web:
+  self-metrics:
+    container_name: self-metrics
     build: .
+    environment:
+      - PUID=1000
+      - PGID=1000
     volumes:
-      - .:/self-metrics
+      - ./db/data:/self-metrics/db/data
     ports:
       - "3000:3000"

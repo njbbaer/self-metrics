@@ -2,9 +2,11 @@
 
 set -e
 
-# Ensure server PID file does not exist
 rm -f /self-metrics/tmp/pids/server.pid
 
-bundle exec rails db:prepare
+groupadd -g $PGID appuser
+useradd -m -s /bin/bash -u $PUID -g $PGID appuser
+chown -R appuser:appuser /self-metrics
 
-exec "$@"
+gosu appuser bundle exec rails db:prepare
+exec gosu appuser "$@"
