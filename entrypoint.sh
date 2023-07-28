@@ -4,9 +4,9 @@ set -e
 
 rm -f /self-metrics/tmp/pids/server.pid
 
-groupadd -g $PGID appuser
-useradd -m -s /bin/bash -u $PUID -g $PGID appuser
-chown -R appuser:appuser /self-metrics
+groupadd -g $PGID dockeruser
+useradd -m -s /bin/bash -u $PUID -g $PGID dockeruser
+chown -R dockeruser:dockeruser /self-metrics
 
-gosu appuser bundle exec rails db:prepare
-exec gosu appuser "$@"
+gosu dockeruser bundle exec rails db:prepare
+exec gosu dockeruser "$@"
