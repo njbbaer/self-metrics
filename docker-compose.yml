@@ -2,9 +2,6 @@ services:
   self-metrics:
     container_name: self-metrics
     build: .
-    environment:
-      - PUID=1000
-      - PGID=1000
     volumes:
       - ./db/data:/self-metrics/db/data
     ports:
