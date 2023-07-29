@@ -10,7 +10,7 @@ COPY Gemfile* ./
 RUN bundle install
 COPY . .
 
-RUN bundle exec rails assets:precompile
+RUN SECRET_KEY_BASE=DUMMY RAILS_ENV=production bin/rails assets:precompile
 
 COPY entrypoint.sh /usr/bin/
 RUN chmod +x /usr/bin/entrypoint.sh
