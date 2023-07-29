@@ -10,6 +10,8 @@ COPY Gemfile* ./
 RUN bundle install
 COPY . .
 
+RUN bin/rails assets:precompile
+
 COPY entrypoint.sh /usr/bin/
 RUN chmod +x /usr/bin/entrypoint.sh
 ENTRYPOINT ["entrypoint.sh"]
